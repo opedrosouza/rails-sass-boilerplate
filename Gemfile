@@ -9,7 +9,7 @@ gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 5.0"
+gem "puma", "~> 6.1"
 # Use Vite in Rails and bring joy to your JavaScript experience
 gem "vite_rails", "~> 3.0", ">= 3.0.14"
 # Hotwire"s SPA-like page accelerator [https://turbo.hotwired.dev]
