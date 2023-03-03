@@ -1,0 +1,3 @@
+css: yarn build:css --watch
+vite: bin/vite dev
+web: unset PORT && bin/rails server
