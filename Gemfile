@@ -42,7 +42,7 @@ end
 
 group :test do
   # Strategies for cleaning databases using ActiveRecord. Can be used to ensure a clean state for testing.
-  gem "database_cleaner-active_record", "~> 2.0", ">= 2.0.1"
+  gem "database_cleaner-active_record", "~> 2.1"
   # rspec-rails is a testing framework for Rails 5+.
   gem "rspec-rails", "~> 6.0", ">= 6.0.1"
   # Shoulda Matchers provides RSpec- and Minitest-compatible one-liners to test common Rails functionality that,
