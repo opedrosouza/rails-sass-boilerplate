@@ -31,7 +31,7 @@ group :development, :test do
   # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer
   gem "factory_bot_rails", "~> 6.2"
   # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
-  gem "faker", "~> 3.1", ">= 3.1.1"
+  gem "faker", "~> 3.2"
   # Automatic Rails code style checking tool. A RuboCop extension focused on enforcing Rails best practices and coding conventions.
   gem "rubocop-rails", "~> 2.19"
   # Code style checking for RSpec files. A plugin for the RuboCop code style enforcing & linting tool.
