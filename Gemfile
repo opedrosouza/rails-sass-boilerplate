@@ -35,7 +35,7 @@ group :development, :test do
   # Automatic Rails code style checking tool. A RuboCop extension focused on enforcing Rails best practices and coding conventions.
   gem "rubocop-rails", "~> 2.19"
   # Code style checking for RSpec files. A plugin for the RuboCop code style enforcing & linting tool.
-  gem "rubocop-rspec", "~> 2.19"
+  gem "rubocop-rspec", "~> 2.20"
   # A collection of RuboCop cops to check for performance optimizations in Ruby code.
   gem "rubocop-performance", "~> 1.17"
 end
