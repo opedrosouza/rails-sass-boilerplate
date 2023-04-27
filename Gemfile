@@ -22,6 +22,26 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "bootsnap", require: false
 # A framework for building reusable, testable & encapsulated view components in Ruby on Rails.
 gem "view_component", "~> 2.82"
+# Flexible authentication solution for Rails with Warden
+gem "devise", "~> 4.9"
+# Translations for the devise gem
+gem "devise-i18n", "~> 1.11"
+# A set of common locale data and translations to internationalize and/or localize your Rails applications.
+gem "rails-i18n", "~> 7.0", ">= 7.0.6"
+# Object oriented authorization for Rails applications
+gem "pundit", "~> 2.3"
+# Autoload dotenv in Rails.
+gem "dotenv-rails", "~> 2.8", ">= 2.8.1"
+# High-level wrapper for processing images for the web with ImageMagick or libvips.
+gem "image_processing", "~> 1.12", ">= 1.12.2"
+# It adds support for send invitations by email (it requires to be authenticated) and accept the invitation by setting a password.
+gem "devise_invitable", "~> 2.0", ">= 2.0.7"
+# Ransack is the successor to the MetaSearch gem. It improves and expands upon MetaSearch's functionality, but does not have a 100%-compatible API.
+gem "ransack", "~> 4.0"
+# Agnostic pagination in plain ruby. It does it all. Better.
+gem "pagy", "~> 6.0", ">= 6.0.3"
+# Official AWS Ruby gem for Amazon Simple Storage Service (Amazon S3). This gem is part of the AWS SDK for Ruby.
+gem "active_model_serializers", "~> 0.10.13"
 
 group :development, :test do
   # Great Ruby debugging companion: pretty print Ruby objects to visualize their structure. Supports custom object formatting via plugins

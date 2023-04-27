@@ -4,7 +4,9 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.2.1",
     "@hotwired/turbo-rails": "^7.3.0",
+    "@rails/request.js": "^0.0.8",
     "autoprefixer": "^10.4.14",
+    "flowbite": "^1.6.5",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.3.1"
   },
@@ -14,7 +16,7 @@
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.3",
-    "@tailwindcss/line-clamp": "^0.4.2",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/typography": "^0.5.9",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.8.0",
