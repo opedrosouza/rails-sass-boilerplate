@@ -39,7 +39,7 @@ gem "devise_invitable", "~> 2.0", ">= 2.0.7"
 # Ransack is the successor to the MetaSearch gem. It improves and expands upon MetaSearch's functionality, but does not have a 100%-compatible API.
 gem "ransack", "~> 4.0"
 # Agnostic pagination in plain ruby. It does it all. Better.
-gem "pagy", "~> 6.0", ">= 6.0.3"
+gem "pagy", "~> 6.0"
 # Official AWS Ruby gem for Amazon Simple Storage Service (Amazon S3). This gem is part of the AWS SDK for Ruby.
 gem "active_model_serializers", "~> 0.10.13"
 
