@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.0"
+ruby "3.2.2"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.5"
 # Use postgresql as the database for Active Record
@@ -63,6 +63,8 @@ end
 group :test do
   # Strategies for cleaning databases using ActiveRecord. Can be used to ensure a clean state for testing.
   gem "database_cleaner-active_record", "~> 2.1"
+  # Extracting `assigns` and `assert_template` from ActionDispatch.
+  gem "rails-controller-testing", "~> 1.0", ">= 1.0.5"
   # rspec-rails is a testing framework for Rails 5+.
   gem "rspec-rails", "~> 6.0"
   # Shoulda Matchers provides RSpec- and Minitest-compatible one-liners to test common Rails functionality that,
