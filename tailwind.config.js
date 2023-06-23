@@ -7,6 +7,7 @@ module.exports = {
     "./app/components/**/*.rb",
     "./app/components/**/*.html.erb",
     "./app/components/**/*.js",
+    "./app/helpers/**/*.rb",
     "./node_modules/flowbite/**/*.js"
   ],
   theme: {

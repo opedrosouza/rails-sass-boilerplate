@@ -14,6 +14,7 @@
 #  encrypted_password     :string           default(""), not null
 #  failed_attempts        :integer          default(0), not null
 #  first_name             :string
+#  gender                 :integer
 #  last_name              :string
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
@@ -22,7 +23,7 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
-#  role                   :integer          default(0), not null
+#  role                   :integer          default("user"), not null
 #  sign_in_count          :integer          default(0), not null
 #  unconfirmed_email      :string
 #  unlock_token           :string
@@ -47,5 +48,11 @@ class User < ApplicationRecord
 
   enum role: { user: 0, admin: 1 }, _default: :user
   enum gender: { male: 0, female: 1, other: 2 }
+
+  has_one_attached :avatar
+
+  def full_name
+    first_name.present? ? "#{first_name} #{last_name}" : "Sem nome"
+  end
 
 end

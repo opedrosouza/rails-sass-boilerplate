@@ -8,6 +8,6 @@ export default defineConfig({
   plugins: [
     RubyPlugin(),
     StimulusHMR(),
-    FullReload(["config/routes.rb", "app/views/**/*", "app/controllers/**/*", "app/components/**/*"], {delay: 300}),
+    FullReload(["config/routes.rb", "app/views/**/*", "app/controllers/**/*", "app/components/**/*", "app/helpers/**/*"], {delay: 300}),
   ],
 })
