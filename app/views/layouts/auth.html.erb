@@ -12,6 +12,9 @@
   </head>
 
   <body class="h-full">
+    <%= render Alert::Component.new(message: notice, type: :success) %>
+    <%= render Alert::Component.new(message: alert, type: :alert) %>
+    <%= render Alert::Component.new(message: flash[:error], type: :error) %>
     <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <%= link_to root_path do %>

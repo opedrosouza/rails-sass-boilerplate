@@ -485,6 +485,9 @@
       </aside>
 
       <main class="p-4 md:ml-64 h-auto pt-20">
+        <%= render Alert::Component.new(message: notice, type: :success, custom_classes: "rounded shadow-xl") %>
+        <%= render Alert::Component.new(message: alert, type: :alert) %>
+        <%= render Alert::Component.new(message: flash[:error], type: :error) %>
         <%= yield %>
       </main>
     </div>
