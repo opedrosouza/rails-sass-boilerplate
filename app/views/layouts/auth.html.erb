@@ -18,8 +18,7 @@
     <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <%= link_to root_path do %>
-          <%#= vite_image_tag "images/logo-dark.png", class: "mx-auto h-12 w-auto", alt: "JampFit" %>
-          <h1 class="text-center text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Boilerplate</h1>
+          <%= render Logo::Component.new(title: "Boilerplate") %>
         <% end %>
         <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900"><%= yield :page_title %></h2>
         <%= yield :page_other_action %>

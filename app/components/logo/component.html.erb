@@ -1,0 +1,5 @@
+<%- if image_path %>
+  <%= vite_image_tag image_path, class: "mx-auto h-12 w-auto #{custom_classes}" %>
+<%- else %>
+  <h1 class="text-center text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 <%= custom_classes %>"><%= title %></h1>
+<% end %>

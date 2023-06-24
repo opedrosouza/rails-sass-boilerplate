@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Boilerplate</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= vite_client_tag %>
+    <%= vite_typescript_tag 'application', data: { "turbo-track": "reload" }, defer: true %>
+    <%= vite_stylesheet_tag 'application', data: { "turbo-track": "reload" } %>
+  </head>
+  <body>
+    <header>
+      <%= render Alert::Component.new(message: notice, type: :success) %>
+      <%= render Alert::Component.new(message: alert, type: :alert) %>
+      <%= render Alert::Component.new(message: flash[:error], type: :error) %>
+      <%= render App::Navbar::Component.new(user: current_user) %>
+    </header>
+    <main class="py-2.5 mx-auto max-w-screen-xl">
+      <%= yield %>
+    </main>
+  </body>
+</html>

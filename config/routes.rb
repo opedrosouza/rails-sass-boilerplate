@@ -2,6 +2,7 @@
 # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
 Rails.application.routes.draw do
+  # Devise routes
   devise_for :users,
              path: "auth",
              class_name: "User",
@@ -16,13 +17,21 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root to: "home#index", as: :authenticated_root
+      root to: "app/home#index", as: :authenticated_root
     end
 
     unauthenticated do
-      root "users/sessions#new", as: :unauthenticated_root
+      root "storefront/home#index", as: :unauthenticated_root
     end
   end
+
+  # App routes
+
+  namespace :app do
+    root to: "home#index"
+  end
+
+  # API routes
 
   scope :api do
     use_doorkeeper do
@@ -40,5 +49,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: "users/sessions#new"
+  root to: "storefront/home#index"
 end
