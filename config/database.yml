@@ -9,12 +9,12 @@ default: &default
 
 development:
   <<: *default
-  database: jampfit_development
+  database: boilerplate_development
 
 test:
   <<: *default
-  database: jampfit_test
+  database: boilerplate_test
 
 production:
   <<: *default
-  database: jampfit_production
+  database: boilerplate_production

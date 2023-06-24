@@ -50,9 +50,18 @@ class User < ApplicationRecord
   enum gender: { male: 0, female: 1, other: 2 }
 
   has_one_attached :avatar
+  has_many :access_tokens,
+           class_name: "Doorkeeper::AccessToken",
+           foreign_key: :resource_owner_id,
+           dependent: :destroy, inverse_of: :resource_owner
 
   def full_name
     first_name.present? ? "#{first_name} #{last_name}" : "Sem nome"
+  end
+
+  def self.authenticate!(email, password)
+    user = User.find_for_authentication(email:)
+    user&.valid_password?(password) && user&.active_for_authentication? ? user : nil
   end
 
 end

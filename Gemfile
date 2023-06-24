@@ -34,14 +34,12 @@ gem "pundit", "~> 2.3"
 gem "dotenv-rails", "~> 2.8", ">= 2.8.1"
 # High-level wrapper for processing images for the web with ImageMagick or libvips.
 gem "image_processing", "~> 1.12", ">= 1.12.2"
-# It adds support for send invitations by email (it requires to be authenticated) and accept the invitation by setting a password.
-gem "devise_invitable", "~> 2.0", ">= 2.0.7"
-# Ransack is the successor to the MetaSearch gem. It improves and expands upon MetaSearch's functionality, but does not have a 100%-compatible API.
-gem "ransack", "~> 4.0"
-# Agnostic pagination in plain ruby. It does it all. Better.
-gem "pagy", "~> 6.0"
-# Official AWS Ruby gem for Amazon Simple Storage Service (Amazon S3). This gem is part of the AWS SDK for Ruby.
+# ActiveModel::Serializers allows you to generate your JSON in an object-oriented and convention-driven manner
 gem "active_model_serializers", "~> 0.10.13"
+# Doorkeeper is an OAuth 2 provider for Rails and Grape.
+gem "doorkeeper", "~> 5.6", ">= 5.6.6"
+# Middleware that will make Rack-based apps CORS compatible. Fork the project here: https://github.com/cyu/rack-cors
+gem "rack-cors", "~> 2.0", ">= 2.0.1"
 
 group :development, :test do
   # Great Ruby debugging companion: pretty print Ruby objects to visualize their structure. Supports custom object formatting via plugins

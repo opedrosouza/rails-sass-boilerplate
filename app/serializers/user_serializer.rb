@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -38,45 +39,8 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
 #
-require "rails_helper"
+class UserSerializer < ActiveModel::Serializer
 
-RSpec.describe User do
-  it "has a valid factory" do
-    expect(build(:user)).to be_valid
-  end
+  attributes :id, :first_name, :last_name, :email, :phone, :role, :confirmation_token
 
-  describe "validations" do
-    it { is_expected.to validate_presence_of(:email) }
-    it { is_expected.to validate_presence_of(:password) }
-  end
-
-  describe "enums" do
-    it { is_expected.to define_enum_for(:role).with_values(user: 0, admin: 1) }
-    it { is_expected.to define_enum_for(:gender).with_values(male: 0, female: 1, other: 2) }
-  end
-
-  describe "methods" do
-    describe "#full_name" do
-      it "returns full name" do
-        user = create(:user, first_name: "John", last_name: "Doe")
-        expect(user.full_name).to eq("John Doe")
-      end
-
-      it "returns full name without first name" do
-        user = create(:user, first_name: nil, last_name: "Doe")
-        expect(user.full_name).to eq("Sem nome")
-      end
-    end
-
-    describe ".authenticate!" do
-      it "returns user" do
-        user = create(:user, :confirmed, password: "password")
-        expect(described_class.authenticate!(user.email, "password")).to eq(user)
-      end
-
-      it "returns nil" do
-        expect(described_class.authenticate!("email", "password")).to be_nil
-      end
-    end
-  end
 end
