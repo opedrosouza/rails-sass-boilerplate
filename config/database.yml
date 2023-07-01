@@ -2,19 +2,19 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: <%= ENV.fetch("DB_HOST", "localhost") %>
-  port: <%= ENV.fetch("DB_PORT", 5432) %>
-  username: <%= ENV.fetch("DB_USER", "pedro") %>
-  password: <%= ENV.fetch("DB_PASS", "password") %>
+  host: <%= Rails.application.credentials.database.host || ENV.fetch("DB_HOST", "localhost") %>
+  port: <%= Rails.application.credentials.database.port || ENV.fetch("DB_PORT", 5432) %>
+  username: <%= Rails.application.credentials.database.user || ENV.fetch("DB_USER", "pedro") %>
+  password: <%= Rails.application.credentials.database.password || ENV.fetch("DB_PASS", "password") %>
 
 development:
   <<: *default
-  database: boilerplate_development
+  database: <%= Rails.application.credentials.database.name || ENV.fetch("DB_NAME", "boilerplate_development") %>
 
 test:
   <<: *default
-  database: boilerplate_test
+  database: <%= Rails.application.credentials.database.name || ENV.fetch("DB_NAME", "boilerplate_test") %>
 
 production:
   <<: *default
-  database: boilerplate_production
+  database: <%= Rails.application.credentials.database.name || ENV.fetch("DB_NAME", "boilerplate_production") %>
