@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Users::RegistrationsController < Devise::RegistrationsController
+class Auth::RegistrationsController < Devise::RegistrationsController
 
   layout "auth"
   # before_action :configure_sign_up_params, only: [:create]

@@ -7,12 +7,12 @@ Rails.application.routes.draw do
              path: "auth",
              class_name: "User",
              controllers: {
-               sessions: "users/sessions",
-               confirmations: "users/confirmations",
-               invitations: "users/invitations",
-               passwords: "users/passwords",
-               unlocks: "users/unlocks",
-               registrations: "users/registrations",
+               sessions: "auth/sessions",
+               confirmations: "auth/confirmations",
+               invitations: "auth/invitations",
+               passwords: "auth/passwords",
+               unlocks: "auth/unlocks",
+               registrations: "auth/registrations",
              }
 
   devise_scope :user do

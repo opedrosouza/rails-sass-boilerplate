@@ -10,7 +10,6 @@ unless Rails.env.production?
     password:,
     password_confirmation: password,
     confirmed_at: Time.current,
-    role: :admin,
   )
 
   # Create a regular user

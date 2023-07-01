@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class Auth::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   layout "auth"
   # You should configure your model like this:

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Users::UnlocksController < Devise::UnlocksController
+class Auth::UnlocksController < Devise::UnlocksController
 
   layout "auth"
   # GET /resource/unlock/new

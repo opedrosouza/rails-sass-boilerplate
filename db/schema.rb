@@ -101,13 +101,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_23_101446) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.date "birthdate"
-    t.integer "role", default: 0, null: false
-    t.integer "gender"
-    t.string "phone"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["phone"], name: "index_users_on_phone", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
