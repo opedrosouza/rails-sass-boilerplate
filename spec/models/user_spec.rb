@@ -45,6 +45,21 @@ RSpec.describe User do
     it { is_expected.to validate_presence_of(:password) }
   end
 
+  describe "associations" do
+    it { is_expected.to have_one(:owned_account).class_name("Account") }
+    it { is_expected.to have_many(:accounts).through(:account_users) }
+    it { is_expected.to have_many(:account_users) }
+  end
+
+  describe "callbacks" do
+    describe "after_create" do
+      it "creates owned account" do
+        user = build(:user)
+        expect { user.save }.to change(Account, :count).by(1)
+      end
+    end
+  end
+
   describe "methods" do
     describe "#full_name" do
       it "returns full name" do
@@ -59,13 +74,48 @@ RSpec.describe User do
     end
 
     describe ".authenticate!" do
-      it "returns user" do
-        user = create(:user, :confirmed, password: "password")
-        expect(described_class.authenticate!(user.email, "password")).to eq(user)
+      context "when user and account is confirmed" do
+        let!(:user) { create(:user, :confirmed, password: "password") }
+
+        before do
+          user.owned_account.active!
+        end
+
+        it "returns user" do
+          expect(described_class.authenticate!(user.email, "password")).to eq(user)
+        end
+
+        it "returns nil" do
+          expect(described_class.authenticate!("email", "password")).to be_nil
+        end
       end
 
-      it "returns nil" do
-        expect(described_class.authenticate!("email", "password")).to be_nil
+      context "when user is not confirmed" do
+        let!(:user) { create(:user, password: "password") }
+
+        it "returns nil" do
+          expect(described_class.authenticate!(user.email, "password")).to be_nil
+        end
+      end
+
+      context "when user is locked" do
+        let!(:user) { create(:user, :confirmed, password: "password") }
+
+        before do
+          user.lock_access!
+        end
+
+        it "returns nil" do
+          expect(described_class.authenticate!(user.email, "password")).to be_nil
+        end
+      end
+
+      context "when account is not active" do
+        let!(:user) { create(:user, :confirmed, password: "password") }
+
+        it "returns nil" do
+          expect(described_class.authenticate!(user.email, "password")).to be_nil
+        end
       end
     end
   end

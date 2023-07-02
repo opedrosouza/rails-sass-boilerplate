@@ -35,8 +35,6 @@
 #
 class User < ApplicationRecord
 
-  GENDER = %w[["Maculino male"] ["Feminino female"] ["Outro other"]].freeze
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable
@@ -46,14 +44,34 @@ class User < ApplicationRecord
            class_name: "Doorkeeper::AccessToken",
            foreign_key: :resource_owner_id,
            dependent: :destroy, inverse_of: :resource_owner
+  # It can be changed to a has_many association depending on the type of relationship you want to establish.
+  has_one :owned_account, class_name: "Account", inverse_of: :owner, foreign_key: :owner_id, dependent: :destroy
+  # This relationship is used to get the accounts that the user is a member of.
+  has_many :account_users, dependent: :destroy, inverse_of: :user
+  has_many :accounts, through: :account_users
 
+  after_create :create_default_account
+
+  # Returns the user's full name or "Sem nome" if the user has no name.
+  #
+  # @return [String]
   def full_name
     first_name.present? ? "#{first_name} #{last_name}" : "Sem nome"
   end
 
+  # Used to authenticate the user through the API.
   def self.authenticate!(email, password)
     user = User.find_for_authentication(email:)
     user&.valid_password?(password) && user&.active_for_authentication? ? user : nil
+  end
+
+  def active_for_authentication?
+    super && owned_account.active?
+  end
+
+  # Create default account for user
+  def create_default_account
+    owned_account || create_owned_account(personal: true)
   end
 
 end

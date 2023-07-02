@@ -38,9 +38,26 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { Faker::Internet.password }
     password_confirmation { password }
+    confirmed_at { nil }
 
     trait :confirmed do
       confirmed_at { Time.current }
+    end
+
+    trait :confirmed_with_personal_account do
+      confirmed_at { Time.current }
+
+      after(:create) do |user|
+        create(:account, owner: user, active: true)
+      end
+    end
+
+    trait :confirmed_with_professional_account do
+      confirmed_at { Time.current }
+
+      after(:create) do |user|
+        create(:account, :professional, owner: user, active: true)
+      end
     end
   end
 end
