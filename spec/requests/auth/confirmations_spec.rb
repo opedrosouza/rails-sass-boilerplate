@@ -12,7 +12,7 @@ RSpec.describe "Auth::ConfirmationsController" do
     end
 
     it "signs in the user" do
-      expect(response).to redirect_to(authenticated_root_path)
+      expect(response).to redirect_to(root_path)
       expect(controller.current_user).to eq(user)
     end
 

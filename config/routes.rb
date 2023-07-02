@@ -15,21 +15,16 @@ Rails.application.routes.draw do
                registrations: "auth/registrations",
              }
 
-  devise_scope :user do
-    authenticated :user do
-      root to: "app/home#index", as: :authenticated_root
-    end
+  # Example of how to use devise_scope to change the default path of the routes
+  # devise_scope :user do
+  #   authenticated :user do
+  #     root to: "app/home#index", as: :authenticated_root
+  #   end
 
-    unauthenticated do
-      root "storefront/home#index", as: :unauthenticated_root
-    end
-  end
-
-  # App routes
-
-  namespace :app do
-    root to: "home#index"
-  end
+  #   unauthenticated do
+  #     root "storefront/home#index", as: :unauthenticated_root
+  #   end
+  # end
 
   # API routes
 
@@ -46,5 +41,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: "storefront/home#index"
+  root to: "home#index"
 end
