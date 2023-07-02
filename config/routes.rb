@@ -36,16 +36,13 @@ Rails.application.routes.draw do
   scope :api do
     use_doorkeeper do
       skip_controllers :authorizations, :applications, :authorized_applications
+      controllers tokens: "api/auth/tokens"
     end
   end
 
   namespace :api, defaults: { format: :json } do
-    namespace :v1 do
-      resources :users, only: [:create] do
-        collection do
-          get :me, to: "users#show"
-        end
-      end
+    namespace :auth do
+      resources :registrations, only: [:create]
     end
   end
 

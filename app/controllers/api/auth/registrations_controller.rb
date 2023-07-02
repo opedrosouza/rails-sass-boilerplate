@@ -1,11 +1,7 @@
 # frozen_string_literal: true
-class Api::V1::UsersController < Api::ApplicationController
+class Api::Auth::RegistrationsController < Api::ApplicationController
 
   skip_before_action :doorkeeper_authorize!, only: [:create]
-
-  def show
-    render json: current_user, status: :ok
-  end
 
   def create
     client_app = Doorkeeper::Application.find_by(uid: params[:client_id])
