@@ -1,6 +1,7 @@
-require 'rails_helper'
+# frozen_string_literal: true
+require "rails_helper"
 
-RSpec.describe "HomeController", type: :request do
+RSpec.describe "HomeController" do
   describe "GET /" do
     it "returns http success" do
       get root_path
