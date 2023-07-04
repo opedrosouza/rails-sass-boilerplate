@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
-class Logo::Component < ViewComponent::Base
+class Logo::Component < ApplicationComponent
 
   attr_reader :image_path, :title, :custom_classes
 
-  def initialize(image_path: nil, title: nil, custom_classes: nil) # rubocop:disable Lint/MissingSuper
+  def initialize(image_path: nil, title: nil, custom_classes: nil)
+    super()
     @image_path = image_path
     @title = title
     @custom_classes = custom_classes

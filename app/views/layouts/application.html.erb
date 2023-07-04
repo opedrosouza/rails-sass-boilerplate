@@ -11,10 +11,10 @@
   </head>
   <body>
     <header>
-      <%= render Alert::Component.new(message: notice, type: :success) %>
-      <%= render Alert::Component.new(message: alert, type: :alert) %>
-      <%= render Alert::Component.new(message: flash[:error], type: :error) %>
-      <%= render App::Navbar::Component.new(user: current_user) %>
+      <%= component("alert", message: notice, type: :success) %>
+      <%= component("alert", message: alert, type: :alert) %>
+      <%= component("alert", message: flash[:error], type: :error) %>
+      <%= component("navbar", user: current_user) %>
     </header>
     <main class="py-2.5 mx-auto max-w-screen-xl">
       <%= yield %>

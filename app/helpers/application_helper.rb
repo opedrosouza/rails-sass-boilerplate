@@ -10,4 +10,11 @@ module ApplicationHelper
     end
   end
 
+  # rubocop:disable Naming/BlockForwarding
+  def component(name, *args, **kwargs, &block)
+    component = name.to_s.camelize.constantize::Component
+    render(component.new(*args, **kwargs), &block)
+  end
+  # rubocop:enable Naming/BlockForwarding
+
 end

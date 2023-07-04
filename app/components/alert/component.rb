@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Alert::Component < ViewComponent::Base
+class Alert::Component < ApplicationComponent
 
   attr_reader :message, :type, :custom_classes
 

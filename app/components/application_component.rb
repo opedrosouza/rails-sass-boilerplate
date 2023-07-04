@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
-class App::Navbar::Component < ViewComponent::Base
+class ApplicationComponent < ViewComponent::Base
+
+  include ApplicationHelper
+  include CurrentHelper
 
   attr_reader :user
 
