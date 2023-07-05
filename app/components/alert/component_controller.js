@@ -12,7 +12,7 @@ export default class extends Controller {
     if (event) timeout = parseInt(event.target.getAttribute("data-timer"));
     setTimeout(() => {
       this.element.classList.add("transition", "ease-in-out", "duration-300", "transform", "translate-x-full", "opacity-0")
-    }, timeout - 1000)
+    }, timeout - 500)
     setTimeout(() => {
       this.element.remove()
     }, timeout)

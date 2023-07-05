@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="h-full bg-orange-50">
+<html lang="pt-BR">
   <head>
     <title>Boilerplate - <%= yield :page_title %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,7 +11,7 @@
     <%= vite_stylesheet_tag 'application', data: { "turbo-track": "reload" } %>
   </head>
 
-  <body class="h-full">
+  <body>
     <%= render Alert::Component.new(message: notice, type: :success) %>
     <%= render Alert::Component.new(message: alert, type: :alert) %>
     <%= render Alert::Component.new(message: flash[:error], type: :error) %>
