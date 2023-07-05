@@ -1,5 +1,6 @@
 /** @type {import("tailwindcss").Config} */
 module.exports = {
+  darkMode: "media",
   content: [
     "./app/helpers/**/*.rb",
     "./app/views/**/*.{html,html.erb,erb}",
@@ -8,6 +9,7 @@ module.exports = {
     "./app/components/**/*.html.erb",
     "./app/components/**/*.js",
     "./app/helpers/**/*.rb",
+    "./node_modules/flowbite/**/*.js",
   ],
   theme: {
     extend: {
@@ -31,6 +33,7 @@ module.exports = {
   plugins: [
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
-    require("@tailwindcss/aspect-ratio")
+    require("@tailwindcss/aspect-ratio"),
+    require("flowbite/plugin")
   ],
 }
