@@ -21,7 +21,7 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 # A framework for building reusable, testable & encapsulated view components in Ruby on Rails.
-gem "view_component", "~> 3.2"
+gem "view_component", "~> 3.3"
 # Flexible authentication solution for Rails with Warden
 gem "devise", "~> 4.9"
 # Translations for the devise gem
