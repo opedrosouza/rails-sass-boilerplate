@@ -2,7 +2,7 @@
 unless Rails.env.production?
   password = "password"
   # Create an admin user
-  Rails.logger.debug "Creating an admin user"
+  Rails.logger.debug "Creating an sudo admin user"
   User.create!(
     first_name: "Admin",
     last_name: "User",
@@ -10,11 +10,12 @@ unless Rails.env.production?
     password:,
     password_confirmation: password,
     confirmed_at: Time.current,
+    sudo: true,
   )
 
   # Create a regular user
   Rails.logger.debug "Creating a regular user"
-  User.create!(
+  user = User.create!(
     first_name: "Simple",
     last_name: "User",
     email: "user@example.com",
@@ -22,6 +23,8 @@ unless Rails.env.production?
     password_confirmation: password,
     confirmed_at: Time.current,
   )
+
+  user.owned_account.active!
 
   # Create ouath applications
   # if there is no OAuth application created, create them

@@ -21,6 +21,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  sign_in_count          :integer          default(0), not null
+#  sudo                   :boolean          default(FALSE), not null
 #  unconfirmed_email      :string
 #  unlock_token           :string
 #  created_at             :datetime         not null
@@ -39,9 +40,14 @@ FactoryBot.define do
     password { Faker::Internet.password }
     password_confirmation { password }
     confirmed_at { nil }
+    sudo { nil }
 
     trait :confirmed do
       confirmed_at { Time.current }
+    end
+
+    trait :sudo do
+      sudo { true }
     end
 
     trait :confirmed_with_personal_account do

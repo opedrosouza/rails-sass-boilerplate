@@ -1,2 +1,3 @@
 en:
-  hello: "Hello world"
+  pundit:
+    not_authorized: "You are not authorized to perform this action."

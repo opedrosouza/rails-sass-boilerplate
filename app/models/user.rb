@@ -21,6 +21,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  sign_in_count          :integer          default(0), not null
+#  sudo                   :boolean          default(FALSE), not null
 #  unconfirmed_email      :string
 #  unlock_token           :string
 #  created_at             :datetime         not null
@@ -50,6 +51,9 @@ class User < ApplicationRecord
   has_many :account_users, dependent: :destroy, inverse_of: :user
   has_many :accounts, through: :account_users
 
+  validates :sudo, inclusion: { in: [true, false] }
+
+  before_validation :set_sudo, on: :create, if: -> { sudo.nil? }
   after_create :create_default_account
 
   # Returns the user's full name or "Sem nome" if the user has no name.
@@ -66,12 +70,24 @@ class User < ApplicationRecord
   end
 
   def active_for_authentication?
+    return true if sudo?
+
     super && owned_account.active?
   end
 
   # Create default account for user
   def create_default_account
     owned_account || create_owned_account(personal: true)
+  end
+
+  def sudo?
+    sudo
+  end
+
+  private
+
+  def set_sudo
+    self.sudo = false
   end
 
 end
