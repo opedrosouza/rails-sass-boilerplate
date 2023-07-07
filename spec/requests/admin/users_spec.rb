@@ -1,6 +1,7 @@
-require 'rails_helper'
+# frozen_string_literal: true
+require "rails_helper"
 
-RSpec.describe "Admin::UsersController", type: :request do
+RSpec.describe "Admin::UsersController" do
   describe "GET /admin/users" do
     context "when a sudo user is authenticated" do
       before do

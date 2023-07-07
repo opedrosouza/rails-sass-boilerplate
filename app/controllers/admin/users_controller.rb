@@ -1,5 +1,8 @@
+# frozen_string_literal: true
 class Admin::UsersController < Admin::ApplicationController
+
   def index
-    @users = User.all
+    @pagy, @users = pagy(search_for(User))
   end
+
 end

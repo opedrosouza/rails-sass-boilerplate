@@ -7,6 +7,7 @@
 @import "./alert.css";
 @import "./buttons.css";
 @import "./base.css";
+@import "./pagy.css";
 
 @tailwind base;
 @tailwind components;

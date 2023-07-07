@@ -36,6 +36,8 @@
 #
 class User < ApplicationRecord
 
+  include PgSearch::Model
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable
@@ -55,6 +57,8 @@ class User < ApplicationRecord
 
   before_validation :set_sudo, on: :create, if: -> { sudo.nil? }
   after_create :create_default_account
+
+  pg_search_scope :search, against: [:first_name, :last_name, :email]
 
   # Returns the user's full name or "Sem nome" if the user has no name.
   #

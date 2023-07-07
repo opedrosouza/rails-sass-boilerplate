@@ -2,11 +2,13 @@
 
 module ApplicationHelper
 
-  def user_avatar(user)
+  include Pagy::Frontend
+
+  def user_avatar(user, size: 8, classes: nil)
     if user.avatar.attached?
-      image_tag(user.avatar, class: "w-8 h-8 rounded-full", alt: user.full_name)
+      image_tag(user.avatar, class: "w-#{size} h-#{size} rounded-full #{classes}", alt: user.full_name)
     else
-      vite_image_tag("images/user_avatar.svg", class: "w-10 h-10 rounded-full dark:bg-gray-300", alt: user.full_name)
+      vite_image_tag("images/user_avatar.svg", class: "w-#{size} h-#{size} rounded-full bg-gray-300 #{classes}", alt: user.full_name)
     end
   end
 
@@ -21,6 +23,14 @@ module ApplicationHelper
 
   def page_actions(&)
     content_for(:page_actions) { capture(&) }
+  end
+
+  def pagination(pagy)
+    return if pagy.pages <= 1
+
+    tag.div(class: "flex justify-center items-center mt-5") do
+      concat(pagy_nav(pagy).html_safe) # rubocop:disable Rails/OutputSafety
+    end
   end
 
 end
