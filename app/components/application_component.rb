@@ -5,10 +5,11 @@ class ApplicationComponent < ViewComponent::Base
   include ApplicationHelper
   include CurrentHelper
 
-  attr_reader :user
+  attr_reader :user, :custom_classes
 
-  def initialize(user: nil) # rubocop:disable Lint/MissingSuper
+  def initialize(user: nil, custom_classes: nil) # rubocop:disable Lint/MissingSuper
     @user = user
+    @custom_classes = custom_classes
   end
 
 end

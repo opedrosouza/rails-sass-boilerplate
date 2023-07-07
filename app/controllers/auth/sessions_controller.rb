@@ -20,7 +20,15 @@ class Auth::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def after_sign_in_path_for(resource)
+    if resource.sudo?
+      stored_location_for(resource) || admin_root_path
+    else
+      stored_location_for(resource) || root_path
+    end
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params

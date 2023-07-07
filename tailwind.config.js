@@ -1,6 +1,6 @@
 /** @type {import("tailwindcss").Config} */
 module.exports = {
-  darkMode: "media",
+  darkMode: "class",
   content: [
     "./app/helpers/**/*.rb",
     "./app/views/**/*.{html,html.erb,erb}",

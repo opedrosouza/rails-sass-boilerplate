@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   # Admin routes
 
   namespace :admin do
+    resources :users
+
     root to: "home#index"
   end
 

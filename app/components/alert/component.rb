@@ -2,9 +2,10 @@
 
 class Alert::Component < ApplicationComponent
 
-  attr_reader :message, :type, :custom_classes
+  attr_reader :message, :type
 
-  def initialize(message:, type: :success, custom_classes: nil) # rubocop:disable Lint/MissingSuper
+  def initialize(message:, type: :success)
+    super()
     @message = message
     @type = type
     @custom_classes = custom_classes

@@ -2,9 +2,9 @@
 
 class Logo::Component < ApplicationComponent
 
-  attr_reader :image_path, :title, :custom_classes
+  attr_reader :image_path, :title
 
-  def initialize(image_path: nil, title: nil, custom_classes: nil)
+  def initialize(image_path: nil, title: nil)
     super()
     @image_path = image_path
     @title = title
