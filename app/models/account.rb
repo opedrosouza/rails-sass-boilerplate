@@ -4,16 +4,18 @@
 #
 # Table name: accounts
 #
-#  id         :bigint           not null, primary key
-#  active     :boolean          default(FALSE), not null
-#  personal   :boolean          default(TRUE), not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  owner_id   :bigint           not null
+#  id           :bigint           not null, primary key
+#  active       :boolean          default(FALSE), not null
+#  discarded_at :datetime
+#  personal     :boolean          default(TRUE), not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  owner_id     :bigint           not null
 #
 # Indexes
 #
-#  index_accounts_on_owner_id  (owner_id)
+#  index_accounts_on_discarded_at  (discarded_at)
+#  index_accounts_on_owner_id      (owner_id)
 #
 # Foreign Keys
 #

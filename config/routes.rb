@@ -44,7 +44,12 @@ Rails.application.routes.draw do
   # Admin routes
 
   namespace :admin do
-    resources :users
+    resources :users do
+      member do
+        patch :lock
+        patch :unlock
+      end
+    end
 
     root to: "home#index"
   end

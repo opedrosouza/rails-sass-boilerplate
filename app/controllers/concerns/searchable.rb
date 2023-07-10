@@ -7,10 +7,10 @@ module Searchable
     helper_method :search_for
   end
 
-  def search_for(record, search_param = params[:search])
-    return record.all if search_param.blank?
+  def search_for(record:, search_param: params[:search], order: "created_at DESC")
+    return record.all.order(order) if search_param.blank?
 
-    record.search(search_param)
+    record.search(search_param).order(order)
   end
 
 end

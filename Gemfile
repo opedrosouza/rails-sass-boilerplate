@@ -44,6 +44,8 @@ gem "rack-cors", "~> 2.0", ">= 2.0.1"
 gem "pagy", "~> 6.0", ">= 6.0.4"
 # PgSearch builds Active Record named scopes that take advantage of PostgreSQL's full text search
 gem "pg_search", "~> 2.3", ">= 2.3.6"
+# Allows marking ActiveRecord objects as discarded, and provides scopes for filtering.
+gem "discard", "~> 1.2", ">= 1.2.1"
 
 group :development, :test do
   # Great Ruby debugging companion: pretty print Ruby objects to visualize their structure. Supports custom object formatting via plugins

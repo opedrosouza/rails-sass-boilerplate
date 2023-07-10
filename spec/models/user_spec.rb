@@ -9,6 +9,7 @@
 #  confirmed_at           :datetime
 #  current_sign_in_at     :datetime
 #  current_sign_in_ip     :string
+#  discarded_at           :datetime
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  failed_attempts        :integer          default(0), not null
@@ -30,6 +31,7 @@
 # Indexes
 #
 #  index_users_on_confirmation_token    (confirmation_token) UNIQUE
+#  index_users_on_discarded_at          (discarded_at)
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
@@ -53,6 +55,24 @@ RSpec.describe User do
     it { is_expected.to have_one(:owned_account).class_name("Account") }
     it { is_expected.to have_many(:accounts).through(:account_users) }
     it { is_expected.to have_many(:account_users) }
+  end
+
+  describe "scopes" do
+    describe "discarded" do
+      it "returns only discarded users" do
+        create(:user)
+        create(:user, :discarded)
+        expect(described_class.discarded.count).to eq(1)
+      end
+    end
+
+    describe "kept" do
+      it "returns only kept users" do
+        create(:user)
+        create(:user, :discarded)
+        expect(described_class.kept.count).to eq(1)
+      end
+    end
   end
 
   describe "callbacks" do

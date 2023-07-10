@@ -9,6 +9,7 @@
 #  confirmed_at           :datetime
 #  current_sign_in_at     :datetime
 #  current_sign_in_ip     :string
+#  discarded_at           :datetime
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  failed_attempts        :integer          default(0), not null
@@ -30,6 +31,7 @@
 # Indexes
 #
 #  index_users_on_confirmation_token    (confirmation_token) UNIQUE
+#  index_users_on_discarded_at          (discarded_at)
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
@@ -67,6 +69,10 @@ class User < ApplicationRecord
     first_name.present? ? "#{first_name} #{last_name}" : "Sem nome"
   end
 
+  def full_name_or_email
+    full_name.presence || email
+  end
+
   # Used to authenticate the user through the API.
   def self.authenticate!(email, password)
     user = User.find_for_authentication(email:)
@@ -76,7 +82,7 @@ class User < ApplicationRecord
   def active_for_authentication?
     return true if sudo?
 
-    super && owned_account.active?
+    super && !discarded? && owned_account.active?
   end
 
   # Create default account for user

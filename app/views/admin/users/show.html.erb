@@ -1,0 +1,32 @@
+<%= page_title(@user.full_name_or_email) %>
+<%= page_actions do %>
+  <%= link_to "Back to list", admin_users_path, class: "btn btn-danger" %>
+  <%= link_to "Edit", edit_admin_user_path(@user), class: "btn btn-primary ml-2" %>
+  <%= button_to "Destroy", admin_user_path(@user), class: "btn btn-danger ml-2", method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  <%- if @user.locked_at.blank? %>
+    <%= button_to "Lock", lock_admin_user_path(@user), class: "btn btn-tertiary ml-2", method: :patch, data: { turbo_method: :patch, turbo_confirm: "Are you sure?" } %>
+  <%- else %>
+    <%= button_to "Unlock", unlock_admin_user_path(@user), class: "btn btn-tertiary ml-2", method: :patch, data: { turbo_method: :patch, turbo_confirm: "Are you sure?" } %>
+  <% end %>
+<% end %>
+
+<%= form_with model: @user, url: admin_user_path(@user), method: :put, class: "space-y-6" do |f| %>
+  <div class="grid grid-cols-2 gap-4">
+    <div>
+      <%= f.label :first_name, class: "form-label" %>
+      <%= f.text_field :first_name, class: "form-control", disabled: true %>
+    </div>
+    <div>
+      <%= f.label :last_name, class: "form-label" %>
+      <%= f.text_field :last_name, class: "form-control", disabled: true %>
+    </div>
+  </div>
+  <div>
+    <%= f.label :email, class: "form-label" %>
+    <%= f.email_field :email, class: "form-control", disabled: true %>
+  </div>
+  <div class="flex items-center">
+    <%= f.check_box :sudo, class: "form-check" %>
+    <%= f.label :sudo, class: "form-label ml-2" %>
+  </div>
+<% end %>

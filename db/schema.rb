@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_06_211647) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_10_154402) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,7 +21,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_06_211647) do
     t.bigint "account_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
     t.index ["account_id"], name: "index_account_users_on_account_id"
+    t.index ["discarded_at"], name: "index_account_users_on_discarded_at"
     t.index ["user_id"], name: "index_account_users_on_user_id"
   end
 
@@ -31,6 +33,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_06_211647) do
     t.bigint "owner_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_accounts_on_discarded_at"
     t.index ["owner_id"], name: "index_accounts_on_owner_id"
   end
 
@@ -122,7 +126,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_06_211647) do
     t.string "first_name"
     t.string "last_name"
     t.boolean "sudo", default: false, null: false
+    t.datetime "discarded_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["discarded_at"], name: "index_users_on_discarded_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true

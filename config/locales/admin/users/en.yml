@@ -1,0 +1,8 @@
+en:
+  admin:
+    users:
+      created: "User was successfully created."
+      updated: "User was successfully updated."
+      destroyed: "User was successfully destroyed."
+      locked: "User was successfully locked."
+      unlocked: "User was successfully unlocked."
