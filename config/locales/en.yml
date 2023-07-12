@@ -1,3 +1,8 @@
 en:
   pundit:
     not_authorized: "You are not authorized to perform this action."
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%b %d"
+      long: "%B %d, %Y"

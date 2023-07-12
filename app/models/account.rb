@@ -23,6 +23,8 @@
 #
 class Account < ApplicationRecord
 
+  include PgSearch::Model
+
   belongs_to :owner, class_name: "User", inverse_of: :owned_account
   # This relationship allows us to add more users to the account.
   has_many :account_users, inverse_of: :account, dependent: :destroy
@@ -32,6 +34,8 @@ class Account < ApplicationRecord
   validates :active, inclusion: { in: [true, false] }
 
   after_create :set_owner_account_user
+
+  pg_search_scope :search, against: [:id, :owner_id]
 
   def active!
     update!(active: true)

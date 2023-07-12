@@ -16,11 +16,12 @@ class Admin::UsersController < Admin::ApplicationController
   def edit; end
 
   def create
-    if User.invite!(user_params)
+    @user = User.new(user_params.merge(password: SecureRandom.hex(8)))
+    if @user.save
       redirect_to admin_user_path(@user), notice: t("admin.users.created")
     else
-      flash.now[:alert] = t("admin.users.not_created")
-      render :new
+      flash.now[:alert] = @user.errors.full_messages.to_sentence
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -28,7 +29,8 @@ class Admin::UsersController < Admin::ApplicationController
     if user.update(user_params)
       redirect_to admin_user_path(user), notice: t("admin.users.updated")
     else
-      render :edit
+      flash.now[:alert] = @user.errors.full_messages.to_sentence
+      render :edit, status: :unprocessable_entity
     end
   end
 
