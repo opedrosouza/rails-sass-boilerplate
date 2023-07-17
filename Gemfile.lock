@@ -103,9 +103,6 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.11.0)
       devise (>= 4.9.0)
-    devise_invitable (2.0.8)
-      actionmailer (>= 5.0)
-      devise (>= 4.6)
     diff-lcs (1.5.0)
     discard (1.2.1)
       activerecord (>= 4.2, < 8)
@@ -309,7 +306,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.4.2)
-    view_component (3.3.0)
+    view_component (3.4.0)
       activesupport (>= 5.2.0, < 8.0)
       concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
@@ -347,7 +344,6 @@ DEPENDENCIES
   debug
   devise (~> 4.9)
   devise-i18n (~> 1.11)
-  devise_invitable (~> 2.0, >= 2.0.8)
   discard (~> 1.2, >= 1.2.1)
   doorkeeper (~> 5.6, >= 5.6.6)
   dotenv-rails (~> 2.8, >= 2.8.1)
@@ -373,7 +369,7 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
-  view_component (~> 3.3)
+  view_component (~> 3.4)
   vite_rails (~> 3.0, >= 3.0.14)
   web-console
 
