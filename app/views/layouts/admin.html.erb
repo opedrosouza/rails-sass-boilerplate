@@ -17,20 +17,19 @@
       <!-- Sidebar -->
       <%= render "layouts/admin/sidebar" %>
 
+      <div class="fixed w-full top-0 left-0 z-50">
+        <%= component("alert", message: notice, type: :success) %>
+        <%= component("alert", message: alert, type: :alert) %>
+        <%= component("alert", message: flash[:error], type: :error) %>
+      </div>
+
       <main class="p-4 md:ml-64 h-auto pt-20">
         <!-- Page Heading -->
-        <%= component("page_heading", title: (yield :page_title)) do |component| %>
+        <%= component("page_heading", title: (yield :page_title), custom_classes: "pt-10") do |component| %>
           <% component.with_action do %>
             <%= yield :page_actions %>
           <% end %>
         <% end %>
-
-        <!-- Flashes -->
-        <div class="mb-5">
-          <%= component("alert", message: notice, type: :success) %>
-          <%= component("alert", message: alert, type: :alert) %>
-          <%= component("alert", message: flash[:error], type: :error) %>
-        </div>
 
         <!-- Page Content -->
         <%= yield %>

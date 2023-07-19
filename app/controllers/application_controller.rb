@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   include Pundit::Authorization
   include Pagy::Backend
   include SetCurrentRequestDetails
+  include CurrentHelper
   include Searchable
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized

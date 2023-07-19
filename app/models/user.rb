@@ -60,7 +60,14 @@ class User < ApplicationRecord
   before_validation :set_sudo, on: :create, if: -> { sudo.nil? }
   after_create :create_default_account
 
-  pg_search_scope :search, against: [:first_name, :last_name, :email]
+  pg_search_scope :search,
+                  against: [:first_name, :last_name, :email],
+                  using: {
+                    tsearch: {
+                      prefix: true,
+                      any_word: true,
+                    },
+                  }
 
   # Returns the user's full name or "Sem nome" if the user has no name.
   #

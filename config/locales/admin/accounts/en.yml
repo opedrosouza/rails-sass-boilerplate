@@ -1,0 +1,9 @@
+en:
+  admin:
+    accounts:
+      created: "Account was successfully created."
+      updated: "Account was successfully updated."
+      destroyed: "Account was successfully destroyed."
+      locked: "Account was successfully locked."
+      unlocked: "Account was successfully unlocked."
+      cannot_destroy: "Account cannot be destroyed."

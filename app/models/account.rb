@@ -33,6 +33,8 @@ class Account < ApplicationRecord
   validates :personal, inclusion: { in: [true, false] }
   validates :active, inclusion: { in: [true, false] }
 
+  accepts_nested_attributes_for :owner, allow_destroy: true
+
   after_create :set_owner_account_user
 
   pg_search_scope :search, against: [:id, :owner_id]

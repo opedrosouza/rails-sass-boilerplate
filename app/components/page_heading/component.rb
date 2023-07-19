@@ -2,13 +2,14 @@
 
 class PageHeading::Component < ApplicationComponent
 
-  attr_reader :title
+  attr_reader :title, :custom_classes
 
   renders_many :actions
 
-  def initialize(title:)
+  def initialize(title:, custom_classes: nil)
     super()
     @title = title
+    @custom_classes = custom_classes
   end
 
   def render?
