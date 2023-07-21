@@ -41,7 +41,11 @@ class AdminPolicy
   end
 
   def unlock?
-    user.sudo?
+    lock?
+  end
+
+  def restore?
+    lock?
   end
 
 end

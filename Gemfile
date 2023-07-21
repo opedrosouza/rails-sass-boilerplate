@@ -46,6 +46,8 @@ gem "pagy", "~> 6.0", ">= 6.0.4"
 gem "pg_search", "~> 2.3", ">= 2.3.6"
 # Allows marking ActiveRecord objects as discarded, and provides scopes for filtering.
 gem "discard", "~> 1.2", ">= 1.2.1"
+# DSL for declaring params and options of the initializer
+gem "dry-initializer", "~> 3.1", ">= 3.1.1"
 
 group :development, :test do
   # Great Ruby debugging companion: pretty print Ruby objects to visualize their structure. Supports custom object formatting via plugins

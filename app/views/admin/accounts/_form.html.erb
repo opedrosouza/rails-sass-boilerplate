@@ -1,0 +1,19 @@
+<%= form_with model: @account, url: admin_accounts_path, method: :post, class: "space-y-4" do |f| %>
+  <% f.fields_for :owner do |fo| %>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="form-group">
+        <%= fo.label :first_name, class: "form-label dark:text-white" %>
+        <%= fo.text_field :first_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= fo.label :last_name, class: "form-label dark:text-white" %>
+        <%= fo.text_field :last_name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= fo.label :email, class: "form-label dark:text-white" %>
+      <%= fo.email_field :email, class: "form-control" %>
+    </div>
+  <% end %>
+  <%= f.submit "Salvar", class: "btn btn-primary" %>
+<% end %>

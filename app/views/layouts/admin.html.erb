@@ -17,11 +17,9 @@
       <!-- Sidebar -->
       <%= render "layouts/admin/sidebar" %>
 
-      <div class="fixed w-full top-0 left-0 z-50">
-        <%= component("alert", message: notice, type: :success) %>
-        <%= component("alert", message: alert, type: :alert) %>
-        <%= component("alert", message: flash[:error], type: :error) %>
-      </div>
+      <%= turbo_frame_tag "flash", class: "fixed top-10 right-5 z-50" do %>
+        <%= render partial: "layouts/admin/flash" %>
+      <% end %>
 
       <main class="p-4 md:ml-64 h-auto pt-20">
         <!-- Page Heading -->

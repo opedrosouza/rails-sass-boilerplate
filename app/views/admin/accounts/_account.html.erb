@@ -1,0 +1,47 @@
+<%= tag.tr id: dom_id(account), class: "border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700" do %>
+  <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+    <%= account.id %>
+  </th>
+  <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+    <%= account.personal ? "Personal" : "Professional" %>
+  </td>
+  <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+    <%= account.active? ? "Active" : "Inactive" %>
+  </td>
+  <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+    <%= account.owner.email %>
+  </td>
+  <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+    <%= account.created_at.strftime(t("date.formats.long")) %>
+  </td>
+  <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+    <%= account.updated_at.strftime(t("date.formats.long")) %>
+  </td>
+  <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= account.discarded_at.present? ? account.discarded_at.strftime(t("date.formats.long")) : "-" %></td>
+  <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+    <button id="dropdown-button-<%= account.id %>" type="button" data-dropdown-toggle="dropdown-<%= account.id %>" class="inline-flex items-center p-1 text-sm font-medium text-center text-gray-500 rounded-lg hover:text-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none dark:text-gray-400 dark:hover:text-gray-100">
+      <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+      </svg>
+    </button>
+    <div id="dropdown-<%= account.id %>" class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+      <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button-0">
+        <li>
+          <%= link_to "Show", admin_account_path(account), class: "block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white", data: { turbo: false } %>
+        </li>
+        <li>
+          <%= link_to "Edit", edit_admin_account_path(account), class: "block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white", data: { turbo: false } %>
+        </li>
+      </ul>
+      <%- if account.discarded? %>
+        <div class="py-1">
+          <%= button_to "Restore", restore_admin_account_path(account.id), method: :patch, data: { turbo_confirm: "Are you sure?" }, class: "w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" %>
+        </div>
+      <%- else %>
+        <div class="py-1">
+          <%= button_to "Delete", admin_account_path(account.id), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" %>
+        </div>
+      <% end %>
+    </div>
+  </td>
+<% end %>

@@ -3,7 +3,7 @@ require "rails_helper"
 
 RSpec.describe AdminPolicy do
 
-  permissions :index?, :show?, :create?, :new?, :update?, :edit?, :destroy? do
+  permissions :index?, :show?, :create?, :new?, :update?, :edit?, :destroy?, :lock?, :unlock?, :restore? do
     it "grants access if user is sudo" do
       expect(described_class).to permit(create(:user, :sudo), Admin)
     end

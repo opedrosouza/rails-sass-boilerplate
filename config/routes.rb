@@ -51,7 +51,11 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :accounts
+    resources :accounts do
+      member do
+        patch :restore
+      end
+    end
 
     root to: "home#index"
   end

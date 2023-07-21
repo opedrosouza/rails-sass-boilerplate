@@ -1,0 +1,3 @@
+<% flash.each do |key, value| %>
+  <%= component("alert", message: value, type: key.to_sym, custom_classes: "rounded-lg shadow-lg") %>
+<% end %>

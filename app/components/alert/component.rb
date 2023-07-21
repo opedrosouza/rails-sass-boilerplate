@@ -4,7 +4,7 @@ class Alert::Component < ApplicationComponent
 
   attr_reader :message, :type
 
-  def initialize(message:, type: :success)
+  def initialize(message:, type: :success, custom_classes: nil)
     super()
     @message = message
     @type = type
@@ -13,7 +13,7 @@ class Alert::Component < ApplicationComponent
 
   def switch_alert_type
     case type
-    when :success
+    when :success || :notice
       "alert-success"
     when :alert
       "alert-warning"

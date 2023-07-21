@@ -6,4 +6,5 @@ en:
       destroyed: "Account was successfully destroyed."
       locked: "Account was successfully locked."
       unlocked: "Account was successfully unlocked."
+      restored: "Account was successfully restored."
       cannot_destroy: "Account cannot be destroyed."
