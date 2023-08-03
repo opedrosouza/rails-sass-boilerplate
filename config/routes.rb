@@ -48,6 +48,7 @@ Rails.application.routes.draw do
       member do
         patch :lock
         patch :unlock
+        patch :restore
       end
     end
 

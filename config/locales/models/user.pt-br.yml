@@ -1,0 +1,4 @@
+pt-br:
+  models:
+    user:
+      full_name: Desconhecido

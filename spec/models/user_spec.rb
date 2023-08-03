@@ -112,7 +112,7 @@ RSpec.describe User do
 
       it "returns full name without first name" do
         user = create(:user, first_name: nil, last_name: "Doe")
-        expect(user.full_name).to eq("Sem nome")
+        expect(user.full_name).to eq(I18n.t("models.user.full_name"))
       end
     end
 

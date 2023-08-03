@@ -39,6 +39,8 @@ class Account < ApplicationRecord
 
   pg_search_scope :search, against: [:id, :owner_id]
 
+  delegate :email, to: :owner
+
   def active!
     update!(active: true)
   end
@@ -46,6 +48,27 @@ class Account < ApplicationRecord
   def active?
     active
   end
+
+  # TODO: MAKE IT WORK WHEN NEEDED
+  # def switch_owner(new_owner, destroy_current_owner = false)
+  #   raise ActiveRecord::RecordInvalid unless new_owner.is_a?(User)
+
+  #   current_owner_account = owner.account_users.where(account: self).first
+
+  #   ActiveRecord::Base.transaction do
+  #     if destroy_current_owner
+  #       owner.discard!
+  #       current_owner_account.update!(account_owner: false, role: :user, discarded_at: nil)
+  #     else
+  #       current_owner_account.update!(account_owner: false, role: :user)
+  #     end
+
+  #     new_owner.account_users.create!(account_owner: true, role: :admin, account: self)
+  #     new_owner.update(owned_account: self)
+  #     self.owner = new_owner
+  #     self.save
+  #   end
+  # end
 
   private
 

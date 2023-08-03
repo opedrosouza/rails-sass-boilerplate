@@ -40,7 +40,7 @@ class User < ApplicationRecord
 
   include PgSearch::Model
 
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable
 
@@ -73,7 +73,7 @@ class User < ApplicationRecord
   #
   # @return [String]
   def full_name
-    first_name.present? ? "#{first_name} #{last_name}" : "Sem nome"
+    first_name.present? ? "#{first_name} #{last_name}" : I18n.t("models.user.full_name")
   end
 
   def full_name_or_email

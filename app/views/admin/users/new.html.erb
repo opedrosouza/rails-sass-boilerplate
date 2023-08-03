@@ -1,27 +1,25 @@
-<%= page_title("New User") %>
-<%= page_actions do %>
-  <%= link_to "Cancelar", admin_users_path, class: "btn btn-danger" %>
-<% end %>
-
-<%= form_with model: @user, url: admin_users_path, method: :post, class: "space-y-6" do |f| %>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div>
-      <%= f.label :first_name, class: "form-label" %>
-      <%= f.text_field :first_name, class: "form-control" %>
-    </div>
-    <div>
-      <%= f.label :last_name, class: "form-label" %>
-      <%= f.text_field :last_name, class: "form-control" %>
-    </div>
-  </div>
-  <div>
-    <%= f.label :email, class: "form-label" %>
-    <%= f.email_field :email, class: "form-control" %>
-  </div>
-  <div class="flex items-center">
-    <%= f.check_box :sudo, class: "form-check" %>
-    <%= f.label :sudo, class: "form-label ml-2" %>
-  </div>
-
-  <%= f.submit "Salvar", class: "btn btn-primary" %>
+<%= turbo_frame_tag :modal do %>
+  <%= component("modal", title: "New User") do |comp| %>
+    <%= comp.with_body do %>
+      <%= form_with model: @user, url: admin_users_path, method: :post, data: { turbo_frame: "users_data_table" } do |f| %>
+        <div class="grid gap-4 mb-4 sm:grid-cols-2">
+          <div class="col-span-2">
+            <%= f.label :email, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+            <%= f.email_field :email, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500", placeholder: "Ex. pedro@mail.com" %>
+          </div>
+          <div class="">
+            <%= f.label :first_name, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+            <%= f.text_field :first_name, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500", placeholder: "Ex. Pedro" %>
+          </div>
+          <div class="">
+            <%= f.label :last_name, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+            <%= f.text_field :last_name, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500", placeholder: "Ex. S Souza" %>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <%= f.submit "Create User", class: "text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800", data: { action: "click->modal--component#hide" } %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
 <% end %>

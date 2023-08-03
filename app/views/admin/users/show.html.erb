@@ -1,32 +1,88 @@
 <%= page_title(@user.full_name_or_email) %>
 <%= page_actions do %>
-  <%= link_to "Back to list", admin_users_path, class: "btn btn-danger" %>
+  <%= link_to "Back to list", admin_users_path, class: "btn btn-tertiary" %>
   <%= link_to "Edit", edit_admin_user_path(@user), class: "btn btn-primary ml-2" %>
-  <%= button_to "Destroy", admin_user_path(@user), class: "btn btn-danger ml-2", method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  <%= button_to "Discard", admin_user_path(@user), class: "btn btn-danger ml-2", method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
   <%- if @user.locked_at.blank? %>
-    <%= button_to "Lock", lock_admin_user_path(@user), class: "btn btn-tertiary ml-2", method: :patch, data: { turbo_method: :patch, turbo_confirm: "Are you sure?" } %>
+    <%= button_to "Lock", lock_admin_user_path(@user), class: "btn btn-secondary ml-2", method: :patch, data: { turbo_method: :patch, turbo_confirm: "Are you sure?" } %>
   <%- else %>
-    <%= button_to "Unlock", unlock_admin_user_path(@user), class: "btn btn-tertiary ml-2", method: :patch, data: { turbo_method: :patch, turbo_confirm: "Are you sure?" } %>
+    <%= button_to "Unlock", unlock_admin_user_path(@user), class: "btn btn-secondary ml-2", method: :patch, data: { turbo_method: :patch, turbo_confirm: "Are you sure?" } %>
   <% end %>
 <% end %>
 
-<%= form_with model: @user, url: admin_user_path(@user), method: :put, class: "space-y-6" do |f| %>
-  <div class="grid grid-cols-2 gap-4">
-    <div>
-      <%= f.label :first_name, class: "form-label" %>
-      <%= f.text_field :first_name, class: "form-control", disabled: true %>
+<div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4">
+  <dl class="divide-y divide-gray-300 dark:divide-gray-500">
+    <div class="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+      <dt class="text-sm font-medium leading-6 text-gray-900 dark:text-gray-50">Full name</dt>
+      <dd class="mt-1 flex text-sm leading-6 text-gray-700 dark:text-gray-100 sm:col-span-2 sm:mt-0">
+        <span class="flex-grow"><%= @user.full_name %></span>
+        <span class="ml-4 flex-shrink-0">
+          <button type="button" class="rounded-md font-bold bg-white dark:bg-gray-600 text-indigo-600 dark:text-white hover:text-indigo-500 dark:hover:text-gray-100 hover:underline p-1">Update</button>
+        </span>
+      </dd>
     </div>
-    <div>
-      <%= f.label :last_name, class: "form-label" %>
-      <%= f.text_field :last_name, class: "form-control", disabled: true %>
+    <div class="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+      <dt class="text-sm font-medium leading-6 text-gray-900 dark:text-gray-50">Email</dt>
+      <dd class="mt-1 flex text-sm leading-6 text-gray-700 dark:text-gray-100 sm:col-span-2 sm:mt-0">
+        <span class="flex-grow"><%= @user.email %></span>
+        <span class="ml-4 flex-shrink-0">
+          <button type="button" class="rounded-md font-bold bg-white dark:bg-gray-600 text-indigo-600 dark:text-white hover:text-indigo-500 dark:hover:text-gray-100 hover:underline p-1">Update</button>
+        </span>
+      </dd>
     </div>
-  </div>
-  <div>
-    <%= f.label :email, class: "form-label" %>
-    <%= f.email_field :email, class: "form-control", disabled: true %>
-  </div>
-  <div class="flex items-center">
-    <%= f.check_box :sudo, class: "form-check" %>
-    <%= f.label :sudo, class: "form-label ml-2" %>
-  </div>
-<% end %>
+    <div class="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+      <dt class="text-sm font-medium leading-6 text-gray-900 dark:text-gray-50">Is SUDO?</dt>
+      <dd class="mt-1 flex text-sm leading-6 text-gray-700 dark:text-gray-100 sm:col-span-2 sm:mt-0">
+        <span class="flex-grow"><%= @user.sudo? %></span>
+        <span class="ml-4 flex-shrink-0">
+          <button type="button" class="rounded-md font-bold bg-white dark:bg-gray-600 text-indigo-600 dark:text-white hover:text-indigo-500 dark:hover:text-gray-100 hover:underline p-1">Update</button>
+        </span>
+      </dd>
+    </div>
+    <div class="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+      <dt class="text-sm font-medium leading-6 text-gray-900 dark:text-gray-50">Created At</dt>
+      <dd class="mt-1 flex text-sm leading-6 text-gray-700 dark:text-gray-100 sm:col-span-2 sm:mt-0">
+        <span class="flex-grow"><%= @user.created_at.strftime(t("date.formats.long")) %></span>
+        <span class="ml-4 flex-shrink-0">
+          <button type="button" class="rounded-md font-bold bg-white dark:bg-gray-600 text-indigo-600 dark:text-white hover:text-indigo-500 dark:hover:text-gray-100 hover:underline p-1">Update</button>
+        </span>
+      </dd>
+    </div>
+    <div class="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+      <dt class="text-sm font-medium leading-6 text-gray-900 dark:text-gray-50">Updated At</dt>
+      <dd class="mt-1 flex text-sm leading-6 text-gray-700 dark:text-gray-100 sm:col-span-2 sm:mt-0">
+        <span class="flex-grow"><%= @user.updated_at.strftime(t("date.formats.long")) %></span>
+        <span class="ml-4 flex-shrink-0">
+          <button type="button" class="rounded-md font-bold bg-white dark:bg-gray-600 text-indigo-600 dark:text-white hover:text-indigo-500 dark:hover:text-gray-100 hover:underline p-1">Update</button>
+        </span>
+      </dd>
+    </div>
+    <div class="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+      <dt class="text-sm font-medium leading-6 text-gray-900 dark:text-gray-50">Discarded At</dt>
+      <dd class="mt-1 flex text-sm leading-6 text-gray-700 dark:text-gray-100 sm:col-span-2 sm:mt-0">
+        <span class="flex-grow"><%= @user.discarded_at.present? ? @user.discarded_at.strftime(t("date.formats.long")) : "-" %></span>
+        <span class="ml-4 flex-shrink-0">
+          <button type="button" class="rounded-md font-bold bg-white dark:bg-gray-600 text-indigo-600 dark:text-white hover:text-indigo-500 dark:hover:text-gray-100 hover:underline p-1">Update</button>
+        </span>
+      </dd>
+    </div>
+    <div class="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+      <dt class="text-sm font-medium leading-6 text-gray-900 dark:text-gray-50">Last Sign In At</dt>
+      <dd class="mt-1 flex text-sm leading-6 text-gray-700 dark:text-gray-100 sm:col-span-2 sm:mt-0">
+        <span class="flex-grow"><%= @user.last_sign_in_at.present? ? @user.last_sign_in_at.strftime(t("date.formats.long")) : "Never logged in" %></span>
+        <span class="ml-4 flex-shrink-0">
+          <button type="button" class="rounded-md font-bold bg-white dark:bg-gray-600 text-indigo-600 dark:text-white hover:text-indigo-500 dark:hover:text-gray-100 hover:underline p-1">Update</button>
+        </span>
+      </dd>
+    </div>
+    <div class="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+      <dt class="text-sm font-medium leading-6 text-gray-900 dark:text-gray-50">Confirmed At</dt>
+      <dd class="mt-1 flex text-sm leading-6 text-gray-700 dark:text-gray-100 sm:col-span-2 sm:mt-0">
+        <span class="flex-grow"><%= @user.confirmed_at.present? ? @user.confirmed_at.strftime(t("date.formats.long")) : "Unconfirmed" %></span>
+        <span class="ml-4 flex-shrink-0">
+          <button type="button" class="rounded-md font-bold bg-white dark:bg-gray-600 text-indigo-600 dark:text-white hover:text-indigo-500 dark:hover:text-gray-100 hover:underline p-1">Update</button>
+        </span>
+      </dd>
+    </div>
+  </dl>
+</div>

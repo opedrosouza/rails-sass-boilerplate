@@ -16,9 +16,13 @@ class Admin::UsersController < Admin::ApplicationController
   def edit; end
 
   def create
-    @user = User.new(user_params.merge(password: SecureRandom.hex(8)))
-    if @user.save
-      redirect_to admin_user_path(@user), notice: t("admin.users.created")
+    @user = User.invite!(user_params)
+    if @user.persisted?
+      flash[:notice] = t("admin.users.created")
+      render turbo_stream: [
+        turbo_stream.update("flash", partial: "layouts/admin/flash"),
+        turbo_stream.replace("new_user_row", partial: "admin/users/user", locals: { user: @user }),
+      ]
     else
       flash.now[:alert] = @user.errors.full_messages.to_sentence
       render :new, status: :unprocessable_entity
@@ -47,6 +51,16 @@ class Admin::UsersController < Admin::ApplicationController
   def unlock
     user.unlock_access!
     redirect_to admin_user_path(user), notice: t("admin.users.unlocked")
+  end
+
+  def restore
+    user.undiscard!
+
+    flash.now[:success] = t("admin.users.restored")
+    render turbo_stream: [
+      turbo_stream.update("flash", partial: "layouts/admin/flash"),
+      turbo_stream.replace(@user, partial: "admin/users/user", locals: { user: @user }),
+    ]
   end
 
   private

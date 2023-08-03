@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class Admin::AccountsController < Admin::ApplicationController
 
-  before_action :account, only: [:show, :destroy]
+  before_action :account, only: [:show, :edit, :destroy]
 
   def index
     @pagy, @accounts = pagy(search_for(record: Account, order: "created_at ASC, personal DESC"))
@@ -21,11 +21,11 @@ class Admin::AccountsController < Admin::ApplicationController
   def update; end
 
   def destroy
-    if @account == current_account
+    if can_destroy?
       flash.now[:error] = t("admin.accounts.cannot_destroy")
       render turbo_stream: turbo_stream.update("flash", partial: "layouts/admin/flash")
     else
-      @account.discard
+      @account.update!(discarded_at: Time.current, active: false)
       flash.now[:success] = t("admin.accounts.destroyed")
       render turbo_stream: [
         turbo_stream.update("flash", partial: "layouts/admin/flash"),
@@ -48,7 +48,7 @@ class Admin::AccountsController < Admin::ApplicationController
   private
 
   def account
-    @account ||= Account.find(params[:id])
+    @account ||= Account.where(id: params[:id]).includes(:users).first
   end
 
   def can_destroy?

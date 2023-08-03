@@ -34,4 +34,6 @@ class AccountUser < ApplicationRecord
   validates :account_owner, inclusion: { in: [true, false] }
   validates :role, presence: true
 
+  delegate :email, to: :user
+
 end

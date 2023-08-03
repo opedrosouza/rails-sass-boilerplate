@@ -30,7 +30,7 @@ module Boilerplate
     end
 
     # Permitted locales available for the application
-    config.i18n.available_locales = %w[en]
+    config.i18n.available_locales = %w[en pt-br]
     # Set default locale
     config.i18n.default_locale = "en"
     # Use default language as fallback if translation is missing
