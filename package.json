@@ -27,7 +27,7 @@
     "eslint-plugin-tailwindcss": "^3.13.0",
     "path": "^0.12.7",
     "postcss-import": "^15.1.0",
-    "prettier": "^2.8.8",
+    "prettier": "^3.0.1",
     "vite": "^4.3.0",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-ruby": "^3.2.0",
