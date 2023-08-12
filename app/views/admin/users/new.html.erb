@@ -1,5 +1,5 @@
-<%= turbo_frame_tag :modal do %>
-  <%= component("modal", title: "New User") do |comp| %>
+<%#= turbo_frame_tag :modal do %>
+  <%= component("drawer", title: "New User") do |comp| %>
     <%= comp.with_body do %>
       <%= form_with model: @user, url: admin_users_path, method: :post, data: { turbo_frame: "users_data_table" } do |f| %>
         <div class="grid gap-4 mb-4 sm:grid-cols-2">
@@ -22,4 +22,4 @@
       <% end %>
     <% end %>
   <% end %>
-<% end %>
+<%# end %>

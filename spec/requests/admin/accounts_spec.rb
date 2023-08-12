@@ -14,7 +14,7 @@ RSpec.describe "Admin::AccountsController" do
       end
 
       it "display the page title" do
-        expect(response.body).to include("All accounts")
+        expect(response.body).to include("All Accounts")
       end
     end
 
