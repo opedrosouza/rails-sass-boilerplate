@@ -41,25 +41,5 @@ Rails.application.routes.draw do
     end
   end
 
-  # Admin routes
-
-  namespace :admin do
-    resources :users do
-      member do
-        patch :lock
-        patch :unlock
-        patch :restore
-      end
-    end
-
-    resources :accounts do
-      member do
-        patch :restore
-      end
-    end
-
-    root to: "home#index"
-  end
-
   root to: "home#index"
 end
