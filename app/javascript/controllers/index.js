@@ -5,6 +5,8 @@
 import { application } from "./application";
 import { registerControllers } from "stimulus-vite-helpers";
 const controllers = import.meta.globEager("./**/*_controller.js");
-const compControllers = import.meta.globEager("../../components/**/*_controller.js")
+const oldControllers = import.meta.globEager("../../components/**/*_controller.js")
+const compControllers = import.meta.globEager("../../views/components/**/*_controller.js")
 registerControllers(application, controllers)
+registerControllers(application, oldControllers)
 registerControllers(application, compControllers)

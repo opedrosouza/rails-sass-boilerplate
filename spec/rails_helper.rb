@@ -3,12 +3,24 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require "spec_helper"
 require "simplecov"
-SimpleCov.start "rails"
+SimpleCov.start "rails" do
+  add_filter do |src_file|
+    File.basename(src_file.filename).match?("preview.rb")
+  end
+
+  add_filter "lib/generators/"
+
+  add_group "Components", ["app/views/components", "app/components"]
+  add_group "Serializers", "app/serializers"
+  add_group "Policies", "app/policies"
+end
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require "rspec/rails"
+require "capybara/rspec"
+require "view_component/test_helpers"
 require "pundit/rspec"
 
 Dir[Rails.root.join("spec", "support", "**", "*.rb")].each { |f| require f } # rubocop:disable Rails/FilePath
@@ -22,6 +34,13 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  config.include ViewComponent::TestHelpers, type: :view_component
+  config.include Capybara::RSpecMatchers, type: :view_component
+
+  config.define_derived_metadata(file_path: %r{/spec/views/components}) do |metadata|
+    metadata[:type] = :view_component
+  end
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{Rails.root}/spec/fixtures" # rubocop:disable Rails/FilePath
 

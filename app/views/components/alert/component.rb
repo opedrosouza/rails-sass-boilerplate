@@ -1,15 +1,9 @@
 # frozen_string_literal: true
 
-class Alert::Component < ApplicationComponent
+class Alert::Component < ApplicationViewComponent
 
-  attr_reader :message, :type
-
-  def initialize(message:, type: :success, custom_classes: nil)
-    super()
-    @message = message
-    @type = type
-    @custom_classes = custom_classes
-  end
+  option :message, default: proc {}
+  option :type, default: proc { :notice }
 
   def switch_alert_type
     case type
