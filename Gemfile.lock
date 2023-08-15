@@ -182,7 +182,7 @@ GEM
     method_source (1.0.0)
     mini_magick (4.12.0)
     mini_mime (1.1.2)
-    minitest (5.18.1)
+    minitest (5.19.0)
     msgpack (1.6.0)
     net-imap (0.3.6)
       date
@@ -194,13 +194,13 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.9)
-    nokogiri (1.15.2-aarch64-linux)
+    nokogiri (1.15.4-aarch64-linux)
       racc (~> 1.4)
-    nokogiri (1.15.2-arm64-darwin)
+    nokogiri (1.15.4-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.15.2-x86_64-darwin)
+    nokogiri (1.15.4-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.15.2-x86_64-linux)
+    nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pagy (6.0.4)
@@ -218,7 +218,7 @@ GEM
     pundit (2.3.0)
       activesupport (>= 3.0.0)
     racc (1.7.1)
-    rack (2.2.7)
+    rack (2.2.8)
     rack-cors (2.0.1)
       rack (>= 2.0.0)
     rack-proxy (0.7.6)
@@ -243,7 +243,7 @@ GEM
       actionpack (>= 5.0.1.rc1)
       actionview (>= 5.0.1.rc1)
       activesupport (>= 5.0.1.rc1)
-    rails-dom-testing (2.1.1)
+    rails-dom-testing (2.2.0)
       activesupport (>= 5.0.0)
       minitest
       nokogiri (>= 1.6)
@@ -334,7 +334,7 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
-    stimulus-rails (1.2.1)
+    stimulus-rails (1.2.2)
       railties (>= 6.0.0)
     thor (1.2.2)
     timeout (0.4.0)
@@ -375,7 +375,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     yard (0.9.34)
-    zeitwerk (2.6.8)
+    zeitwerk (2.6.11)
 
 PLATFORMS
   aarch64-linux
