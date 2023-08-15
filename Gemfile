@@ -50,6 +50,8 @@ gem "discard", "~> 1.2", ">= 1.2.1"
 gem "dry-initializer", "~> 3.1", ">= 3.1.1"
 # It adds support for send invitations by email (it requires to be authenticated) and accept the invitation by setting a password.
 gem "devise_invitable", "~> 2.0", ">= 2.0.8"
+# A collection of extensions and developer tools for ViewComponent
+gem "view_component-contrib", "~> 0.1.4"
 
 group :development, :test do
   # Great Ruby debugging companion: pretty print Ruby objects to visualize their structure. Supports custom object formatting via plugins
@@ -69,6 +71,9 @@ group :development, :test do
 end
 
 group :test do
+  # Capybara is an integration testing tool for rack based web applications.
+  # It simulates how a user would interact with a website
+  gem "capybara", "~> 3.39", ">= 3.39.2"
   # Strategies for cleaning databases using ActiveRecord. Can be used to ensure a clean state for testing.
   gem "database_cleaner-active_record", "~> 2.1"
   # Extracting `assigns` and `assert_template` from ActionDispatch.
@@ -87,6 +92,8 @@ group :development do
   gem "annotate", "~> 3.2"
   # When mail is sent from your application, Letter Opener will open a preview in the browser instead of sending.
   gem "letter_opener", "~> 1.8", ">= 1.8.1"
+  # A native development UI for ViewComponent
+  gem "lookbook", "~> 2.0", ">= 2.0.5"
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
