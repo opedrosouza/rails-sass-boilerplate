@@ -1,6 +1,7 @@
-require 'rails_helper'
+# frozen_string_literal: true
+require "rails_helper"
 
-RSpec.describe "App::HomeController", type: :request do
+RSpec.describe "App::HomeController" do
   describe "GET /" do
     context "when user is authenticated" do
       before do
