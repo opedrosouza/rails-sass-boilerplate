@@ -40,7 +40,7 @@ class User < ApplicationRecord
 
   include PgSearch::Model
 
-  devise :invitable, :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable
 

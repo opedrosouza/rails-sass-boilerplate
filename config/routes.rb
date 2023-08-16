@@ -48,5 +48,11 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: "home#index"
+  # App routes
+
+  namespace :app do
+    root to: "home#index"
+  end
+
+  root to: "storefront/home#index"
 end

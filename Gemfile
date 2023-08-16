@@ -48,8 +48,6 @@ gem "pg_search", "~> 2.3", ">= 2.3.6"
 gem "discard", "~> 1.2", ">= 1.2.1"
 # DSL for declaring params and options of the initializer
 gem "dry-initializer", "~> 3.1", ">= 3.1.1"
-# It adds support for send invitations by email (it requires to be authenticated) and accept the invitation by setting a password.
-gem "devise_invitable", "~> 2.0", ">= 2.0.8"
 # A collection of extensions and developer tools for ViewComponent
 gem "view_component-contrib", "~> 0.1.4"
 
@@ -96,8 +94,4 @@ group :development do
   gem "lookbook", "~> 2.0", ">= 2.0.5"
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
 end
