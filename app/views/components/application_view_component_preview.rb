@@ -2,9 +2,9 @@
 
 class ApplicationViewComponentPreview < ViewComponentContrib::Preview::Base
 
+  extend Dry::Initializer
   include ApplicationHelper
   include CurrentHelper
-  extend Dry::Initializer
 
   self.abstract_class = true
 

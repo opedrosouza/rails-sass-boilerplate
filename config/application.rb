@@ -24,6 +24,7 @@ module Boilerplate
 
     config.autoload_paths << Rails.root.join("app/views/components")
     config.view_component.preview_paths << Rails.root.join("app/views/components")
+    config.view_component.capture_compatibility_patch_enabled = true
 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0

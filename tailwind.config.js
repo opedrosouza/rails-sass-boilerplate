@@ -3,7 +3,7 @@ module.exports = {
   darkMode: "class",
   content: [
     "./app/helpers/**/*.rb",
-    "./app/views/**/*.{html,html.erb,erb}",
+    "./app/views/**/*.{html,html.erb,erb,js,rb}",
     "./app/javascript/**/*.js",
     "./app/components/**/*.rb",
     "./app/components/**/*.html.erb",
