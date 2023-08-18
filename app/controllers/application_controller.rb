@@ -21,7 +21,8 @@ class ApplicationController < ActionController::Base
 
   def user_not_authorized
     flash[:error] = t("pundit.not_authorized")
-    redirect_back(fallback_location: root_path)
+    path_to_redirect = current_user.present? ? app_root_path : root_path
+    redirect_back(fallback_location: path_to_redirect)
   end
 
 end

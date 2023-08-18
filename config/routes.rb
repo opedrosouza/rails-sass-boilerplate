@@ -2,6 +2,9 @@
 # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'home/index'
+  end
   # Development routes
 
   if Rails.env.development?
@@ -50,6 +53,11 @@ Rails.application.routes.draw do
   # App routes
 
   namespace :app do
+    root to: "home#index"
+  end
+
+  # Admin routes
+  namespace :admin do
     root to: "home#index"
   end
 

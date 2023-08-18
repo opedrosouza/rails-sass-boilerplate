@@ -26,7 +26,7 @@ class Auth::SessionsController < Devise::SessionsController
     if resource.sudo?
       stored_location_for(resource) || admin_root_path
     else
-      stored_location_for(resource) || root_path
+      stored_location_for(resource) || app_root_path
     end
   end
 
