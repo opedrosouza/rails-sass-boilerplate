@@ -45,7 +45,7 @@ gem "pagy", "~> 6.0", ">= 6.0.4"
 # PgSearch builds Active Record named scopes that take advantage of PostgreSQL's full text search
 gem "pg_search", "~> 2.3", ">= 2.3.6"
 # Allows marking ActiveRecord objects as discarded, and provides scopes for filtering.
-gem "discard", "~> 1.2", ">= 1.2.1"
+gem "discard", "~> 1.3"
 # DSL for declaring params and options of the initializer
 gem "dry-initializer", "~> 3.1", ">= 3.1.1"
 # A collection of extensions and developer tools for ViewComponent
