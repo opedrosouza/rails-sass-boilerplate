@@ -10,20 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_10_154402) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_22_003710) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "account_users", force: :cascade do |t|
     t.boolean "account_owner", default: false, null: false
-    t.integer "role", default: 0, null: false
     t.bigint "user_id", null: false
     t.bigint "account_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "discarded_at"
+    t.jsonb "roles", default: {}, null: false
+    t.string "current_role", default: "member", null: false
     t.index ["account_id"], name: "index_account_users_on_account_id"
     t.index ["discarded_at"], name: "index_account_users_on_discarded_at"
+    t.index ["roles"], name: "index_account_users_on_roles", using: :gin
     t.index ["user_id"], name: "index_account_users_on_user_id"
   end
 

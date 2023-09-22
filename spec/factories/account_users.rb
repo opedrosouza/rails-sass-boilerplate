@@ -5,8 +5,9 @@
 #
 #  id            :bigint           not null, primary key
 #  account_owner :boolean          default(FALSE), not null
+#  current_role  :string           default("member"), not null
 #  discarded_at  :datetime
-#  role          :integer          default("member"), not null
+#  roles         :string           not null, is an Array
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  account_id    :bigint           not null
@@ -16,6 +17,7 @@
 #
 #  index_account_users_on_account_id    (account_id)
 #  index_account_users_on_discarded_at  (discarded_at)
+#  index_account_users_on_roles         (roles) USING gin
 #  index_account_users_on_user_id       (user_id)
 #
 # Foreign Keys
@@ -25,17 +27,17 @@
 #
 FactoryBot.define do
   factory :account_user do
-    role { :admin }
+    roles { {} }
     account_owner { true }
     user { nil }
     account { nil }
 
     trait :member do
-      role { :member }
+      member { true }
     end
 
     trait :admin do
-      role { :admin }
+      admin { true }
     end
 
     trait :owner do

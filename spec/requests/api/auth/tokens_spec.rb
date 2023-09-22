@@ -21,7 +21,7 @@ RSpec.describe "Api::TokensController" do
   end
 
   before do
-    user.owned_account.update!(active: true)
+    user.owned_accounts.last.update!(active: true)
   end
 
   describe "POST /api/oauth/token" do

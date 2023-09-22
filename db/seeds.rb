@@ -24,7 +24,7 @@ unless Rails.env.production?
     confirmed_at: Time.current,
   )
 
-  user.owned_account.active!
+  user.owned_accounts.last.active!
 
   # Create ouath applications
   # if there is no OAuth application created, create them

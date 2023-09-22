@@ -17,7 +17,7 @@ RSpec.describe "Auth::ConfirmationsController" do
     end
 
     it "activates the account" do
-      expect(user.owned_account.reload.active?).to be true
+      expect(user.owned_accounts.last.reload.active?).to be true
     end
   end
 end

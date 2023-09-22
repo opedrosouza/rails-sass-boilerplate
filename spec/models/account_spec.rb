@@ -23,19 +23,19 @@
 require "rails_helper"
 
 RSpec.describe Account do
+  describe "factory" do
+    it "has a valid factory" do
+      expect(build(:account, owner: create(:user, :confirmed))).to be_valid
+    end
+  end
+
   describe "validations" do
     it { is_expected.to validate_inclusion_of(:personal).in_array([true, false]) }
     it { is_expected.to validate_inclusion_of(:active).in_array([true, false]) }
   end
 
   describe "associations" do
-    it { is_expected.to belong_to(:owner).class_name("User").inverse_of(:owned_account) }
-  end
-
-  describe "factory" do
-    it "has a valid factory" do
-      expect(build(:account, owner: create(:user, :confirmed))).to be_valid
-    end
+    it { is_expected.to belong_to(:owner).class_name("User").inverse_of(:owned_accounts) }
   end
 
   describe "callbacks" do
@@ -50,6 +50,36 @@ RSpec.describe Account do
         it "sets the account owner to true" do
           expect(account.account_users.first.account_owner).to be(true)
         end
+      end
+    end
+  end
+
+  describe "scopes" do
+    let!(:user) { create(:user, :without_account) }
+    let!(:personal_active_account) { create(:account, personal: true, active: true, owner: user) }
+    let!(:professional_inactive_account) { create(:account, personal: false, active: false, owner: user) }
+
+    describe ".personal" do
+      it "returns only personal accounts" do
+        expect(described_class.personal).to eq([personal_active_account])
+      end
+    end
+
+    describe ".professional" do
+      it "returns only professional accounts" do
+        expect(described_class.professional).to eq([professional_inactive_account])
+      end
+    end
+
+    describe ".active" do
+      it "returns only active accounts" do
+        expect(described_class.active).to eq([personal_active_account])
+      end
+    end
+
+    describe ".inactive" do
+      it "returns only inactive accounts" do
+        expect(described_class.inactive).to eq([professional_inactive_account])
       end
     end
   end

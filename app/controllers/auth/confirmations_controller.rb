@@ -16,8 +16,9 @@ class Auth::ConfirmationsController < Devise::ConfirmationsController
   # GET /resource/confirmation?confirmation_token=abcdef
   def show
     super do |resource|
-      resource.owned_account.update!(active: true) if resource.owned_account.present? && !resource.owned_account.active?
-      sign_in(resource) if resource.errors.empty? && resource.owned_account.present?
+      current_account = Current.account || resource.owned_accounts.inactive.first
+      current_account.update!(active: true) if current_account.present? && !current_account.active?
+      sign_in(resource) if resource.errors.empty? && current_account.present?
     end
   end
 

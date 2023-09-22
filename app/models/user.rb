@@ -49,16 +49,14 @@ class User < ApplicationRecord
            class_name: "Doorkeeper::AccessToken",
            foreign_key: :resource_owner_id,
            dependent: :destroy, inverse_of: :resource_owner
-  # It can be changed to a has_many association depending on the type of relationship you want to establish.
-  has_one :owned_account, class_name: "Account", inverse_of: :owner, foreign_key: :owner_id, dependent: :destroy
-  # This relationship is used to get the accounts that the user is a member of.
+  has_many :owned_accounts, class_name: "Account", inverse_of: :owner, foreign_key: :owner_id, dependent: :destroy
   has_many :account_users, dependent: :destroy, inverse_of: :user
   has_many :accounts, through: :account_users
 
   validates :sudo, inclusion: { in: [true, false] }
 
   before_validation :set_sudo, on: :create, if: -> { sudo.nil? }
-  after_create :create_default_account
+  after_create :create_default_account, if: -> { owned_accounts.empty? }
 
   pg_search_scope :search,
                   against: [:first_name, :last_name, :email],
@@ -89,12 +87,12 @@ class User < ApplicationRecord
   def active_for_authentication?
     return true if sudo?
 
-    super && !discarded? && owned_account.active?
+    super && !discarded? && owned_accounts.active.any?
   end
 
   # Create default account for user
   def create_default_account
-    owned_account || create_owned_account(personal: true)
+    owned_accounts.create(personal: true)
   end
 
   def sudo?

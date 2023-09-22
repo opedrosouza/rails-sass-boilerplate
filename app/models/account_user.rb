@@ -6,8 +6,9 @@
 #
 #  id            :bigint           not null, primary key
 #  account_owner :boolean          default(FALSE), not null
+#  current_role  :string           default("member"), not null
 #  discarded_at  :datetime
-#  role          :integer          default("member"), not null
+#  roles         :string           not null, is an Array
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  account_id    :bigint           not null
@@ -17,6 +18,7 @@
 #
 #  index_account_users_on_account_id    (account_id)
 #  index_account_users_on_discarded_at  (discarded_at)
+#  index_account_users_on_roles         (roles) USING gin
 #  index_account_users_on_user_id       (user_id)
 #
 # Foreign Keys
@@ -26,13 +28,14 @@
 #
 class AccountUser < ApplicationRecord
 
+  ROLES = [:admin, :member].freeze
+  include Rolified
+
   belongs_to :user, inverse_of: :account_users
   belongs_to :account, inverse_of: :account_users
 
-  enum role: { member: 0, admin: 1 }, _default: :member
-
   validates :account_owner, inclusion: { in: [true, false] }
-  validates :role, presence: true
+  validates :roles, presence: true
 
   delegate :email, to: :user
 

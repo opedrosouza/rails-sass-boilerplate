@@ -71,5 +71,12 @@ FactoryBot.define do
         create(:account, :professional, owner: user, active: true)
       end
     end
+
+    trait :without_account do
+      confirmed_at { Time.current }
+      after(:create) do |user|
+        user.owned_accounts.destroy_all
+      end
+    end
   end
 end

@@ -52,7 +52,7 @@ RSpec.describe User do
   end
 
   describe "associations" do
-    it { is_expected.to have_one(:owned_account).class_name("Account") }
+    it { is_expected.to have_many(:owned_accounts).class_name("Account") }
     it { is_expected.to have_many(:accounts).through(:account_users) }
     it { is_expected.to have_many(:account_users) }
   end
@@ -121,7 +121,7 @@ RSpec.describe User do
         let!(:user) { create(:user, :confirmed, password: "password") }
 
         before do
-          user.owned_account.active!
+          user.owned_accounts.last.active!
         end
 
         it "returns user" do

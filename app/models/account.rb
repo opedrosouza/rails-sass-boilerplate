@@ -25,19 +25,21 @@ class Account < ApplicationRecord
 
   include PgSearch::Model
 
-  belongs_to :owner, class_name: "User", inverse_of: :owned_account
-  # This relationship allows us to add more users to the account.
+  belongs_to :owner, class_name: "User", inverse_of: :owned_accounts
   has_many :account_users, inverse_of: :account, dependent: :destroy
   has_many :users, through: :account_users
 
   validates :personal, inclusion: { in: [true, false] }
   validates :active, inclusion: { in: [true, false] }
 
-  accepts_nested_attributes_for :owner, allow_destroy: true
-
   after_create :set_owner_account_user
 
   pg_search_scope :search, against: [:id, :owner_id]
+
+  scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
+  scope :personal, -> { where(personal: true) }
+  scope :professional, -> { where(personal: false) }
 
   delegate :email, to: :owner
 
@@ -49,32 +51,11 @@ class Account < ApplicationRecord
     active
   end
 
-  # TODO: MAKE IT WORK WHEN NEEDED
-  # def switch_owner(new_owner, destroy_current_owner = false)
-  #   raise ActiveRecord::RecordInvalid unless new_owner.is_a?(User)
-
-  #   current_owner_account = owner.account_users.where(account: self).first
-
-  #   ActiveRecord::Base.transaction do
-  #     if destroy_current_owner
-  #       owner.discard!
-  #       current_owner_account.update!(account_owner: false, role: :user, discarded_at: nil)
-  #     else
-  #       current_owner_account.update!(account_owner: false, role: :user)
-  #     end
-
-  #     new_owner.account_users.create!(account_owner: true, role: :admin, account: self)
-  #     new_owner.update(owned_account: self)
-  #     self.owner = new_owner
-  #     self.save
-  #   end
-  # end
-
   private
 
   # This method is used to set the owner of the account user.
   def set_owner_account_user
-    account_users.create(user: owner, account_owner: true, role: :admin)
+    account_users.create(user: owner, account_owner: true, admin: true, member: true, current_role: "admin")
   end
 
 end
