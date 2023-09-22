@@ -49,11 +49,7 @@ jobs:
 
       - name: Run tests
         env:
-          DB_HOST: localhost
-          DB_PORT: 5432
-          DB_USER: pedro
-          DB_PASS: password
-          REDIS_URL: redis://localhost:6379/0
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
           RAILS_ENV: test
         run: |
           bin/rails db:test:prepare

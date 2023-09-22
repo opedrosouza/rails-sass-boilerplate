@@ -30,8 +30,6 @@ gem "devise-i18n", "~> 1.11"
 gem "rails-i18n", "~> 7.0"
 # Object oriented authorization for Rails applications
 gem "pundit", "~> 2.3"
-# Autoload dotenv in Rails.
-gem "dotenv-rails", "~> 2.8", ">= 2.8.1"
 # High-level wrapper for processing images for the web with ImageMagick or libvips.
 gem "image_processing", "~> 1.12", ">= 1.12.2"
 # ActiveModel::Serializers allows you to generate your JSON in an object-oriented and convention-driven manner

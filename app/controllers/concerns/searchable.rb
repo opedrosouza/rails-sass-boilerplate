@@ -8,7 +8,7 @@ module Searchable
   end
 
   def search_for(record:, search_param: params[:search], order: "created_at DESC")
-    return record.all.order(order) if search_param.blank?
+    return record.order(order) if search_param.blank?
 
     record.search(search_param).order(order)
   end
