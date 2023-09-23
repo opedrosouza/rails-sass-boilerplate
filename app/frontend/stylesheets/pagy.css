@@ -1,0 +1,27 @@
+.pagy-nav.pagination {
+  @apply isolate inline-flex -space-x-px rounded-md shadow-sm;
+}
+
+.page.next a {
+  @apply flex text-sm w-20 items-center justify-center h-full py-1.5 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white;
+}
+
+.page.prev a {
+  @apply flex text-sm w-20 items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white;
+}
+
+.page.next.disabled {
+  @apply flex text-sm w-20 justify-center h-full py-2 px-3 relative items-center rounded-r-md border border-gray-300 bg-slate-100 font-medium text-gray-500 focus:z-20 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white;
+}
+
+.page.prev.disabled {
+  @apply flex text-sm w-20 justify-center h-full py-2 px-3 relative items-center rounded-l-md border border-gray-300 bg-slate-100 font-medium text-gray-500 focus:z-20 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white;
+}
+
+.page a, .page.gap {
+  @apply bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center border px-4 py-2 text-sm font-medium focus:z-20;
+}
+
+.page.active {
+  @apply z-10 border-indigo-500 bg-indigo-50 text-indigo-600 relative inline-flex items-center border px-4 py-2 text-sm font-medium focus:z-20;
+}
