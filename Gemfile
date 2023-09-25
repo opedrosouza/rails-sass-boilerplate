@@ -89,7 +89,7 @@ group :development do
   # When mail is sent from your application, Letter Opener will open a preview in the browser instead of sending.
   gem "letter_opener", "~> 1.8", ">= 1.8.1"
   # A native development UI for ViewComponent
-  gem "lookbook", "~> 2.0", ">= 2.0.5"
+  gem "lookbook", "~> 2.1"
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
