@@ -312,7 +312,7 @@ GEM
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
-    rubocop-rspec (2.24.0)
+    rubocop-rspec (2.24.1)
       rubocop (~> 1.33)
       rubocop-capybara (~> 2.17)
       rubocop-factory_bot (~> 2.22)
@@ -414,7 +414,7 @@ DEPENDENCIES
   rspec-rails (~> 6.0)
   rubocop-performance (~> 1.18)
   rubocop-rails (~> 2.20)
-  rubocop-rspec (~> 2.22)
+  rubocop-rspec (~> 2.24)
   shoulda-matchers (~> 5.3)
   simplecov (~> 0.22.0)
   stimulus-rails
