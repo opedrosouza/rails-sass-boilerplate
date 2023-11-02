@@ -7,7 +7,7 @@
     "@rails/actiontext": "^7.0.8",
     "@rails/request.js": "^0.0.8",
     "autoprefixer": "^10.4.16",
-    "flowbite": "^1.7.0",
+    "flowbite": "^2.0.0",
     "flowbite-datepicker": "^1.2.2",
     "postcss": "^8.4.29",
     "tailwindcss": "^3.3.3",
