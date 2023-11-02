@@ -744,10 +744,18 @@ flowbite-datepicker@^1.2.2:
   dependencies:
     flowbite "^1.4.5"
 
-flowbite@^1.4.5, flowbite@^1.7.0:
+flowbite@^1.4.5:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/flowbite/-/flowbite-1.7.0.tgz#82359dbd5e3b2b9591eaf18ea929fb77871346b2"
   integrity sha512-OTTmnhRgv85Rs+mcMaVU7zB6EvRQs7BaQziyMUsZLRjW9aUpeQyqKjLmxsVMMCdr8isYPCLd6UL7X1IaSVI0WQ==
+  dependencies:
+    "@popperjs/core" "^2.9.3"
+    mini-svg-data-uri "^1.4.3"
+
+flowbite@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/flowbite/-/flowbite-2.0.0.tgz#f149f63f4752722d888b1300a5f5071a6bf98b7d"
+  integrity sha512-gP/iC/WuznQ5XBzikhaSs4RDs49zrvoAdHbWMHSY3l7nVJX0xJz+dELIlLjh+czLdEVTMLxUjuARYYwCb5q34A==
   dependencies:
     "@popperjs/core" "^2.9.3"
     mini-svg-data-uri "^1.4.3"
