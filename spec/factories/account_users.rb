@@ -7,7 +7,7 @@
 #  account_owner :boolean          default(FALSE), not null
 #  current_role  :string           default("member"), not null
 #  discarded_at  :datetime
-#  roles         :string           not null, is an Array
+#  roles         :jsonb            not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  account_id    :bigint           not null
