@@ -47,7 +47,7 @@ gem "discard", "~> 1.3"
 # DSL for declaring params and options of the initializer
 gem "dry-initializer", "~> 3.1", ">= 3.1.1"
 # A collection of extensions and developer tools for ViewComponent
-gem "view_component-contrib", "~> 0.1.4"
+gem "view_component-contrib", "~> 0.2.1"
 
 group :development, :test do
   # Great Ruby debugging companion: pretty print Ruby objects to visualize their structure. Supports custom object formatting via plugins
