@@ -33,7 +33,7 @@ gem "pundit", "~> 2.3"
 # High-level wrapper for processing images for the web with ImageMagick or libvips.
 gem "image_processing", "~> 1.12", ">= 1.12.2"
 # ActiveModel::Serializers allows you to generate your JSON in an object-oriented and convention-driven manner
-gem "active_model_serializers", "~> 0.10.13"
+gem "active_model_serializers", "~> 0.10.14"
 # Doorkeeper is an OAuth 2 provider for Rails and Grape.
 gem "doorkeeper", "~> 5.6", ">= 5.6.6"
 # Middleware that will make Rack-based apps CORS compatible. Fork the project here: https://github.com/cyu/rack-cors
