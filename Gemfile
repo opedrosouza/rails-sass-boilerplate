@@ -25,7 +25,7 @@ gem "view_component", "~> 3.5"
 # Flexible authentication solution for Rails with Warden
 gem "devise", "~> 4.9"
 # Translations for the devise gem
-gem "devise-i18n", "~> 1.11"
+gem "devise-i18n", "~> 1.12"
 # A set of common locale data and translations to internationalize and/or localize your Rails applications.
 gem "rails-i18n", "~> 7.0"
 # Object oriented authorization for Rails applications
