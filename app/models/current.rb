@@ -10,7 +10,7 @@ class Current < ActiveSupport::CurrentAttributes
 
   def user=(value)
     super
-    Time.zone = Time.zone
+    Time.zone = Time.zone # rubocop:disable Lint/SelfAssignment
   end
 
 end

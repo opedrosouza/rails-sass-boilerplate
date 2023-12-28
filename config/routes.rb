@@ -2,17 +2,12 @@
 # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'home/index'
-  end
   # Development routes
-
   if Rails.env.development?
     mount Lookbook::Engine, at: "/lookbook"
   end
 
   # Devise routes
-
   devise_for :users,
              path: "auth",
              class_name: "User",
@@ -36,7 +31,6 @@ Rails.application.routes.draw do
   # end
 
   # API routes
-
   scope :api do
     use_doorkeeper do
       skip_controllers :authorizations, :applications, :authorized_applications
@@ -51,7 +45,6 @@ Rails.application.routes.draw do
   end
 
   # App routes
-
   namespace :app do
     root to: "home#index"
   end
