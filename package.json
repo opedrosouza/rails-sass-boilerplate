@@ -1,6 +1,10 @@
 {
   "name": "app",
   "private": "true",
+  "engines": {
+    "node": "^20.10.0",
+    "yarn": ">= 1.22.0"
+  },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^7.3.0",
