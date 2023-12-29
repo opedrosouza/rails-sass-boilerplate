@@ -3,6 +3,7 @@
 class Alert::Component < ApplicationViewComponent
 
   option :message, default: proc {}
+  option :timer, default: proc { 5000 }
   option :type, default: proc { :notice }
 
   def switch_alert_type
