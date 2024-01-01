@@ -55,7 +55,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri mingw x64_mingw]
   # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer
-  gem "factory_bot_rails", "~> 6.2"
+  gem "factory_bot_rails", "~> 6.4"
   # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
   gem "faker", "~> 3.2"
   # Automatic Rails code style checking tool. A RuboCop extension focused on enforcing Rails best practices and coding conventions.
