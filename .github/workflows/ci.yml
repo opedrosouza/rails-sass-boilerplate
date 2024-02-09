@@ -33,16 +33,34 @@ jobs:
           bundler: default
           bundler-cache: true
 
-      - name: Setup Node
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.10.0'
-          cache: yarn
+          node-version: 20.10.0
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: true
+
+      # - name: Get pnpm store directory
+      #   shell: bash
+      #   run: |
+      #     echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      # - uses: actions/cache@v3
+      #   name: Setup pnpm cache
+      #   with:
+      #     path: ${{ env.STORE_PATH }}
+      #     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
         run: |
-          sudo apt-get install -y -qq libvips
-          yarn install --frozen-lockfile
+          sudo apt update && sudo apt-get install -y -qq libvips
+          pnpm install
 
       - name: Rubocop Check
         run: bundle exec rubocop
