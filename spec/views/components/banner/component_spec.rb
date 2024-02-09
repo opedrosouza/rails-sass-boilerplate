@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Alert::Component do
+describe Banner::Component do
 
   let(:options) { { message: Faker::Internet.email } }
   let(:component) { described_class.new(**options) }
