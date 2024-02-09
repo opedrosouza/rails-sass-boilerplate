@@ -12,9 +12,10 @@
   </head>
 
   <body class="dark:bg-gray-900 dark:text-gray-50 h-full">
-      <%= component("alert", message: notice, type: :success) %>
-      <%= component("alert", message: alert, type: :alert) %>
-      <%= component("alert", message: flash[:error], type: :error) %>
+    <%= component("banner", message: notice, type: :success) %>
+    <%= component("banner", message: alert, type: :alert) %>
+    <%= component("banner", message: flash[:error], type: :error) %>
+
     <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <%= link_to root_path do %>

@@ -1,5 +1,3 @@
-// Reconnect ActionCable after switching accounts
-
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {

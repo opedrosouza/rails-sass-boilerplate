@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Alert::Component < ApplicationViewComponent
+class Banner::Component < ApplicationViewComponent
 
   option :message, default: proc {}
   option :timer, default: proc { 5000 }

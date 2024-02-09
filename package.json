@@ -2,38 +2,36 @@
   "name": "app",
   "private": "true",
   "engines": {
-    "node": "^20.10.0",
-    "yarn": ">= 1.22.0"
+    "node": "^20.11.0"
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
-    "@hotwired/turbo-rails": "^7.3.0",
-    "@rails/actiontext": "^7.1.2",
+    "@hotwired/turbo-rails": "^8.0.1",
+    "@rails/actiontext": "^7.1.3",
     "@rails/request.js": "^0.0.9",
-    "autoprefixer": "^10.4.16",
-    "flowbite": "^2.0.0",
-    "flowbite-datepicker": "^1.2.2",
-    "postcss": "^8.4.32",
-    "tailwindcss": "^3.4.0",
-    "trix": "^2.0.5"
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "trix": "^2.0.10"
   },
   "scripts": {
     "build:css": "tailwindcss -i ./app/frontend/stylesheets/application.tailwind.css -o ./app/frontend/entrypoints/application.css --minify"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/forms": "^0.5.6",
+    "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/typography": "^0.5.10",
-    "eslint": "^8.44.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-tailwindcss": "^3.13.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-tailwindcss": "^3.14.2",
     "path": "^0.12.7",
-    "postcss-import": "^15.1.0",
-    "prettier": "^3.0.3",
-    "vite": "^5.0.0",
-    "vite-plugin-full-reload": "^1.0.5",
+    "postcss-import": "^16.0.0",
+    "prettier": "^3.2.5",
+    "stimulus-vite-helpers": "^3.1.0",
+    "vite": "^5.1.0",
+    "vite-plugin-full-reload": "^1.1.0",
     "vite-plugin-ruby": "^5.0.0",
     "vite-plugin-stimulus-hmr": "^3.0.0"
   }
