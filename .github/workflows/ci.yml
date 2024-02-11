@@ -15,7 +15,7 @@ jobs:
       postgres:
         image: postgres:latest
         env:
-          POSTGRES_USER: pedro
+          POSTGRES_USER: pedrosouza
           POSTGRES_PASSWORD: password
           POSTGRES_DB: boilerplate_test
         ports: ['5432:5432']
