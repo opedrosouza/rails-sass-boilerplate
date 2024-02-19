@@ -68,14 +68,14 @@ devDependencies:
     specifier: ^3.1.0
     version: 3.1.0
   vite:
-    specifier: ^5.1.0
-    version: 5.1.0
+    specifier: ^5.1.3
+    version: 5.1.3
   vite-plugin-full-reload:
     specifier: ^1.1.0
     version: 1.1.0
   vite-plugin-ruby:
     specifier: ^5.0.0
-    version: 5.0.0(vite@5.1.0)
+    version: 5.0.0(vite@5.1.3)
   vite-plugin-stimulus-hmr:
     specifier: ^3.0.0
     version: 3.0.0
@@ -1828,14 +1828,14 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /vite-plugin-ruby@5.0.0(vite@5.1.0):
+  /vite-plugin-ruby@5.0.0(vite@5.1.3):
     resolution: {integrity: sha512-c8PjTp21Ah/ttgnNUyu0qvCXZI08Jr9I24oUKg3TRIRhF5GcOZ++6wtlTCrNFd9COEQbpXHxlRIXd/MEg0iZJw==}
     peerDependencies:
       vite: '>=5.0.0'
     dependencies:
       debug: 4.3.4
       fast-glob: 3.3.2
-      vite: 5.1.0
+      vite: 5.1.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1849,8 +1849,8 @@ packages:
       - supports-color
     dev: true
 
-  /vite@5.1.0:
-    resolution: {integrity: sha512-STmSFzhY4ljuhz14bg9LkMTk3d98IO6DIArnTY6MeBwiD1Za2StcQtz7fzOUnRCqrHSD5+OS2reg4HOz1eoLnw==}
+  /vite@5.1.3:
+    resolution: {integrity: sha512-UfmUD36DKkqhi/F75RrxvPpry+9+tTkrXfMNZD+SboZqBCMsxKtO52XeGzzuh7ioz+Eo/SYDBbdb0Z7vgcDJew==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
