@@ -21,7 +21,7 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 # A framework for building reusable, testable & encapsulated view components in Ruby on Rails.
-gem "view_component", "~> 3.5"
+gem "view_component", "~> 3.11"
 # Flexible authentication solution for Rails with Warden
 gem "devise", "~> 4.9"
 # Translations for the devise gem
@@ -39,7 +39,7 @@ gem "doorkeeper", "~> 5.6", ">= 5.6.6"
 # Middleware that will make Rack-based apps CORS compatible. Fork the project here: https://github.com/cyu/rack-cors
 gem "rack-cors", "~> 2.0", ">= 2.0.1"
 # Agnostic pagination in plain ruby. It does it all. Better.
-gem "pagy", "~> 6.1"
+gem "pagy", "~> 7.0", ">= 7.0.9"
 # PgSearch builds Active Record named scopes that take advantage of PostgreSQL's full text search
 gem "pg_search", "~> 2.3", ">= 2.3.6"
 # Allows marking ActiveRecord objects as discarded, and provides scopes for filtering.
@@ -55,7 +55,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri mingw x64_mingw]
   # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer
-  gem "factory_bot_rails", "~> 6.2"
+  gem "factory_bot_rails", "~> 6.4", ">= 6.4.3"
   # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
   gem "faker", "~> 3.2"
   # Automatic Rails code style checking tool. A RuboCop extension focused on enforcing Rails best practices and coding conventions.
