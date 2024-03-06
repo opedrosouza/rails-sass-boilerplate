@@ -1,6 +1,7 @@
+# frozen_string_literal: true
 require "rails_helper"
 
-RSpec.describe "Api::MeController", type: :request do
+RSpec.describe "Api::MeController" do
   describe "GET /api/me" do
     let(:application) { create(:oauth_application) }
     let(:user) { create(:user, :confirmed) }

@@ -4,6 +4,9 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  accepted_terms         :boolean          default(FALSE), not null
+#  accepted_terms_at      :datetime
+#  birthdate              :date
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string
 #  confirmed_at           :datetime
@@ -14,15 +17,16 @@
 #  encrypted_password     :string           default(""), not null
 #  failed_attempts        :integer          default(0), not null
 #  first_name             :string
+#  gender                 :string           default("unspecified"), not null
 #  last_name              :string
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
 #  locked_at              :datetime
+#  phone_number           :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  sign_in_count          :integer          default(0), not null
-#  sudo                   :boolean          default(FALSE), not null
 #  unconfirmed_email      :string
 #  unlock_token           :string
 #  created_at             :datetime         not null
@@ -48,7 +52,6 @@ RSpec.describe User do
     it { is_expected.to validate_presence_of(:password) }
     it { is_expected.to validate_confirmation_of(:password) }
     it { is_expected.to validate_length_of(:password).is_at_least(6) }
-    it { is_expected.to validate_inclusion_of(:sudo).in_array([true, false]) }
   end
 
   describe "associations" do
@@ -80,25 +83,6 @@ RSpec.describe User do
       it "creates owned account" do
         user = build(:user)
         expect { user.save }.to change(Account, :count).by(1)
-      end
-    end
-
-    describe "before_validation" do
-      it "sets sudo to false if sudo nil" do
-        user = create(:user)
-        expect(user.sudo).to be(false)
-      end
-
-      it "does not call the set_sudo method if sudo is false" do
-        user = create(:user, sudo: false)
-        expect(user).not_to receive(:set_sudo)
-        user.save
-      end
-
-      it "does not call the set_sudo method if sudo is true" do
-        user = create(:user, sudo: true)
-        expect(user).not_to receive(:set_sudo)
-        user.save
       end
     end
   end

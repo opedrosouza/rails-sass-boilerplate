@@ -18,6 +18,15 @@ Rails.application.routes.draw do
                unlocks: "auth/unlocks",
                registrations: "auth/registrations",
              }
+  devise_for :admins,
+             path: "admin/auth",
+             class_name: "Admin",
+             controllers: {
+               sessions: "admin/auth/sessions",
+               confirmations: "admin/auth/confirmations",
+               passwords: "admin/auth/passwords",
+               unlocks: "admin/auth/unlocks",
+             }
 
   # Example of how to use devise_scope to change the default path of the routes
   # devise_scope :user do

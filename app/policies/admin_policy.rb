@@ -9,15 +9,15 @@ class AdminPolicy
   end
 
   def index?
-    user.sudo?
+    user.is_a? Admin
   end
 
   def show?
-    user.sudo?
+    user.is_a? Admin
   end
 
   def create?
-    user.sudo?
+    user.is_a? Admin
   end
 
   def new?
@@ -25,7 +25,7 @@ class AdminPolicy
   end
 
   def update?
-    user.sudo?
+    user.is_a? Admin
   end
 
   def edit?
@@ -33,7 +33,7 @@ class AdminPolicy
   end
 
   def destroy?
-    user.sudo?
+    user.is_a? Admin
   end
 
 end

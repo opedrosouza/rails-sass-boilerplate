@@ -2,16 +2,12 @@
 
 class Admin::ApplicationController < ApplicationController
 
-  before_action :authenticate_user!
-  before_action :authorize_admin!
-  after_action :verify_authorized
+  before_action :authenticate_admin!
 
   layout "admin"
 
-  private
-
-  def authorize_admin!
-    authorize :admin, "#{action_name}?"
+  def pundit_user
+    current_admin
   end
 
 end

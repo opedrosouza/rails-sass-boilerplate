@@ -18,6 +18,7 @@
     </header>
     <main class="py-2.5 mx-auto max-w-screen-xl">
       <%= yield %>
+      <%= button_to "Sair", destroy_admin_session_path, method: :delete, data: { turbo_method: :delete } %>
       <div class="fixed bottom-5 right-5">
         <%= component("dark_mode_button") %>
       </div>
