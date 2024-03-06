@@ -25,50 +25,48 @@ RSpec.describe "Api::TokensController" do
   end
 
   describe "POST /api/oauth/token" do
-    context "login" do
-      context "when params are correct" do
-        let!(:make_request) { post oauth_token_path, params:, as: :json }
+    context "when params are correct" do
+      before { post oauth_token_path, params:, as: :json }
 
-        it "returns http success status" do
-          expect(response).to have_http_status(:success)
-        end
-
-        it "returns the access token in the body" do
-          expect(response.body).to include("access_token")
-        end
-
-        it "creates a new access token" do
-          expect { post oauth_token_path, params:, as: :json }.to change(Doorkeeper::AccessToken, :count).by(1)
-        end
-
-        it "update the user's sign in stats" do
-          aggregate_failures do
-            expect(user.reload.last_sign_in_at).to be_present
-            expect(user.reload.current_sign_in_at).to be_present
-            expect(user.reload.sign_in_count).to eq(1)
-          end
-        end
+      it "returns http success status" do
+        expect(response).to have_http_status(:success)
       end
 
-      context "when params are incorrect" do
-        let(:password) { "invalid" }
+      it "returns the access token in the body" do
+        expect(response.body).to include("access_token")
+      end
 
-        before { post oauth_token_path, params:, as: :json }
+      it "creates a new access token" do
+        expect { post oauth_token_path, params:, as: :json }.to change(Doorkeeper::AccessToken, :count).by(1)
+      end
 
-        it "returns http bad_request status" do
-          expect(response).to have_http_status(:bad_request)
+      it "update the user's sign in stats" do
+        aggregate_failures do
+          expect(user.reload.last_sign_in_at).to be_present
+          expect(user.reload.current_sign_in_at).to be_present
+          expect(user.reload.sign_in_count).to eq(1)
         end
+      end
+    end
 
-        it "doesnt create a new access token" do
-          expect { post oauth_token_path, params:, as: :json }.not_to change(Doorkeeper::AccessToken, :count).from(0)
-        end
+    context "when params are incorrect" do
+      let(:password) { "invalid" }
 
-        it "dont update the user's sign in stats" do
-          aggregate_failures do
-            expect(user.reload.last_sign_in_at).to be_nil
-            expect(user.reload.current_sign_in_at).to be_nil
-            expect(user.reload.sign_in_count).to eq(0)
-          end
+      before { post oauth_token_path, params:, as: :json }
+
+      it "returns http bad_request status" do
+        expect(response).to have_http_status(:bad_request)
+      end
+
+      it "doesnt create a new access token" do
+        expect { post oauth_token_path, params:, as: :json }.not_to change(Doorkeeper::AccessToken, :count).from(0)
+      end
+
+      it "dont update the user's sign in stats" do
+        aggregate_failures do
+          expect(user.reload.last_sign_in_at).to be_nil
+          expect(user.reload.current_sign_in_at).to be_nil
+          expect(user.reload.sign_in_count).to eq(0)
         end
       end
     end

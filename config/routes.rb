@@ -42,6 +42,8 @@ Rails.application.routes.draw do
     namespace :auth do
       resources :registrations, only: [:create]
     end
+
+    get "me", to: "me#show"
   end
 
   # App routes
