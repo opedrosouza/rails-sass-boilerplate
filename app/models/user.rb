@@ -56,6 +56,7 @@ class User < ApplicationRecord
   has_many :owned_accounts, class_name: "Account", inverse_of: :owner, foreign_key: :owner_id, dependent: :destroy
   has_many :account_users, dependent: :destroy, inverse_of: :user
   has_many :accounts, through: :account_users
+  has_many :addresses, as: :addressable, dependent: :destroy
 
   after_create :create_default_account, if: -> { owned_accounts.empty? }
 

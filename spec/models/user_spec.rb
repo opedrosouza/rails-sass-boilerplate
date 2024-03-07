@@ -58,6 +58,7 @@ RSpec.describe User do
     it { is_expected.to have_many(:owned_accounts).class_name("Account") }
     it { is_expected.to have_many(:accounts).through(:account_users) }
     it { is_expected.to have_many(:account_users) }
+    it { is_expected.to have_many(:addresses) }
   end
 
   describe "scopes" do
