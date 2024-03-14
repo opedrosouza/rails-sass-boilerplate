@@ -3,12 +3,9 @@ module.exports = {
   darkMode: "class",
   content: [
     "./app/helpers/**/*.rb",
-    "./app/views/**/*.{html,html.erb,erb,js,rb}",
-    "./app/javascript/**/*.js",
-    "./app/components/**/*.rb",
-    "./app/components/**/*.html.erb",
-    "./app/components/**/*.js",
-    "./app/helpers/**/*.rb",
+    "./app/views/**/*.{html,html.erb,erb,js,ts,rb}",
+    "./app/frontend/**/*.{js,jsx,ts,tsx,vue}",
+    "./node_modules/flowbite/**/*.js"
   ],
   theme: {
     extend: {
@@ -32,6 +29,7 @@ module.exports = {
   plugins: [
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
-    require("@tailwindcss/aspect-ratio")
+    require("@tailwindcss/aspect-ratio"),
+    require('flowbite/plugin')
   ],
 }
