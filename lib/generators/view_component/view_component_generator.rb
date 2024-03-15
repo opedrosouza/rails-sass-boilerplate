@@ -8,6 +8,7 @@ class ViewComponentGenerator < Rails::Generators::NamedBase
   class_option :skip_test, type: :boolean, default: false
   class_option :skip_preview, type: :boolean, default: false
   class_option :skip_js, type: :boolean, default: false
+  class_option :skip_css, type: :boolean, default: false
 
   argument :attributes, type: :array, default: [], banner: "attribute"
 
@@ -22,7 +23,13 @@ class ViewComponentGenerator < Rails::Generators::NamedBase
   def create_js_file
     return if options[:skip_js]
 
-    template "index.js", File.join("app/views/components", class_path, file_name, "component_controller.js")
+    template "component_controller.js", File.join("app/views/components", class_path, file_name, "component_controller.js")
+  end
+
+  def create_css_file
+    return if options[:skip_css]
+
+    template "component.css", File.join("app/views/components", class_path, file_name, "component.css")
   end
 
   def create_test_file

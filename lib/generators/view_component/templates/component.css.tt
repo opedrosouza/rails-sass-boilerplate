@@ -1,0 +1,1 @@
+.<%= class_name.to_s.downcase %>__component {}

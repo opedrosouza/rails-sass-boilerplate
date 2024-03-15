@@ -4,13 +4,10 @@ require "rails_helper"
 
 describe <%= class_name %>::Component do
   let(:options) { {} }
-  let(:component) { <%= class_name %>::Component.new(**options) }
+  let(:component) { described_class.new(**options) }
 
-  subject { rendered_content }
-
-  it "renders" do
+  it "renders the <%= class_name.to_s.downcase %> component correctly" do
     render_inline(component)
-
     is_expected.to have_css "div"
   end
 end
