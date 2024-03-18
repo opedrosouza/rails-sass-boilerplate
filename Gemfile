@@ -78,7 +78,7 @@ group :test do
   gem "rspec-rails", "~> 6.0"
   # Shoulda Matchers provides RSpec- and Minitest-compatible one-liners to test common Rails functionality that,
   # if written by hand, would be much longer, more complex, and error-prone.
-  gem "shoulda-matchers", "~> 5.3"
+  gem "shoulda-matchers", "~> 6.2"
   # Code coverage for Ruby with a powerful configuration library and automatic merging of coverage across test suites
   gem "simplecov", "~> 0.22.0"
 end
