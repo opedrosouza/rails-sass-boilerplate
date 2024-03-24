@@ -1,0 +1,129 @@
+.button__component {
+  @apply inline-flex text-sm font-semibold text-center px-4 py-0 rounded-md no-underline items-center justify-between shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2;
+
+  height: 40px;
+  transition: ease 0.3s background, ease 0.3s transform, ease 0.2s color;
+
+  &:hover,
+  &:focus {
+    @apply cursor-pointer;
+  }
+
+  &:disabled {
+    @apply opacity-75 cursor-not-allowed;
+  }
+}
+
+.button__component-sm {
+  @apply px-3 text-sm;
+
+  height: 32px;
+  line-height: 32px;
+}
+
+.button__component-lg {
+  @apply text-base px-6;
+
+  height: 48px;
+  line-height: 48px;
+}
+
+.button__component-primary {
+  @apply bg-blue-600 text-white focus:ring-blue-500;
+
+  &:hover,
+  &:focus {
+    @apply bg-blue-500 text-white;
+  }
+
+  &.button__component-outline {
+    @apply bg-transparent border border-blue-500 text-blue-500 shadow-none;
+
+    &:hover,
+    &:focus {
+      @apply bg-blue-500 text-white;
+    }
+  }
+}
+
+.button__component-secondary {
+  @apply bg-green-600 text-white focus:ring-green-500;
+
+  &:hover,
+  &:focus {
+    @apply bg-green-500 text-white;
+  }
+
+  &.button__component-outline {
+    @apply bg-transparent border border-green-500 text-green-600 shadow-none;
+
+    &:hover,
+    &:focus {
+      @apply bg-green-500 text-white;
+    }
+  }
+}
+
+.button__component-tertiary {
+  @apply bg-gray-700 text-white focus:ring-gray-600;
+
+  &:hover,
+  &:focus {
+    @apply bg-gray-600 text-white;
+  }
+
+  &.button__component-outline {
+    @apply bg-transparent border  border-gray-500 text-gray-700 shadow-none;
+
+    &:hover,
+    &:focus {
+      @apply bg-gray-600 text-white;
+    }
+  }
+}
+
+.button__component-danger {
+  @apply bg-red-600 text-white focus:ring-red-500;
+
+  &:hover,
+  &:focus {
+    @apply bg-red-500 text-white;
+  }
+
+  &.button__component-outline {
+    @apply bg-transparent border border-red-500 text-red-500 shadow-none;
+
+    &:hover,
+    &:focus {
+      @apply bg-red-500 text-white;
+    }
+  }
+}
+
+.button__component-gray {
+  @apply bg-gray-100 text-gray-800 hover:bg-gray-200 hover:text-gray-800 focus:ring-gray-600;
+}
+
+.button__component-light-gray {
+  @apply bg-gray-100 text-gray-800 hover:bg-gray-200 hover:text-gray-800 focus:ring-gray-600;
+}
+
+.button__component-white {
+  @apply bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 hover:text-gray-700 focus:ring-blue-500;
+
+  &.primary {
+    @apply text-blue-600;
+  }
+
+  &.secondary {
+    @apply text-green-600;
+  }
+
+  &.tertiary {
+    @apply text-gray-600;
+  }
+
+  &.gray {
+    @apply text-gray-700;
+  }
+}
