@@ -75,7 +75,7 @@ group :test do
   # Extracting `assigns` and `assert_template` from ActionDispatch.
   gem "rails-controller-testing", "~> 1.0", ">= 1.0.5"
   # rspec-rails is a testing framework for Rails 5+.
-  gem "rspec-rails", "~> 6.0"
+  gem "rspec-rails", "~> 6.1"
   # Shoulda Matchers provides RSpec- and Minitest-compatible one-liners to test common Rails functionality that,
   # if written by hand, would be much longer, more complex, and error-prone.
   gem "shoulda-matchers", "~> 5.3"
