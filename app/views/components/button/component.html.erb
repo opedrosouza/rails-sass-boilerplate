@@ -1,1 +1,11 @@
-<%= button_to value, path, data: { controller: "button--component" }.merge!(data), class: "button__component button__component-#{variant} #{size_style} #{outline_style} #{custom_classes}" %>
+<%- if path %>
+  <%= button_to path, data: custom_data, class: "button__component button__component-#{variant} #{size_style} #{outline_style} #{custom_classes}" do %>
+    <span><%= value %></span>
+    <%= icon %>
+  <% end %>
+<%- else %>
+  <%= button_tag type:, data: custom_data, class: "button__component button__component-#{variant} #{size_style} #{outline_style} #{custom_classes}" do %>
+    <span><%= value %></span>
+    <%= icon %>
+  <% end %>
+<%- end %>

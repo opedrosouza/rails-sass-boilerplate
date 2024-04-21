@@ -1,0 +1,18 @@
+<div
+  class="dropdown__component"
+  data-controller="dropdown--component"
+>
+  <%= component("button", value: button_text, data: { "dropdown-toggle": name }) do |button| %>
+    <%= button.with_icon(name: "angle_down", size: 4, custom_classes: "ml-2") %>
+  <% end %>
+
+  <div id="<%= name %>" class="hidden dropdown__component-content <%= custom_classes %>">
+    <ul class="dropdown__component-list" aria-labelledby="dropdownDefaultButton">
+      <%- items.each do |item| %>
+        <li>
+          <%= link_to item[:title], item[:action], class: "dropdown__component-item" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

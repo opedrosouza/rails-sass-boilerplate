@@ -1,0 +1,15 @@
+.dropdown__component {
+  @apply relative z-10 w-fit;
+}
+
+.dropdown__component-content {
+  @apply bg-white divide-y divide-gray-100 rounded-lg shadow w-full min-w-40 dark:bg-gray-700;
+}
+
+.dropdown__component-list {
+  @apply py-2 w-full text-sm text-gray-700 dark:text-gray-200;
+}
+
+.dropdown__component-item {
+  @apply block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white;
+}

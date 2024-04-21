@@ -8,5 +8,7 @@ class ApplicationViewComponent < ViewComponentContrib::Base
 
   option :custom_classes, optional: true
   option :user, optional: true
+  option :controller, optional: true
+  option :multiple_controllers, optional: true
 
 end
