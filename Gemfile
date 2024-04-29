@@ -35,7 +35,7 @@ gem "image_processing", "~> 1.12", ">= 1.12.2"
 # ActiveModel::Serializers allows you to generate your JSON in an object-oriented and convention-driven manner
 gem "active_model_serializers", "~> 0.10.14"
 # Doorkeeper is an OAuth 2 provider for Rails and Grape.
-gem "doorkeeper", "~> 5.6", ">= 5.6.6"
+gem "doorkeeper", "~> 5.7"
 # Middleware that will make Rack-based apps CORS compatible. Fork the project here: https://github.com/cyu/rack-cors
 gem "rack-cors", "~> 2.0", ">= 2.0.1"
 # Agnostic pagination in plain ruby. It does it all. Better.
