@@ -39,7 +39,7 @@ gem "doorkeeper", "~> 5.6", ">= 5.6.6"
 # Middleware that will make Rack-based apps CORS compatible. Fork the project here: https://github.com/cyu/rack-cors
 gem "rack-cors", "~> 2.0", ">= 2.0.1"
 # Agnostic pagination in plain ruby. It does it all. Better.
-gem "pagy", "~> 7.0", ">= 7.0.9"
+gem "pagy", "~> 8.4"
 # PgSearch builds Active Record named scopes that take advantage of PostgreSQL's full text search
 gem "pg_search", "~> 2.3", ">= 2.3.6"
 # Allows marking ActiveRecord objects as discarded, and provides scopes for filtering.
