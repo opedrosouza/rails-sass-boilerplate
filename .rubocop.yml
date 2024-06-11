@@ -14,7 +14,7 @@ AllCops:
     - "db/schema.rb" # You can't touch this
     - "tmp/**/*"
     - "vendor/**/*"  # We cannot solve the world's problems
-  TargetRubyVersion: 3.2.0
+  TargetRubyVersion: 3.3.2
   NewCops: enable
 
 Gemspec/DeprecatedAttributeAssignment:
@@ -257,9 +257,6 @@ RSpec/IdenticalEqualityAssertion:
 
 RSpec/MultipleMemoizedHelpers:
   Max: 20
-
-RSpec/Rails/AvoidSetupHook:
-  Enabled: true
 
 RSpec/StubbedMock:
   Enabled: false

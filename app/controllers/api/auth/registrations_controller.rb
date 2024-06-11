@@ -12,7 +12,7 @@ class Api::Auth::RegistrationsController < Api::ApplicationController
     # Validates password confirmation
     if user_params[:password] != user_params[:password_confirmation]
       return render json: { error: "Password confirmation doesn't match Password" },
-                    status: :unprocessable_entity
+                    status: :unprocessable_content
     end
 
     user = User.new(user_params)
@@ -20,7 +20,7 @@ class Api::Auth::RegistrationsController < Api::ApplicationController
     if user.save
       render json: user, status: :created
     else
-      render json: { error: user.errors.full_messages }, status: :unprocessable_entity
+      render json: { error: user.errors.full_messages }, status: :unprocessable_content
     end
   end
 

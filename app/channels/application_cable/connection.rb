@@ -6,8 +6,7 @@ module ApplicationCable
 
     include SetCurrentRequestDetails
 
-    identified_by :current_user, :current_account, :true_user
-    # impersonates :user
+    identified_by :current_user, :current_account
 
     delegate :params, :session, to: :request
 

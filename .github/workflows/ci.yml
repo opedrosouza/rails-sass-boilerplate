@@ -3,7 +3,7 @@ name: Tests
 on:
   pull_request:
     branches:
-      - '*'
+      - "*"
   push:
     branches:
       - main
@@ -18,10 +18,10 @@ jobs:
           POSTGRES_USER: pedrosouza
           POSTGRES_PASSWORD: password
           POSTGRES_DB: boilerplate_test
-        ports: ['5432:5432']
+        ports: ["5432:5432"]
       redis:
         image: redis
-        ports: ['6379:6379']
+        ports: ["6379:6379"]
         options: --entrypoint redis-server
 
     steps:
@@ -36,26 +36,13 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20.11.0
+          node-version: 20.13.1
 
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         with:
-          version: 8
+          version: 9.1.4
           run_install: true
-
-      # - name: Get pnpm store directory
-      #   shell: bash
-      #   run: |
-      #     echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      # - uses: actions/cache@v3
-      #   name: Setup pnpm cache
-      #   with:
-      #     path: ${{ env.STORE_PATH }}
-      #     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
         run: |
