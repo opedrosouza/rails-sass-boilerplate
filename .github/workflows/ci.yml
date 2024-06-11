@@ -38,7 +38,7 @@ jobs:
         with:
           node-version: 20.13.1
 
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
           version: 9.1.4
