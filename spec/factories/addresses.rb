@@ -40,6 +40,6 @@ FactoryBot.define do
   end
 
   trait :with_user do
-    addressable { create(:user) } # rubocop:disable FactoryBot/FactoryAssociationWithStrategy
+    addressable { create(:user) }
   end
 end
