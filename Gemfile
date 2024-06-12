@@ -23,8 +23,6 @@ gem "rails-i18n", "~> 7.0", ">= 7.0.9"
 gem "stimulus-rails", "~> 1.3", ">= 1.3.3"
 gem "turbo-rails", "~> 2.0", ">= 2.0.5"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
-gem "view_component", "~> 3.11"
-gem "view_component-contrib", "~> 0.2.2"
 gem "vite_rails", "~> 3.0", ">= 3.0.17"
 
 group :development, :test do
@@ -49,6 +47,5 @@ end
 group :development do
   gem "annotate", "~> 3.2"
   gem "letter_opener", "~> 1.10"
-  gem "lookbook", "~> 2.3", ">= 2.3.1"
   gem "web-console"
 end

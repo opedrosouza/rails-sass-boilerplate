@@ -31,10 +31,6 @@ module Boilerplate
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks generators])
 
-    config.autoload_paths << Rails.root.join("app/views/components")
-    config.view_component.preview_paths << Rails.root.join("app/views/components")
-    config.view_component.capture_compatibility_patch_enabled = true
-
     config.generators do |g|
       g.test_framework :rspec
     end
