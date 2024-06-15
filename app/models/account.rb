@@ -32,7 +32,7 @@ class Account < ApplicationRecord
   validates :personal, inclusion: { in: [true, false] }
   validates :active, inclusion: { in: [true, false] }
 
-  after_create :set_owner_account_user
+  after_create :create_account_user_for_owner
 
   pg_search_scope :search, against: [:id, :owner_id]
 
@@ -51,11 +51,19 @@ class Account < ApplicationRecord
     active
   end
 
+  def inactive!
+    update!(active: false)
+  end
+
+  def inactive?
+    !active?
+  end
+
   private
 
   # This method is used to set the owner of the account user.
-  def set_owner_account_user
-    account_users.create(user: owner, account_owner: true, admin: true, member: true, current_role: "admin")
+  def create_account_user_for_owner
+    account_users.create!(user: owner, account_owner: true, admin: true)
   end
 
 end

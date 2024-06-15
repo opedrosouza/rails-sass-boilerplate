@@ -17,8 +17,8 @@ class Auth::ConfirmationsController < Devise::ConfirmationsController
   def show
     super do |resource|
       current_account = Current.account || resource.owned_accounts.inactive.first
-      current_account.update!(active: true) if current_account.present? && !current_account.active?
-      sign_in(resource) if resource.errors.empty? && current_account.present?
+      current_account.active! if current_account.present?
+      sign_in(resource) if resource.errors.empty? && current_account.active?
     end
   end
 

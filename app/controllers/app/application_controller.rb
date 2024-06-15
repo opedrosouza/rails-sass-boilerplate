@@ -4,4 +4,8 @@ class App::ApplicationController < ApplicationController
 
   before_action :authenticate_user!
 
+  def pundit_user
+    current_user
+  end
+
 end

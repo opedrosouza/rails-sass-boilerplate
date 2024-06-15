@@ -2,6 +2,8 @@
 
 class App::HomeController < App::ApplicationController
 
-  def index; end
+  def index
+    @roles = current_account_user.roles
+  end
 
 end
