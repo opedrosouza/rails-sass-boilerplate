@@ -12,11 +12,10 @@
   </head>
 
   <body class="dark:bg-gray-900 dark:text-gray-50 h-full">
+    <%= render "shared/alert" %>
     <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <%= link_to root_path do %>
-          <h1>Boilerplate</h1>
-        <% end %>
+      <div class="sm:mx-auto sm:w-full sm:max-w-md text-center">
+        <%= render "shared/logo" %>
         <h2 class="mt-6 text-center text-3xl font-bold tracking-tight"><%= yield :page_title %></h2>
         <%= yield :page_other_action %>
       </div>
@@ -68,5 +67,9 @@
         </div>
       </div>
     </div>
+
+    <div class="fixed right-5 bottom-5">
+        <%= render "shared/dark_mode_button" %>
+      </div>
   </body>
 </html>

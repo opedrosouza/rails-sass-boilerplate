@@ -1,5 +1,5 @@
 @layer components {
-  .button {
+  .btn {
     @apply inline-flex text-sm font-semibold text-center px-4 py-0 rounded-md no-underline items-center justify-between shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2;
 
     height: 40px;
@@ -15,21 +15,21 @@
     }
   }
 
-  .button-sm {
+  .btn-sm {
     @apply px-3 text-sm;
 
     height: 32px;
     line-height: 32px;
   }
 
-  .button-lg {
+  .btn-lg {
     @apply text-base px-6;
 
     height: 48px;
     line-height: 48px;
   }
 
-  .button-primary {
+  .btn-primary {
     @apply bg-blue-600 text-white focus:ring-blue-500;
 
     &:hover,
@@ -37,7 +37,7 @@
       @apply bg-blue-500 text-white;
     }
 
-    &.button-outline {
+    &.btn-outline {
       @apply bg-transparent border border-blue-500 text-blue-500 shadow-none;
 
       &:hover,
@@ -47,7 +47,7 @@
     }
   }
 
-  .button-secondary {
+  .btn-secondary {
     @apply bg-green-600 text-white focus:ring-green-500;
 
     &:hover,
@@ -55,7 +55,7 @@
       @apply bg-green-500 text-white;
     }
 
-    &.button-outline {
+    &.btn-outline {
       @apply bg-transparent border border-green-500 text-green-600 shadow-none;
 
       &:hover,
@@ -65,7 +65,7 @@
     }
   }
 
-  .button-tertiary {
+  .btn-tertiary {
     @apply bg-gray-700 text-white focus:ring-gray-600;
 
     &:hover,
@@ -73,7 +73,7 @@
       @apply bg-gray-600 text-white;
     }
 
-    &.button-outline {
+    &.btn-outline {
       @apply bg-transparent border  border-gray-500 text-gray-700 shadow-none;
 
       &:hover,
@@ -83,7 +83,7 @@
     }
   }
 
-  .button-danger {
+  .btn-danger {
     @apply bg-red-600 text-white focus:ring-red-500;
 
     &:hover,
@@ -91,7 +91,7 @@
       @apply bg-red-500 text-white;
     }
 
-    &.button-outline {
+    &.btn-outline {
       @apply bg-transparent border border-red-500 text-red-500 shadow-none;
 
       &:hover,
@@ -101,15 +101,15 @@
     }
   }
 
-  .button-gray {
+  .btn-gray {
     @apply bg-gray-100 text-gray-800 hover:bg-gray-200 hover:text-gray-800 focus:ring-gray-600;
   }
 
-  .button-light-gray {
+  .btn-light-gray {
     @apply bg-gray-100 text-gray-800 hover:bg-gray-200 hover:text-gray-800 focus:ring-gray-600;
   }
 
-  .button-white {
+  .btn-white {
     @apply bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 hover:text-gray-700 focus:ring-blue-500;
 
     &.primary {

@@ -10,8 +10,13 @@
     <%= vite_stylesheet_tag 'application', data: { "turbo-track": "reload" } %>
   </head>
   <body class="dark:bg-gray-900 dark:text-gray-50 h-full">
-    <main class="py-2.5 mx-auto max-w-screen-xl">
+    <%= render "shared/alert" %>
+    <%= render "shared/navbar" %>
+    <main>
       <%= yield %>
+      <div class="fixed right-5 bottom-5">
+        <%= render "shared/dark_mode_button" %>
+      </div>
     </main>
   </body>
 </html>

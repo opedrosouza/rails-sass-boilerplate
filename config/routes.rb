@@ -2,11 +2,6 @@
 # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
 Rails.application.routes.draw do
-  # Development routes
-  if Rails.env.development?
-    mount Lookbook::Engine, at: "/lookbook"
-  end
-
   # Devise routes
   devise_for :users,
              path: "auth",
