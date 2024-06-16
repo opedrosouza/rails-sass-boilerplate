@@ -1,0 +1,49 @@
+@layer components {
+  .alert {
+    @apply flex justify-between items-start px-6 py-2 w-full bg-gray-50 border border-b border-gray-200 sm:items-center dark:border-gray-700 dark:bg-gray-800;
+
+    button {
+      @apply flex items-center text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 dark:hover:bg-gray-600 dark:hover:text-white;
+    }
+
+    svg {
+      @apply w-5 h-5;
+    }
+
+    &.info {
+      @apply bg-blue-50 text-blue-700 dark:bg-blue-700 dark:text-white;
+
+      button {
+        @apply text-blue-400 dark:text-white;
+      }
+    }
+
+    &.success, &.notice {
+      @apply bg-green-50 text-green-700 dark:bg-green-700 dark:text-white;
+
+      button {
+        @apply text-green-400 dark:text-white;
+      }
+    }
+
+    &.error {
+      @apply bg-red-50 text-red-600 dark:bg-red-500 dark:text-white;
+
+      button {
+        @apply text-red-400 dark:text-white;
+      }
+    }
+
+    &.warning {
+      @apply bg-yellow-50 text-yellow-600 dark:bg-yellow-600 dark:text-white;
+
+      button {
+        @apply text-yellow-400 dark:text-white;
+      }
+    }
+
+    a {
+      @apply font-semibold;
+    }
+  }
+}

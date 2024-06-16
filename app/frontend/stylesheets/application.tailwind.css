@@ -2,10 +2,12 @@
 @import url("https://rsms.me/inter/inter.css");
 
 @import "../../../node_modules/trix/dist/trix.css";
-@import "./actiontext.css";
-@import "./forms.css";
 @import "./base.css";
+@import "./actiontext.css";
+@import "./buttons.css";
+@import "./forms.css";
 @import "./pagy.css";
+@import "./alert.css";
 
 @tailwind base;
 @tailwind components;

@@ -1,6 +1,0 @@
-<div
-  class="<%= class_name.to_s.downcase %>__component"
-  data-controller="<%= class_name.to_s.downcase %>--component"
->
-  Add <%= class_name %> template here
-</div>

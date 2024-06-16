@@ -24,19 +24,17 @@ module Boilerplate
   class Application < Rails::Application
 
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+    config.load_defaults 7.1
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks generators])
 
-    config.autoload_paths << Rails.root.join("app/views/components")
-    config.view_component.preview_paths << Rails.root.join("app/views/components")
-    config.view_component.capture_compatibility_patch_enabled = true
-
     config.generators do |g|
       g.test_framework :rspec
+      g.view_specs false
+      g.helper false
     end
 
     # Permitted locales available for the application

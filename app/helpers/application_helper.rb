@@ -12,11 +12,6 @@ module ApplicationHelper
     end
   end
 
-  def component(name, *, **, &)
-    component = name.to_s.camelize.constantize::Component
-    render(component.new(*, **), &)
-  end
-
   def page_title(title)
     content_for(:page_title) { title }
   end

@@ -10,7 +10,7 @@ gem "devise", "~> 4.9", ">= 4.9.4"
 gem "devise-i18n", "~> 1.12", ">= 1.12.1"
 gem "discard", "~> 1.3"
 gem "doorkeeper", "~> 5.7"
-gem "dry-initializer", "~> 3.1", ">= 3.1.1"
+gem "dotenv-rails", "~> 3.1", ">= 3.1.2"
 gem "image_processing", "~> 1.12", ">= 1.12.2"
 gem "pagy", "~> 8.4", ">= 8.4.4"
 gem "pg", "~> 1.5", ">= 1.5.6"
@@ -23,8 +23,6 @@ gem "rails-i18n", "~> 7.0", ">= 7.0.9"
 gem "stimulus-rails", "~> 1.3", ">= 1.3.3"
 gem "turbo-rails", "~> 2.0", ">= 2.0.5"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
-gem "view_component", "~> 3.11"
-gem "view_component-contrib", "~> 0.2.2"
 gem "vite_rails", "~> 3.0", ">= 3.0.17"
 
 group :development, :test do
@@ -49,6 +47,5 @@ end
 group :development do
   gem "annotate", "~> 3.2"
   gem "letter_opener", "~> 1.10"
-  gem "lookbook", "~> 2.3", ">= 2.3.1"
   gem "web-console"
 end

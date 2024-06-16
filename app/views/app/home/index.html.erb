@@ -1,1 +1,7 @@
-Welcome to the boilerplate app!
+Welcome <%= current_account.email %>
+<br>
+You're using a <%= current_account.personal? ? "personal" : "professional" %> account
+<br>
+You have the following roles: <%= @roles %>
+<br>
+<%= account_owner? ? "You're the account owner" : nil %>

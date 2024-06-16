@@ -4,7 +4,8 @@ module ApplicationCable
 
   class Connection < ActionCable::Connection::Base
 
-    include SetCurrentRequestDetails
+    include AbstractController::Helpers
+    include Currentable
 
     identified_by :current_user, :current_account
 

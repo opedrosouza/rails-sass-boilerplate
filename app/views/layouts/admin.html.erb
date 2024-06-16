@@ -10,17 +10,15 @@
     <%= vite_stylesheet_tag 'application', data: { "turbo-track": "reload" } %>
   </head>
   <body class="dark:bg-gray-900 dark:text-gray-50 h-full">
-    <header>
-      <%= component("banner", message: notice, type: :success) %>
-      <%= component("banner", message: alert, type: :alert) %>
-      <%= component("banner", message: flash[:error], type: :error) %>
-      <%= component("navbar", user: current_user, custom_classes: "font-bold") %>
-    </header>
-    <main class="py-2.5 mx-auto max-w-screen-xl">
-      <%= yield %>
-      <%= button_to "Sair", destroy_admin_session_path, method: :delete, data: { turbo_method: :delete } %>
-      <div class="fixed bottom-5 right-5">
-        <%= component("dark_mode_button") %>
+    <%= render "shared/alert" %>
+    <main class="grid grid-cols-1 md:grid-cols-2">
+      <%= render "shared/sidebar" %>
+      <div>
+        <%= yield %>
+        <%= button_to "Sair", destroy_admin_session_path, method: :delete, data: { turbo_method: :delete } %>
+        <div class="fixed right-5 bottom-5">
+          <%= render "shared/dark_mode_button" %>
+        </div>
       </div>
     </main>
   </body>

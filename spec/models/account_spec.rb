@@ -40,7 +40,7 @@ RSpec.describe Account do
 
   describe "callbacks" do
     describe "after_create" do
-      describe "#set_owner_account_user" do
+      describe "#create_account_user_for_owner" do
         let!(:account) { create(:account, owner: create(:user, :confirmed)) }
 
         it "creates an account user" do

@@ -39,4 +39,8 @@ class AccountUser < ApplicationRecord
 
   delegate :email, to: :user
 
+  def owner?
+    account_owner
+  end
+
 end

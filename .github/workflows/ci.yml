@@ -15,8 +15,8 @@ jobs:
       postgres:
         image: postgres:latest
         env:
-          POSTGRES_USER: pedrosouza
-          POSTGRES_PASSWORD: password
+          POSTGRES_USER: ${{ secrets.DB_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.DB_PASS }}
           POSTGRES_DB: boilerplate_test
         ports: ["5432:5432"]
       redis:
@@ -38,7 +38,7 @@ jobs:
         with:
           node-version: 20.13.1
 
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
           version: 9.1.4
@@ -55,6 +55,12 @@ jobs:
       - name: Run tests
         env:
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+          DB_HOST: localhost
+          DB_NAME: boilerplate_test
+          DB_PORT: 5432
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASS: ${{ secrets.DB_PASS }}
+          DB_URL:
           RAILS_ENV: test
         run: |
           bin/rails db:test:prepare
