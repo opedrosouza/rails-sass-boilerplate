@@ -12,6 +12,7 @@
   <body class="dark:bg-gray-900 dark:text-gray-50 h-full">
     <%= render "shared/alert" %>
     <main>
+      <%= render "shared/sidebar" %>
       <%= yield %>
       <%= button_to "Sair", destroy_admin_session_path, method: :delete, data: { turbo_method: :delete } %>
       <div class="fixed right-5 bottom-5">
