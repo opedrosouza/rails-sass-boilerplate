@@ -11,12 +11,14 @@
   </head>
   <body class="dark:bg-gray-900 dark:text-gray-50 h-full">
     <%= render "shared/alert" %>
-    <main>
+    <main class="grid grid-cols-1 md:grid-cols-2">
       <%= render "shared/sidebar" %>
-      <%= yield %>
-      <%= button_to "Sair", destroy_admin_session_path, method: :delete, data: { turbo_method: :delete } %>
-      <div class="fixed right-5 bottom-5">
-        <%= render "shared/dark_mode_button" %>
+      <div>
+        <%= yield %>
+        <%= button_to "Sair", destroy_admin_session_path, method: :delete, data: { turbo_method: :delete } %>
+        <div class="fixed right-5 bottom-5">
+          <%= render "shared/dark_mode_button" %>
+        </div>
       </div>
     </main>
   </body>

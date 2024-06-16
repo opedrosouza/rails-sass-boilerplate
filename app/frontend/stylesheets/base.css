@@ -3,7 +3,7 @@ html, body {
 }
 
 main {
-  @apply flex-1 py-2.5 mx-auto max-w-screen-xl;
+  @apply flex-1 py-2.5 mx-auto max-w-screen-xl relative;
 }
 
 a.link {
