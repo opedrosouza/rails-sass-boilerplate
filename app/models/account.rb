@@ -59,6 +59,10 @@ class Account < ApplicationRecord
     !active?
   end
 
+  def name
+    personal? ? "#{owner.first_name}'s Personal Account" : "#{owner.first_name}'s Professional Account"
+  end
+
   private
 
   # This method is used to set the owner of the account user.
