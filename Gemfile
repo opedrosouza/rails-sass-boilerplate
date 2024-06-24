@@ -39,7 +39,7 @@ group :test do
   gem "capybara", "~> 3.40"
   gem "database_cleaner-active_record", "~> 2.1"
   gem "rails-controller-testing", "~> 1.0", ">= 1.0.5"
-  gem "rspec-rails", "~> 6.1", ">= 6.1.2"
+  gem "rspec-rails", "~> 6.1"
   gem "shoulda-matchers", "~> 6.2"
   gem "simplecov", "~> 0.22.0"
 end
