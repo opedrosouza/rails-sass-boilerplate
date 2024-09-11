@@ -9,6 +9,38 @@ on:
       - main
 
 jobs:
+  scan_ruby:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Scan for common Rails security vulnerabilities using static analysis
+        run: bin/brakeman --no-pager
+
+  lint_ruby:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Lint Ruby code for consistent style
+        run: bin/rubocop -f github
+
+  
   test:
     runs-on: ubuntu-latest
     services:
@@ -30,27 +62,22 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          bundler: default
+          ruby-version: .ruby-version
           bundler-cache: true
+
+      - name: Install dependencies
+        run: bundle install --jobs 4 --retry 3
 
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20.13.1
 
-      - uses: pnpm/action-setup@v4
-        name: Install pnpm
-        with:
-          version: 9.1.4
-          run_install: true
-
       - name: Install dependencies
         run: |
           sudo apt update && sudo apt-get install -y -qq libvips
-          pnpm install
-
-      - name: Rubocop Check
-        run: bundle exec rubocop
+          npm install -g yarn
+          yarn install
 
       - name: Run tests
         env:
@@ -64,4 +91,5 @@ jobs:
           RAILS_ENV: test
         run: |
           bin/rails db:test:prepare
+          bin/rails assets:precompile
           bundle exec rspec
