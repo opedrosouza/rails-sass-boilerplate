@@ -32,4 +32,9 @@ unless Rails.env.production?
     Doorkeeper::Application.create(name: "iOS client", redirect_uri: "", scopes: "")
     Doorkeeper::Application.create(name: "Android client", redirect_uri: "", scopes: "")
   end
+
+  # Create some plans
+  Rails.logger.debug "Creating plans"
+  Plan.create!(name: "Free", price_in_cents: 0)
+  Plan.create!(name: "Basic", price_in_cents: 10_00)
 end
