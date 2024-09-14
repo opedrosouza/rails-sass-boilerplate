@@ -24,6 +24,10 @@ FactoryBot.define do
     active { false }
     owner { nil }
 
+    trait :with_owner do
+      owner { create(:user, :confirmed) }
+    end
+
     trait :professional do
       personal { false }
     end

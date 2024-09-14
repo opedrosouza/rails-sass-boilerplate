@@ -34,6 +34,9 @@ RSpec.describe Account do
 
   describe "associations" do
     it { is_expected.to belong_to(:owner).class_name("User").inverse_of(:owned_accounts) }
+    it { is_expected.to have_many(:account_users).dependent(:destroy) }
+    it { is_expected.to have_many(:users).through(:account_users) }
+    it { is_expected.to have_many(:subscriptions).dependent(:destroy) }
   end
 
   describe "callbacks" do

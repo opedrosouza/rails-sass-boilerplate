@@ -24,6 +24,10 @@ RSpec.describe Plan, type: :model do
     it { is_expected.to validate_numericality_of(:price_in_cents).is_greater_than_or_equal_to(0) }
   end
 
+  describe "associations" do
+    it { is_expected.to have_many(:subscriptions).dependent(:restrict_with_error) }
+  end
+
   describe "#price" do
     it "returns a Money object" do
       plan = build(:plan, price_in_cents: 1000)

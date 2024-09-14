@@ -26,6 +26,7 @@ class Account < ApplicationRecord
   belongs_to :owner, class_name: "User", inverse_of: :owned_accounts
   has_many :account_users, inverse_of: :account, dependent: :destroy
   has_many :users, through: :account_users
+  has_many :subscriptions, dependent: :destroy
 
   validates :personal, inclusion: { in: [true, false] }
   validates :active, inclusion: { in: [true, false] }
