@@ -18,6 +18,7 @@ gem "pundit", "~> 2.4"
 gem "rack-cors", "~> 2.0", ">= 2.0.2"
 gem "rails", "~> 7.2", ">= 7.2.1"
 gem "rails-i18n", "~> 7.0", ">= 7.0.9"
+gem "solid_queue", "~> 0.9.0"
 gem "stimulus-rails", "~> 1.3", ">= 1.3.4"
 gem "turbo-rails", "~> 2.0", ">= 2.0.6"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]

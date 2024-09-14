@@ -1,5 +1,6 @@
 [
   { "command": ["bin/rails", "server", "-p", "3000"], "status": { "Listening on": null }, "defaultStatus": ["⏳", "S"] },
   { "command": ["yarn", "build:css", "--watch"], "status": { "Compiled successfully": null }, "defaultStatus": ["⏳", "S"] },
-  { "command": ["bin/vite", "dev"], "status": { "Compiled": null }, "defaultStatus": ["⏳", "S"] }
+  { "command": ["bin/vite", "dev"], "status": { "Compiled": null }, "defaultStatus": ["⏳", "S"] },
+  { "command": ["bin/jobs"], "status": { "Listening on": null }, "defaultStatus": ["⏳", "S"] }
 ]
