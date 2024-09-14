@@ -87,7 +87,6 @@ jobs:
           DB_PORT: 5432
           DB_USER: ${{ secrets.DB_USER }}
           DB_PASS: ${{ secrets.DB_PASS }}
-          DB_URL:
           RAILS_ENV: test
         run: |
           bin/rails db:test:prepare

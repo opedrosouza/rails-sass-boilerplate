@@ -3,7 +3,7 @@ unless Rails.env.production?
   password = "password"
   # Create the default admin user
   Rails.logger.debug "Creating an sudo admin user"
-  Admin.create!(
+  Admin.find_or_create_by(
     first_name: "Admin",
     last_name: "User",
     email: "admin@example.com",
@@ -14,7 +14,7 @@ unless Rails.env.production?
 
   # Create a regular user
   Rails.logger.debug "Creating a regular user"
-  user = User.create!(
+  user = User.find_or_create_by(
     first_name: "Simple",
     last_name: "User",
     email: "user@example.com",
@@ -27,6 +27,6 @@ unless Rails.env.production?
 
   # Create some plans
   Rails.logger.debug "Creating plans"
-  Plan.create!(name: "Free", price_in_cents: 0)
-  Plan.create!(name: "Basic", price_in_cents: 10_00)
+  Plan.find_or_create_by(name: "Free", price_in_cents: 0)
+  Plan.find_or_create_by(name: "Basic", price_in_cents: 10_00)
 end
