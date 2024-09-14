@@ -25,14 +25,6 @@ unless Rails.env.production?
 
   user.owned_accounts.last.active!
 
-  # Create ouath applications
-  # if there is no OAuth application created, create them
-  if Doorkeeper::Application.count.zero?
-    Rails.logger.debug "Creating oauth applications"
-    Doorkeeper::Application.create(name: "iOS client", redirect_uri: "", scopes: "")
-    Doorkeeper::Application.create(name: "Android client", redirect_uri: "", scopes: "")
-  end
-
   # Create some plans
   Rails.logger.debug "Creating plans"
   Plan.create!(name: "Free", price_in_cents: 0)

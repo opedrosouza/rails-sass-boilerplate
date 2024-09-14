@@ -7,7 +7,6 @@
 #  id            :bigint           not null, primary key
 #  account_owner :boolean          default(FALSE), not null
 #  current_role  :string           default("member"), not null
-#  discarded_at  :datetime
 #  roles         :jsonb            not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
@@ -16,10 +15,9 @@
 #
 # Indexes
 #
-#  index_account_users_on_account_id    (account_id)
-#  index_account_users_on_discarded_at  (discarded_at)
-#  index_account_users_on_roles         (roles) USING gin
-#  index_account_users_on_user_id       (user_id)
+#  index_account_users_on_account_id  (account_id)
+#  index_account_users_on_roles       (roles) USING gin
+#  index_account_users_on_user_id     (user_id)
 #
 # Foreign Keys
 #

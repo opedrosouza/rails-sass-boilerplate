@@ -4,12 +4,9 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.3.4"
-gem "active_model_serializers", "~> 0.10.14"
 gem "bootsnap", require: false
 gem "devise", "~> 4.9", ">= 4.9.4"
 gem "devise-i18n", "~> 1.12", ">= 1.12.1"
-gem "discard", "~> 1.3"
-gem "doorkeeper", "~> 5.7", ">= 5.7.1"
 gem "dotenv-rails", "~> 3.1", ">= 3.1.2"
 gem "image_processing", "~> 1.12", ">= 1.12.2"
 gem "money", "~> 6.19"

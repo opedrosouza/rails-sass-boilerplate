@@ -12,12 +12,11 @@
 #  confirmed_at           :datetime
 #  current_sign_in_at     :datetime
 #  current_sign_in_ip     :string
-#  discarded_at           :datetime
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  failed_attempts        :integer          default(0), not null
 #  first_name             :string
-#  gender                 :string           default("unspecified"), not null
+#  gender                 :string
 #  last_name              :string
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
@@ -35,7 +34,6 @@
 # Indexes
 #
 #  index_users_on_confirmation_token    (confirmation_token) UNIQUE
-#  index_users_on_discarded_at          (discarded_at)
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
@@ -61,24 +59,6 @@ RSpec.describe User do
     it { is_expected.to have_many(:addresses) }
   end
 
-  describe "scopes" do
-    describe "discarded" do
-      it "returns only discarded users" do
-        create(:user)
-        create(:user, :discarded)
-        expect(described_class.discarded.count).to eq(1)
-      end
-    end
-
-    describe "kept" do
-      it "returns only kept users" do
-        create(:user)
-        create(:user, :discarded)
-        expect(described_class.kept.count).to eq(1)
-      end
-    end
-  end
-
   describe "callbacks" do
     describe "after_create" do
       it "creates owned account" do
@@ -98,52 +78,6 @@ RSpec.describe User do
       it "returns full name without first name" do
         user = create(:user, first_name: nil, last_name: "Doe")
         expect(user.full_name).to eq(I18n.t("models.user.full_name"))
-      end
-    end
-
-    describe ".authenticate!" do
-      context "when user and account is confirmed" do
-        let!(:user) { create(:user, :confirmed, password: "password") }
-
-        before do
-          user.owned_accounts.last.active!
-        end
-
-        it "returns user" do
-          expect(described_class.authenticate!(user.email, "password")).to eq(user)
-        end
-
-        it "returns nil" do
-          expect(described_class.authenticate!("email", "password")).to be_nil
-        end
-      end
-
-      context "when user is not confirmed" do
-        let!(:user) { create(:user, password: "password") }
-
-        it "returns nil" do
-          expect(described_class.authenticate!(user.email, "password")).to be_nil
-        end
-      end
-
-      context "when user is locked" do
-        let!(:user) { create(:user, :confirmed, password: "password") }
-
-        before do
-          user.lock_access!
-        end
-
-        it "returns nil" do
-          expect(described_class.authenticate!(user.email, "password")).to be_nil
-        end
-      end
-
-      context "when account is not active" do
-        let!(:user) { create(:user, :confirmed, password: "password") }
-
-        it "returns nil" do
-          expect(described_class.authenticate!(user.email, "password")).to be_nil
-        end
       end
     end
   end

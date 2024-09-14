@@ -10,7 +10,6 @@ SimpleCov.start "rails" do
 
   add_filter "lib/generators/"
 
-  add_group "Serializers", "app/serializers"
   add_group "Policies", "app/policies"
 end
 ENV["RAILS_ENV"] ||= "test"

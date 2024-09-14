@@ -10,7 +10,6 @@
 #  confirmed_at           :datetime
 #  current_sign_in_at     :datetime
 #  current_sign_in_ip     :string
-#  discarded_at           :datetime
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  failed_attempts        :integer          default(0), not null
@@ -31,7 +30,6 @@
 # Indexes
 #
 #  index_admins_on_confirmation_token    (confirmation_token) UNIQUE
-#  index_admins_on_discarded_at          (discarded_at)
 #  index_admins_on_email                 (email) UNIQUE
 #  index_admins_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_admins_on_unlock_token          (unlock_token) UNIQUE
@@ -45,10 +43,6 @@ class Admin < ApplicationRecord
          :confirmable, :lockable, :timeoutable, :trackable
 
   has_one_attached :avatar
-  has_many :access_tokens,
-           class_name: "Doorkeeper::AccessToken",
-           foreign_key: :resource_owner_id,
-           dependent: :destroy, inverse_of: :resource_owner
 
   pg_search_scope :search,
                   against: [:first_name, :last_name, :email],

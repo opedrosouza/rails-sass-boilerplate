@@ -34,22 +34,6 @@ Rails.application.routes.draw do
   #   end
   # end
 
-  # API routes
-  scope :api do
-    use_doorkeeper do
-      skip_controllers :authorizations, :applications, :authorized_applications
-      controllers tokens: "api/auth/tokens"
-    end
-  end
-
-  namespace :api, defaults: { format: :json } do
-    namespace :auth do
-      resources :registrations, only: [:create]
-    end
-
-    get "me", to: "me#show"
-  end
-
   # App routes
   namespace :app do
     root to: "home#index"
