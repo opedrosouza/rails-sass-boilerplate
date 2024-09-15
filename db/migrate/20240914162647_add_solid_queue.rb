@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddSolidQueue < ActiveRecord::Migration[7.2]
   def change
     create_table "solid_queue_blocked_executions", force: :cascade do |t|
