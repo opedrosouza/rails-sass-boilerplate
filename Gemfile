@@ -30,7 +30,7 @@ group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails", "~> 6.4", ">= 6.4.3"
   gem "faker", "~> 3.4", ">= 3.4.1"
-  gem "rubocop-performance", "~> 1.21"
+  gem "rubocop-performance", "~> 1.22"
   gem "rubocop-rails", "~> 2.26"
   gem "rubocop-rspec", "~> 3.0", ">= 3.0.5"
 end
