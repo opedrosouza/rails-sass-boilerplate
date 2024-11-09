@@ -40,7 +40,6 @@ jobs:
       - name: Lint Ruby code for consistent style
         run: bin/rubocop -f github
 
-
   test:
     runs-on: ubuntu-latest
     services:
@@ -68,8 +67,10 @@ jobs:
       - name: Install dependencies
         run: bundle install --jobs 4 --retry 3
 
-      - name: Install Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
+        name: Enable Corepack before setting up Node
++         run: corepack enable
         with:
           node-version: 22.11.0
 
