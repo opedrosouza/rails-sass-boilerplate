@@ -1,4 +1,4 @@
-<%- logo_path = controller.class.name.downcase.match?(/admin/) ? admin_root_path : root_path %>
+<%- logo_path = current_admin.present? ? admin_root_path : current_user.present? ? app_root_path : root_path %>
 
 <%= link_to logo_path do %>
   <h1 class="text-xl font-mono">Boilerplate</h1>
