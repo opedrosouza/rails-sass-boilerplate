@@ -22,7 +22,7 @@
     "eslint-plugin-tailwindcss": "^3.17.3",
     "flowbite": "^2.3.0",
     "path": "^0.12.7",
-    "postcss": "^8.4.47",
+    "postcss": "^8.4.48",
     "postcss-cli": "^11.0.0",
     "postcss-import": "^16.1.0",
     "prettier": "^3.3.2",
