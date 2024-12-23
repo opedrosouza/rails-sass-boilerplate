@@ -7,7 +7,7 @@ ruby "3.3.4"
 gem "bootsnap", require: false
 gem "devise", "~> 4.9", ">= 4.9.4"
 gem "devise-i18n", "~> 1.12", ">= 1.12.1"
-gem "dotenv-rails", "~> 3.1", ">= 3.1.2"
+gem "dotenv-rails", "~> 3.1"
 gem "image_processing", "~> 1.12", ">= 1.12.2"
 gem "money", "~> 6.19"
 gem "pagy", "~> 9.0", ">= 9.0.9"
