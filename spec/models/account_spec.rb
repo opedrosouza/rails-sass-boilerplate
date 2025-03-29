@@ -24,7 +24,7 @@ require "rails_helper"
 RSpec.describe Account do
   describe "factory" do
     it "has a valid factory" do
-      expect(build(:account, owner: create(:user, :confirmed))).to be_valid
+      expect(build(:account, owner: create(:user))).to be_valid
     end
   end
 
@@ -43,7 +43,7 @@ RSpec.describe Account do
   describe "callbacks" do
     describe "after_create" do
       describe "#create_account_user_for_owner" do
-        let!(:account) { create(:account, owner: create(:user, :confirmed)) }
+        let!(:account) { create(:account, owner: create(:user)) }
 
         it "creates an account user" do
           expect(account.account_users.count).to eq(1)

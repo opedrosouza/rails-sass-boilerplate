@@ -6,8 +6,8 @@ RSpec.describe "Admin::Accounts", type: :request do
   describe "GET /admin/accounts" do
     context "when admin is logged in" do
       before do
-        admin = create(:admin, :confirmed)
-        sign_in(admin)
+        admin = create(:admin)
+        sign_in(admin, scope: :admin)
         get admin_accounts_path
       end
 
