@@ -1,7 +1,10 @@
 #!/usr/bin/env sh
 
-# Clear out any existing assets
-echo "Cleaning up old assets..."
-rails assets:clobber tmp:clear && yarn clean
+PORT="${PORT:-3000}"
+export PORT
 
-exec npx run-pty run-pty.json 
+if command -v overmind > /dev/null 2>&1; then
+  exec overmind start -f Procfile.dev "$@"
+else
+  exec foreman start -f Procfile.dev "$@"
+fi
