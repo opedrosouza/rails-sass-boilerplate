@@ -46,5 +46,5 @@ Rails.application.routes.draw do
     root to: "home#index"
   end
 
-  root to: "storefront/home#index"
+  root to: "pages#home"
 end

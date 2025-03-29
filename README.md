@@ -23,15 +23,3 @@ This project has a few differences from a regular new Rails project the main one
 
 ## Project Structure
 The structure is pretty much the same as regular Rails MVC, the big difference is that we should store all our js/css/assets files inside `app/frontend` folder instead of the `app/assets` folder.
-
-- Controllers
-  - I've created 3 folders on the controllers to better organize the code:
-    - admin folder must contain all the controllers related to admin side of the project
-    - app folder must contain all the controllers that our logged_in users will use (this will be the actual app)
-    - storefront folder must contain all controllers that can contain public pages, like the home page, the contact page or something like that.
-  - The idea is that we can organize our code in a way which just taking a look we can see which that controller is being used.
-- Frontend
-  - This is where all our assets will leave, basically almost all js/css/images/etc will leave inside this folder to processed by vite.
-
-The rest of the folders/structure is pretty much what the base rails gives to us.
-
