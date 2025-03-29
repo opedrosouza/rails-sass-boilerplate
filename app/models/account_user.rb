@@ -25,14 +25,13 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class AccountUser < ApplicationRecord
-
-  ROLES = [:admin, :member].freeze
+  ROLES = [ :admin, :member ].freeze
   include Rolified
 
   belongs_to :user, inverse_of: :account_users
   belongs_to :account, inverse_of: :account_users
 
-  validates :account_owner, inclusion: { in: [true, false] }
+  validates :account_owner, inclusion: { in: [ true, false ] }
   validates :roles, presence: true
 
   delegate :email, to: :user
@@ -40,5 +39,4 @@ class AccountUser < ApplicationRecord
   def owner?
     account_owner
   end
-
 end

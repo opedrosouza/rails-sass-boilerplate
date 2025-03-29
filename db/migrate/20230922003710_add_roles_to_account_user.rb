@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class AddRolesToAccountUser < ActiveRecord::Migration[7.0]
   def change
     change_table :account_users, bulk: true do |t|

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative "boot"
 
 require "rails"
@@ -20,9 +21,7 @@ require "action_cable/engine"
 Bundler.require(*Rails.groups)
 
 module Boilerplate
-
   class Application < Rails::Application
-
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.2
 
@@ -46,7 +45,5 @@ module Boilerplate
 
     # Don't generate system test files.
     config.generators.system_tests = nil
-
   end
-
 end

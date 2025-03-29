@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -39,7 +40,6 @@
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
 #
 class User < ApplicationRecord
-
   include PgSearch::Model
 
   devise :database_authenticatable, :registerable,
@@ -55,12 +55,12 @@ class User < ApplicationRecord
   after_create :create_default_account, if: -> { owned_accounts.empty? }
 
   pg_search_scope :search,
-                  against: [:first_name, :last_name, :email],
+                  against: [ :first_name, :last_name, :email ],
                   using: {
                     tsearch: {
                       prefix: true,
-                      any_word: true,
-                    },
+                      any_word: true
+                    }
                   }
 
   # Returns the user's full name or "Sem nome" if the user has no name.
@@ -82,5 +82,4 @@ class User < ApplicationRecord
   def create_default_account
     owned_accounts.create(personal: true)
   end
-
 end

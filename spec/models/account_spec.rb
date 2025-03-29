@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: accounts
@@ -28,8 +29,8 @@ RSpec.describe Account do
   end
 
   describe "validations" do
-    it { is_expected.to validate_inclusion_of(:personal).in_array([true, false]) }
-    it { is_expected.to validate_inclusion_of(:active).in_array([true, false]) }
+    it { is_expected.to validate_inclusion_of(:personal).in_array([ true, false ]) }
+    it { is_expected.to validate_inclusion_of(:active).in_array([ true, false ]) }
   end
 
   describe "associations" do
@@ -62,25 +63,25 @@ RSpec.describe Account do
 
     describe ".personal" do
       it "returns only personal accounts" do
-        expect(described_class.personal).to eq([personal_active_account])
+        expect(described_class.personal).to eq([ personal_active_account ])
       end
     end
 
     describe ".professional" do
       it "returns only professional accounts" do
-        expect(described_class.professional).to eq([professional_inactive_account])
+        expect(described_class.professional).to eq([ professional_inactive_account ])
       end
     end
 
     describe ".active" do
       it "returns only active accounts" do
-        expect(described_class.active).to eq([personal_active_account])
+        expect(described_class.active).to eq([ personal_active_account ])
       end
     end
 
     describe ".inactive" do
       it "returns only inactive accounts" do
-        expect(described_class.inactive).to eq([professional_inactive_account])
+        expect(described_class.inactive).to eq([ professional_inactive_account ])
       end
     end
   end

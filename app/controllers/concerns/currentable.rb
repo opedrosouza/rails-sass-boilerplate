@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-module Currentable
 
+module Currentable
   extend ActiveSupport::Concern
 
   included do |base|
@@ -56,5 +56,4 @@ module Currentable
 
     current_user.owned_accounts.includes(:users).first
   end
-
 end

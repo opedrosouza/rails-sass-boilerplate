@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Auth::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-
   layout "auth"
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
@@ -29,5 +28,4 @@ class Auth::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def after_omniauth_failure_path_for(scope)
   #   super(scope)
   # end
-
 end

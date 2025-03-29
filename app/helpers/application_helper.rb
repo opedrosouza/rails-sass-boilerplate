@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-
   include Pagy::Frontend
 
   def user_avatar(user, size: 8, classes: nil)
@@ -27,5 +26,4 @@ module ApplicationHelper
       concat(pagy_nav(pagy).html_safe) # rubocop:disable Rails/OutputSafety
     end
   end
-
 end

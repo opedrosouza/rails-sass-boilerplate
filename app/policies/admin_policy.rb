@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class AdminPolicy
-
   attr_reader :user
 
   def initialize(user, _record)
@@ -35,5 +34,4 @@ class AdminPolicy
   def destroy?
     user.is_a? Admin
   end
-
 end

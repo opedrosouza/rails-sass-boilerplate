@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: account_users
@@ -27,7 +28,7 @@ require "rails_helper"
 
 RSpec.describe AccountUser do
   describe "validations" do
-    it { is_expected.to validate_inclusion_of(:account_owner).in_array([true, false]) }
+    it { is_expected.to validate_inclusion_of(:account_owner).in_array([ true, false ]) }
     it { is_expected.to validate_presence_of(:roles) }
   end
 
@@ -67,5 +68,4 @@ RSpec.describe AccountUser do
       expect(account_user).not_to be_member
     end
   end
-
 end

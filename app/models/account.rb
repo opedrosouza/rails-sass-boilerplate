@@ -20,7 +20,6 @@
 #  fk_rails_...  (owner_id => users.id)
 #
 class Account < ApplicationRecord
-
   include PgSearch::Model
 
   belongs_to :owner, class_name: "User", inverse_of: :owned_accounts
@@ -28,12 +27,12 @@ class Account < ApplicationRecord
   has_many :users, through: :account_users
   has_many :subscriptions, dependent: :destroy
 
-  validates :personal, inclusion: { in: [true, false] }
-  validates :active, inclusion: { in: [true, false] }
+  validates :personal, inclusion: { in: [ true, false ] }
+  validates :active, inclusion: { in: [ true, false ] }
 
   after_create :create_account_user_for_owner
 
-  pg_search_scope :search, against: [:id, :owner_id]
+  pg_search_scope :search, against: [ :id, :owner_id ]
 
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
@@ -68,5 +67,4 @@ class Account < ApplicationRecord
   def create_account_user_for_owner
     account_users.create!(user: owner, account_owner: true, admin: true)
   end
-
 end

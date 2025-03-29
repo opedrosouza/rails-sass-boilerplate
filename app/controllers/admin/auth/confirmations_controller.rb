@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Admin::Auth::ConfirmationsController < Devise::ConfirmationsController
-
   layout "auth"
   # GET /resource/confirmation/new
   # def new
@@ -29,5 +28,4 @@ class Admin::Auth::ConfirmationsController < Devise::ConfirmationsController
   # def after_confirmation_path_for(resource_name, resource)
   #   super(resource_name, resource)
   # end
-
 end

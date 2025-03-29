@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 module ApplicationCable
-
   class Connection < ActionCable::Connection::Base
-
     include AbstractController::Helpers
     include Currentable
 
@@ -32,7 +30,5 @@ module ApplicationCable
     def user_signed_in?
       !!current_user
     end
-
   end
-
 end

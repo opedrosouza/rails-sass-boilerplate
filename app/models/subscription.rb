@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: subscriptions
@@ -22,7 +23,6 @@
 #  fk_rails_...  (plan_id => plans.id)
 #
 class Subscription < ApplicationRecord
-
   belongs_to :account
   belongs_to :plan
 
@@ -32,5 +32,4 @@ class Subscription < ApplicationRecord
   def price
     Money.new(price_in_cents, "USD")
   end
-
 end

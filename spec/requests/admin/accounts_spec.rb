@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe "Admin::Accounts", type: :request do
@@ -31,5 +32,4 @@ RSpec.describe "Admin::Accounts", type: :request do
       end
     end
   end
-
 end

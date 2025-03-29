@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-module Searchable
 
+module Searchable
   extend ActiveSupport::Concern
 
   included do
@@ -12,5 +12,4 @@ module Searchable
 
     record.search(search_param).order(order)
   end
-
 end

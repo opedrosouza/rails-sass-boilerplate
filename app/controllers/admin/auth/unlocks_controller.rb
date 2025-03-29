@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Admin::Auth::UnlocksController < Devise::UnlocksController
-
   layout "auth"
   # GET /resource/unlock/new
   # def new
@@ -29,5 +28,4 @@ class Admin::Auth::UnlocksController < Devise::UnlocksController
   # def after_unlock_path_for(resource)
   #   super(resource)
   # end
-
 end

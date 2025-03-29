@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 unless Rails.env.production?
   password = "password"
   # Create the default admin user

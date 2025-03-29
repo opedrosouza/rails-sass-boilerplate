@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-module Rolified
 
+module Rolified
   # Adds roles to a model along with helper methods and scopes
   #
   # To use, add a `roles:json` column to your model.
@@ -41,5 +41,4 @@ module Rolified
   def active_roles
     self.class::ROLES.select { |role| send(:"#{role}?") }.compact
   end
-
 end

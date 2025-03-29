@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-
   include Pundit::Authorization
   include Pagy::Backend
   include Currentable
@@ -23,5 +22,4 @@ class ApplicationController < ActionController::Base
     path_to_redirect = current_user.present? ? app_root_path : root_path
     redirect_back(fallback_location: path_to_redirect)
   end
-
 end

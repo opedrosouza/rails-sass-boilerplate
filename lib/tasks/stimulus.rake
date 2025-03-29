@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 namespace :stimulus do
   desc "Overwrites the default manifest update behavior to do nothing"
   namespace :manifest do

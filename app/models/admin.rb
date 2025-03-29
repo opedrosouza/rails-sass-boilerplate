@@ -35,7 +35,6 @@
 #  index_admins_on_unlock_token          (unlock_token) UNIQUE
 #
 class Admin < ApplicationRecord
-
   include PgSearch::Model
 
   devise :database_authenticatable,
@@ -45,12 +44,12 @@ class Admin < ApplicationRecord
   has_one_attached :avatar
 
   pg_search_scope :search,
-                  against: [:first_name, :last_name, :email],
+                  against: [ :first_name, :last_name, :email ],
                   using: {
                     tsearch: {
                       prefix: true,
-                      any_word: true,
-                    },
+                      any_word: true
+                    }
                   }
 
   # Returns the user's full name or "Sem nome" if the user has no name.
@@ -59,5 +58,4 @@ class Admin < ApplicationRecord
   def full_name
     first_name.present? ? "#{first_name} #{last_name}" : I18n.t("models.admin.full_name")
   end
-
 end
