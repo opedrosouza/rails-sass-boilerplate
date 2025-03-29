@@ -26,7 +26,7 @@ FactoryBot.define do
     owner { nil }
 
     trait :with_owner do
-      owner { create(:user, :confirmed) }
+      owner { create(:user) }
     end
 
     trait :professional do

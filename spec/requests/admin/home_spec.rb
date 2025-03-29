@@ -13,10 +13,10 @@ RSpec.describe "Admin::HomeController" do
     end
 
     context "when admin is logged in" do
-      let(:admin) { create(:admin, :confirmed) }
+      let(:admin) { create(:admin) }
 
       before do
-        sign_in(admin)
+        sign_in(admin, scope: :admin)
         get admin_root_path
       end
 

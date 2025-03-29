@@ -51,13 +51,13 @@ RSpec.describe Admin do
   describe "methods" do
     describe "#full_name" do
       it "returns full name" do
-        user = create(:user, first_name: "John", last_name: "Doe")
-        expect(user.full_name).to eq("John Doe")
+        admin = create(:admin, first_name: "John", last_name: "Doe")
+        expect(admin.full_name).to eq("John Doe")
       end
 
       it "returns full name without first name" do
-        user = create(:user, first_name: nil, last_name: "Doe")
-        expect(user.full_name).to eq(I18n.t("models.user.full_name"))
+        admin = create(:admin, first_name: nil, last_name: "Doe")
+        expect(admin.full_name).to eq(I18n.t("models.admin.full_name"))
       end
     end
   end

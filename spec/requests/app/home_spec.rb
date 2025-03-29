@@ -6,7 +6,7 @@ RSpec.describe "App::HomeController" do
   describe "GET /" do
     context "when user is authenticated" do
       before do
-        sign_in(create(:user, :confirmed_with_personal_account))
+        sign_in(create(:user, :confirmed_with_personal_account), scope: :user)
         get app_root_path
       end
 

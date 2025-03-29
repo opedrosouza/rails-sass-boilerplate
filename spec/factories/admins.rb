@@ -41,10 +41,10 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { Faker::Internet.password }
     password_confirmation { password }
-    confirmed_at { nil }
+    confirmed_at { Time.current }
 
-    trait :confirmed do
-      confirmed_at { Time.current }
+    trait :unconfirmed do
+      confirmed_at { nil }
     end
   end
 end
