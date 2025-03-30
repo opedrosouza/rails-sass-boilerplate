@@ -24,27 +24,33 @@ Rails.application.routes.draw do
                unlocks: "admin/auth/unlocks"
              }
 
-  # Example of how to use devise_scope to change the default path of the routes
-  # devise_scope :user do
-  #   authenticated :user do
-  #     root to: "app/home#index", as: :authenticated_root
-  #   end
-
-  #   unauthenticated do
-  #     root "storefront/home#index", as: :unauthenticated_root
-  #   end
-  # end
-
-  # App routes
-  namespace :app do
-    root to: "home#index"
-  end
 
   # Admin routes
-  namespace :admin do
-    resources :accounts
-    root to: "home#index"
+  devise_scope :admin do
+    authenticated :admin do
+      root "admin/home#index", as: :admin_root
+
+      namespace :admin do
+        resources :accounts
+      end
+    end
+
+    unauthenticated do
+      root "pages#home", as: :unauthenticated_admin_root
+    end
   end
 
-  root to: "pages#home"
+  # APP routes
+  devise_scope :user do
+    authenticated :user do
+      root "home#index", as: :authenticated_root
+    end
+
+    unauthenticated do
+      root "pages#home", as: :unauthenticated_root
+    end
+  end
+
+  # Static pages
+  root "pages#home"
 end

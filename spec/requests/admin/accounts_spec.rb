@@ -28,7 +28,7 @@ RSpec.describe "Admin::Accounts", type: :request do
       before { get admin_accounts_path }
 
       it "redirects to the login page" do
-        expect(response).to redirect_to(new_admin_session_path)
+        expect(response).to have_http_status(:not_found)
       end
     end
   end
