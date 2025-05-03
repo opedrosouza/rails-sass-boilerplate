@@ -2,7 +2,7 @@ html, body {
   @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 h-full w-full;
 }
 
-main {
+.main {
   @apply flex-1 py-2.5 mx-auto relative;
 }
 

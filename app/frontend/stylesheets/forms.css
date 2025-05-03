@@ -2,12 +2,13 @@
   .form {
     @apply space-y-4 max-w-md md:space-y-6 xl:max-w-xl w-full mx-auto;
   }
+
   .form-control {
     @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
   }
 
   .form-control-lg {
-    @apply p-4 sm:text-md;
+    @apply p-4 sm:text-xs;
   }
 
   .form-control-sm {

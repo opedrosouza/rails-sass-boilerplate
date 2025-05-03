@@ -1,2 +1,23 @@
-<h1>Admin::Home#index</h1>
-<p>Find me in app/views/admin/home/index.html.erb</p>
+<%= content_for :page_title, "Overview" %>
+<dl class="mx-auto grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-4">
+  <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white dark:bg-gray-700 px-4 py-10 sm:px-6 xl:px-8">
+    <dt class="text-sm/6 font-medium">Revenue</dt>
+    <dd class="text-xs font-medium">+4.75%</dd>
+    <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight">$405,091.00</dd>
+  </div>
+  <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white  dark:bg-gray-700 px-4 py-10 sm:px-6 xl:px-8">
+    <dt class="text-sm/6 font-medium">Overdue invoices</dt>
+    <dd class="text-xs font-medium text-rose-600">+54.02%</dd>
+    <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight">$12,787.00</dd>
+  </div>
+  <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white dark:bg-gray-700 px-4 py-10 sm:px-6 xl:px-8">
+    <dt class="text-sm/6 font-medium">Outstanding invoices</dt>
+    <dd class="text-xs font-medium">-1.39%</dd>
+    <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight">$245,988.00</dd>
+  </div>
+  <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white dark:bg-gray-700 px-4 py-10 sm:px-6 xl:px-8">
+    <dt class="text-sm/6 font-medium">Expenses</dt>
+    <dd class="text-xs font-medium text-rose-600">+10.18%</dd>
+    <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight">$30,156.00</dd>
+  </div>
+</dl>

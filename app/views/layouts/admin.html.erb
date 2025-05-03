@@ -1,36 +1,43 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
   <head>
-    <title>Boilerplate</title>
+    <title><%= content_for(:title) || "Boilerplate" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= vite_client_tag %>
     <%= vite_javascript_tag 'application', data: { "turbo-track": "reload" }, defer: true %>
     <%= vite_stylesheet_tag 'application', data: { "turbo-track": "reload" } %>
+    <%= yield :head %>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
   </head>
-  <body>
-    <div class="fixed top-16 right-4 z-50 w-screen md:w-1/2">
-      <%= render "shared/admin/alert" %>
-    </div>
+  <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-50">
+    <%= render "shared/alert" %>
     <div class="antialiased bg-gray-50 dark:bg-gray-900">
+      <!-- Navbar -->
       <%= render "shared/admin/navbar" %>
-      <%= render "shared/admin/sidebar" %>
-      <main class="p-4 md:ml-64 h-auto pt-20">
-        <div class="md:flex md:items-center md:justify-between mb-5">
-          <div class="min-w-0 flex-1">
-            <h2 class="text-2xl font-bold leading-7 sm:truncate sm:text-3xl sm:tracking-tight"><%= yield :page_title %></h2>
+      <div class="relative flex h-full w-full flex-1">
+        <!-- Sidebar -->
+        <%= render "shared/admin/sidebar" %>
+        <!-- Main Content -->
+        <main class="dark:bg-gray-900 w-full flex-1 p-4 flex flex-col items-stretch h-full space-y-4 lg:ml-64 pt-20 lg:pt-4">
+          <div class="md:flex md:items-center md:justify-between mb-5">
+            <div class="min-w-0 flex-1">
+              <h2 class="text-2xl font-bold leading-7 sm:truncate sm:text-3xl sm:tracking-tight"><%= yield :page_title %></h2>
+            </div>
+            <div class="mt-4 flex md:ml-4 md:mt-0">
+              <%= yield :page_actions %>
+            </div>
           </div>
-          <div class="mt-4 flex md:ml-4 md:mt-0">
-            <%= yield :page_actions %>
-            <!--    <button type="button" class="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Edit</button>-->
-            <!--    <button type="button" class="ml-3 inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Publish</button>-->
-          </div>
-        </div>
-        <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
           <%= yield %>
-        </div>
-      </main>
-    </div>
-  </body>
-</html>
+          <div class="fixed right-5 bottom-5">
+            <%= render "shared/dark_mode_button" %>
+          </div>
+        </main>
+      </div>
+    </body>
+  </html>
