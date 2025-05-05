@@ -766,7 +766,7 @@ __metadata:
     flowbite: "npm:^3"
     stimulus-vite-helpers: "npm:^3.1.0"
     tailwindcss: "npm:^4"
-    trix: "npm:^2.1.13"
+    trix: "npm:^2.1.14"
     vite: "npm:^6"
     vite-plugin-full-reload: "npm:^1.2.0"
     vite-plugin-ruby: "npm:^5.1.1"
@@ -888,15 +888,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dompurify@npm:^3.2.3":
-  version: 3.2.4
-  resolution: "dompurify@npm:3.2.4"
+"dompurify@npm:^3.2.5":
+  version: 3.2.5
+  resolution: "dompurify@npm:3.2.5"
   dependencies:
     "@types/trusted-types": "npm:^2.0.7"
   dependenciesMeta:
     "@types/trusted-types":
       optional: true
-  checksum: 10c0/6be56810fb7ad2776155c8fc2967af5056783c030094362c7d0cf1ad13f2129cf922d8eefab528a34bdebfb98e2f44b306a983ab93aefb9d6f24c18a3d027a05
+  checksum: 10c0/b564167cc588933ad2d25c185296716bdd7124e9d2a75dac76efea831bb22d1230ce5205a1ab6ce4c1010bb32ac35f7a5cb2dd16c78cbf382111f1228362aa59
   languageName: node
   linkType: hard
 
@@ -2105,12 +2105,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"trix@npm:^2.1.13":
-  version: 2.1.13
-  resolution: "trix@npm:2.1.13"
+"trix@npm:^2.1.14":
+  version: 2.1.14
+  resolution: "trix@npm:2.1.14"
   dependencies:
-    dompurify: "npm:^3.2.3"
-  checksum: 10c0/b65bd3e1855a63f0e3f29ffb46609307d5f5b2a4022a1968b131a92f0ffa5a9d6b91df07ed0556dadeba18d637d581b27a2cb57421d9eee66228bbfede49818e
+    dompurify: "npm:^3.2.5"
+  checksum: 10c0/5150e843a3dff67b6e707d763ade472758f25efadd216091eae40c2fe3c4c762021b7499c224fdd4e498811e3d1c38a6a240412a2697b6f17aaae0df50e52d8e
   languageName: node
   linkType: hard
 
