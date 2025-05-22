@@ -9,6 +9,9 @@ def system!(*args)
 end
 
 FileUtils.chdir APP_ROOT do
+  puts "== Renaming application =="
+  system! "bin/rename #{APP_NAME}"
+
   puts "== Installing dependencies =="
   system! "gem install bundler --conservative"
   system("bundle check") || system!("bundle install")

@@ -1,4 +1,4 @@
-# Rails Saas Boilerplate
+# Boilerplate
 Create a sass app using rails really faster than normal.
 
 ## The motivation
@@ -20,3 +20,16 @@ This project has a few differences from a regular new Rails project the main one
    2. Vite also provides helpers to facilitate the usage of our assets on the app
 2. It came with pre configured authentication and authorization for users and admins, which is being handled by devise/pundit.
 3. It has specs configured and executed by rspec/factory_bot.
+
+## Getting started
+I have being using this boilerplate on a Mac with ARM proccessor and Docker to get postgres db running. So here's the steps to get it up running.
+
+- Make sure you have postgres running, I do it running docker like: `docker run --name postgres -e POSTGRES_USER=pedro -e POSTGRES_PASSWORD=password -v postgres:/var/lib/postgresql/data -p 5432:5432 -d postgres`
+
+- Go to the `bin/setup` file and change the `APP_NAME` var to the name you desire, ex: `sample_project`
+
+- On your terminal run the `bin/setup` script
+
+- On your terminal run the `bin/dev` script
+
+- Visit `http:localhost:3000` and have some fun.

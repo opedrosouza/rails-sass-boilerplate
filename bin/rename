@@ -1,0 +1,35 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 new_project_name"
+    exit 1
+fi
+
+NEW_NAME=$1
+CURRENT_NAME="boilerplate"
+CURRENT_NAME_CAMEL="Boilerplate"
+
+# Check if the new name is the same as current name
+if [ "$NEW_NAME" = "$CURRENT_NAME" ]; then
+    echo "New name is the same as current name. No changes needed."
+    exit 0
+fi
+
+# Set locale to handle UTF-8 characters
+export LC_ALL=C
+
+# Convert new name to different cases
+NEW_NAME_KEBAB=$(echo "$NEW_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g' | sed 's/-/_/g')
+NEW_NAME_CAMEL=$(echo "$NEW_NAME_KEBAB" | perl -pe 's/(^|_)(\w)/\U$2/g' | sed 's/_//g')
+
+echo "Renaming project from $CURRENT_NAME to $NEW_NAME_KEBAB"
+
+# Find and replace in all files, excluding .git directory and the rename script itself
+find . -type f \
+    ! -path "./.git/*" \
+    ! -path "./bin/rename" \
+    -exec sed -i '' \
+    -e "s/$CURRENT_NAME/$NEW_NAME_KEBAB/g" \
+    -e "s/$CURRENT_NAME_CAMEL/$NEW_NAME_CAMEL/g" {} +
+
+echo "Project renamed successfully!"

@@ -15,7 +15,7 @@ RSpec.describe "PagesController", type: :request do
     end
 
     it "includes the correct content in the response body" do
-      expect(response.body).to include("Rails SaaS Boilerplate")
+      expect(response.body).to include("Boilerplate")
     end
   end
 end

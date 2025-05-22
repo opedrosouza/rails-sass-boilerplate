@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="dark:bg-gray-900 dark:text-gray-50 h-screen">
   <head>
-    <title>Boilerplate</title>
+    <title><%= content_for(:title) || "Boilerplate" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
