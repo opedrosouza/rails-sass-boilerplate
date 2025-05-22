@@ -6,7 +6,7 @@
 
 @source "../../views/";
 @source "../../helpers/";
-/* @source "../../../node_modules/flowbite/"; */
+@source "../../../node_modules/flowbite/";
 
 @import "../stylesheets/actiontext.css";
 @import "../stylesheets/alert.css";
