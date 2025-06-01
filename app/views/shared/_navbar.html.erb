@@ -4,7 +4,47 @@
       <%= render "shared/logo" %>
       <div class="flex items-center lg:order-2">
         <%- if current_user %>
-          <%= button_to "Logout", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "btn btn-sm btn-primary" %>
+          <button
+            type="button"
+            class="flex items-center mx-3 text-sm rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+            id="user-menu-button"
+            aria-expanded="false"
+            data-dropdown-toggle="dropdown"
+          >
+            <span class="sr-only">Open user menu</span>
+            <%= user_avatar(current_user)%>
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 10 4 4 4-4"/>
+            </svg>
+          </button>
+          <!-- Dropdown menu -->
+          <div
+            class="hidden z-50 my-4 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 rounded-xl"
+            id="dropdown"
+          >
+            <div class="py-3 px-4">
+              <span class="block text-sm font-semibold text-gray-900 dark:text-white"><%= current_user.full_name %></span>
+              <span class="block text-sm text-gray-900 truncate dark:text-white"><%= current_user.email %></span>
+            </div>
+            <ul
+              class="py-1 text-gray-700 dark:text-gray-300"
+              aria-labelledby="dropdown"
+            >
+              <li>
+                <%= link_to "My profile", profile_path, class: "block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white" %>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
+                >Account settings</a
+                >
+              </li>
+              <li>
+                <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "w-full text-left block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white rounded" %>
+              </li>
+            </ul>
+          </div>
         <%- else %>
           <%= link_to "Sign In", new_user_session_path, class: "text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800" %>
           <%= link_to "Register", new_user_registration_path, class: "btn btn-sm btn-primary" %>

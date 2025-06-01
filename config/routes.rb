@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   # APP routes
   devise_scope :user do
     authenticated :user do
+      resource :users, path: "profile", as: :profile
       root "home#index", as: :authenticated_root
     end
 

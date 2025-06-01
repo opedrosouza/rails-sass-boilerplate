@@ -44,7 +44,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :confirmable, :lockable, :timeoutable, :trackable
+         :confirmable, :lockable, :trackable
 
   has_one_attached :avatar
   has_many :owned_accounts, class_name: "Account", inverse_of: :owner, foreign_key: :owner_id, dependent: :destroy
