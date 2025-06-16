@@ -15,7 +15,7 @@
     "@tailwindcss/vite": "^4.1.7",
     "flowbite": "^3",
     "stimulus-vite-helpers": "^3.1.0",
-    "tailwindcss": "^4.1.7",
+    "tailwindcss": "^4.1.10",
     "vite": "^6.3.5",
     "vite-plugin-full-reload": "^1.2.0",
     "vite-plugin-ruby": "^5.1.1",
