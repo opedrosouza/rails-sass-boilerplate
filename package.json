@@ -3,7 +3,7 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.12",
-    "@rails/actiontext": "^8.0.12",
+    "@rails/actiontext": "^8.0.201",
     "@rails/request.js": "^0.0.12",
     "trix": "^2.1.15"
   },
