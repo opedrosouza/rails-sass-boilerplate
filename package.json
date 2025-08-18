@@ -12,7 +12,7 @@
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/typography": "^0.5.16",
-    "@tailwindcss/vite": "^4.1.7",
+    "@tailwindcss/vite": "^4.1.12",
     "flowbite": "^3",
     "stimulus-vite-helpers": "^3.1.0",
     "tailwindcss": "^4.1.7",
