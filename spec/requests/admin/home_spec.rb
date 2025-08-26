@@ -7,20 +7,15 @@ RSpec.describe "Admin::HomeController" do
     context "when admin is not logged in" do
       before { get admin_root_path }
 
-      it "returns http 200 response" do
-        expect(response).to have_http_status(:ok)
-      end
-
-      it "renders the unauthenticated admin root template" do
-        expect(response).to render_template("pages/home")
+      it "returns http 404 response" do
+        expect(response).to have_http_status(:not_found)
       end
     end
 
     context "when admin is logged in" do
-      let(:admin) { create(:admin) }
-
       before do
-        sign_in(admin, scope: :admin)
+        admin = create(:user, :admin)
+        sign_in(admin, scope: :user)
         get admin_root_path
       end
 

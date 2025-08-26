@@ -7,6 +7,5 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     Devise.mappings[:user] ||= Devise::Mapping.find_scope!(:user)
-    Devise.mappings[:admin] ||= Devise::Mapping.find_scope!(:admin)
   end
 end

@@ -14,36 +14,17 @@ Rails.application.routes.draw do
                unlocks: "auth/unlocks",
                registrations: "auth/registrations"
              }
-  devise_for :admins,
-             path: "admin/auth",
-             class_name: "Admin",
-             controllers: {
-               sessions: "admin/auth/sessions",
-               confirmations: "admin/auth/confirmations",
-               passwords: "admin/auth/passwords",
-               unlocks: "admin/auth/unlocks"
-             }
-
-
-  # Admin routes
-  devise_scope :admin do
-    authenticated :admin do
-      root "admin/home#index", as: :admin_root
-
-      namespace :admin do
-        resources :accounts
-      end
-    end
-
-    unauthenticated do
-      root "pages#home", as: :unauthenticated_admin_root
-    end
-  end
 
   # APP routes
   devise_scope :user do
     authenticated :user do
       resource :users, path: "profile", as: :profile
+
+      namespace :admin do
+        resources :accounts
+        get "/", to: "home#index", as: :root
+      end
+
       root "home#index", as: :authenticated_root
     end
 

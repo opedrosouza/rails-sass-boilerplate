@@ -74,9 +74,6 @@ GEM
       uri (>= 0.13.1)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
-    annotate (2.6.5)
-      activerecord (>= 2.3.0)
-      rake (>= 0.8.7)
     ast (2.4.3)
     awesome_print (1.9.2)
     base64 (0.3.0)
@@ -408,7 +405,6 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  annotate
   awesome_print
   bootsnap
   brakeman

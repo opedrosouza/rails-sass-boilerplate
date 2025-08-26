@@ -8,15 +8,15 @@ class AdminPolicy
   end
 
   def index?
-    user.is_a? Admin
+    user.admin?
   end
 
   def show?
-    user.is_a? Admin
+    user.admin?
   end
 
   def create?
-    user.is_a? Admin
+    user.admin?
   end
 
   def new?
@@ -24,7 +24,7 @@ class AdminPolicy
   end
 
   def update?
-    user.is_a? Admin
+    user.admin?
   end
 
   def edit?
@@ -32,6 +32,6 @@ class AdminPolicy
   end
 
   def destroy?
-    user.is_a? Admin
+    user.admin?
   end
 end

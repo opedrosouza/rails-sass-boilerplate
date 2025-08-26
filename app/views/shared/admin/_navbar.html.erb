@@ -347,8 +347,8 @@ class="bg-white border-b border-gray-200 px-4 py-2.5 dark:bg-gray-800 dark:borde
         id="dropdown"
       >
         <div class="py-3 px-4">
-          <span class="block text-sm font-semibold text-gray-900 dark:text-white"><%= current_admin.full_name %></span>
-          <span class="block text-sm text-gray-900 truncate dark:text-white"><%= current_admin.email %></span>
+          <span class="block text-sm font-semibold text-gray-900 dark:text-white"><%= current_user.full_name %></span>
+          <span class="block text-sm text-gray-900 truncate dark:text-white"><%= current_user.email %></span>
         </div>
         <ul
           class="py-1 text-gray-700 dark:text-gray-300"
@@ -453,7 +453,7 @@ class="bg-white border-b border-gray-200 px-4 py-2.5 dark:bg-gray-800 dark:borde
           aria-labelledby="dropdown"
         >
           <li>
-            <%= button_to "Sign out", destroy_admin_session_path, method: :delete, class: "w-full text-left block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "w-full text-left block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
           </li>
         </ul>
       </div>
