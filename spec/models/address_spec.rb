@@ -4,27 +4,28 @@
 #
 # Table name: addresses
 #
-#  id               :bigint           not null, primary key
-#  addressable_type :string           not null
-#  city             :string
-#  complement       :string
+#  id               :integer          not null, primary key
 #  country          :string
+#  state            :string
+#  city             :string
+#  neighborhood     :string
+#  street           :string
+#  number           :string
+#  complement       :string
+#  zipcode          :string
 #  latitude         :string
 #  longitude        :string
-#  neighborhood     :string
-#  number           :string
-#  state            :string
-#  street           :string
 #  type             :integer
-#  zipcode          :string
+#  addressable_type :string           not null
+#  addressable_id   :integer          not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
-#  addressable_id   :bigint           not null
 #
 # Indexes
 #
 #  index_addresses_on_addressable  (addressable_type,addressable_id)
 #
+
 require "rails_helper"
 
 RSpec.describe Address do

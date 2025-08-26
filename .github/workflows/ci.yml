@@ -75,9 +75,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt update && sudo apt-get install -y -qq libvips
-          corepack enable
-          corepack prepare yarn@stable --activate
-          yarn install --frozen-lockfile
+          npm ci
 
       - name: Run tests
         env:

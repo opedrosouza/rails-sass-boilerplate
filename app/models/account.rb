@@ -32,7 +32,17 @@ class Account < ApplicationRecord
 
   after_create :create_account_user_for_owner
 
-  pg_search_scope :search, against: [ :id, :owner_id ]
+  pg_search_scope :search,
+        against: [ :id, :owner_id ],
+        associated_against: {
+          owner: [ :first_name, :last_name, :email ]
+        },
+        using: {
+          tsearch: {
+            prefix: true,
+            any_word: true
+          }
+        }
 
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
