@@ -18,11 +18,6 @@ Rails.application.routes.draw do
     authenticated :user do
       resource :users, path: "profile", as: :profile
 
-      namespace :admin do
-        resources :accounts
-        get "/", to: "home#index", as: :root
-      end
-
       root "home#index", as: :authenticated_root
     end
 
