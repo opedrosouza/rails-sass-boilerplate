@@ -2,11 +2,11 @@
 
 require "rails_helper"
 
-RSpec.describe "Auth::ConfirmationsController" do
-  describe "GET /auth/confirmation?confirmation_token=abcdef" do
+RSpec.describe "Users::ConfirmationsController" do
+  describe "GET /users/confirmation?confirmation_token=abcdef" do
     let(:user) { create(:user, :unconfirmed) }
 
-    before { get "/auth/confirmation?confirmation_token=#{user.confirmation_token}" }
+    before { get "/users/confirmation?confirmation_token=#{user.confirmation_token}" }
 
     it "confirms the user" do
       expect(user.reload.confirmed?).to be true

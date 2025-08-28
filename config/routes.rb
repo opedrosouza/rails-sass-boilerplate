@@ -5,14 +5,12 @@
 Rails.application.routes.draw do
   # Devise routes
   devise_for :users,
-             path: "auth",
-             class_name: "User",
              controllers: {
-               sessions: "auth/sessions",
-               confirmations: "auth/confirmations",
-               passwords: "auth/passwords",
-               unlocks: "auth/unlocks",
-               registrations: "auth/registrations"
+               sessions: "users/sessions",
+               confirmations: "users/confirmations",
+               passwords: "users/passwords",
+               unlocks: "users/unlocks",
+               registrations: "users/registrations"
              }
 
   # APP routes
