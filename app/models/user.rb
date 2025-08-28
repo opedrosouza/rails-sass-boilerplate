@@ -13,8 +13,6 @@ class User < ApplicationRecord
   has_many :accounts, through: :account_users
   has_many :addresses, as: :addressable, dependent: :destroy
 
-  after_create :create_default_account, if: -> { owned_accounts.empty? }
-
   pg_search_scope :search,
                   against: [ :first_name, :last_name, :email ],
                   using: {
@@ -24,20 +22,8 @@ class User < ApplicationRecord
                     }
                   }
 
-  # Returns the user's full name or "Sem nome" if the user has no name.
-  #
-  # @return [String]
   def full_name
     first_name.present? ? "#{first_name} #{last_name}" : I18n.t("models.user.full_name")
-  end
-
-  def full_name_or_email
-    full_name.presence || email
-  end
-
-  # Create default account for user
-  def create_default_account
-    owned_accounts.create(personal: true)
   end
 
   def admin?

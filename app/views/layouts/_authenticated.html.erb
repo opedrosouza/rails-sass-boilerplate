@@ -1,0 +1,8 @@
+<div class="antialiased bg-gray-50 dark:bg-gray-900">
+  <%= render "shared/authenticated_navbar" %>
+  <%= render "shared/sidebar" %>
+  <main class="p-4 md:ml-64 h-auto pt-20">
+    <%= render "shared/page_heading" %>
+    <%= yield %>
+  </main>
+</div>

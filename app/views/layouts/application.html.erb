@@ -11,12 +11,16 @@
   </head>
   <body>
     <%= render "shared/alert" %>
-    <%= render "shared/navbar" %>
-    <main class="mx-auto max-w-screen-xl py-12 px-4">
-      <%= yield %>
-      <div class="fixed right-5 bottom-5">
-        <%= render "shared/dark_mode_button" %>
-      </div>
-    </main>
+    <%- if current_user %>
+      <%= render "layouts/authenticated" %>
+    <%- else %>
+      <%= render "shared/navbar" %>
+      <main class="mx-auto max-w-screen-xl py-12 px-4">
+        <%= yield %>
+        <div class="fixed right-5 bottom-5">
+          <%= render "shared/dark_mode_button" %>
+        </div>
+      </main>
+    <%- end %>
   </body>
 </html>
