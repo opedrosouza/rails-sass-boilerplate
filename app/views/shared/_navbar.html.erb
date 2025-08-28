@@ -31,14 +31,7 @@
               aria-labelledby="dropdown"
             >
               <li>
-                <%= link_to "My profile", profile_path, class: "block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white" %>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
-                >Account settings</a
-                >
+                <%= link_to "My profile", edit_user_registration_path, class: "block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white" %>
               </li>
               <li>
                 <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "w-full text-left block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white rounded" %>

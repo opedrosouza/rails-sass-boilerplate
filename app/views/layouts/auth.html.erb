@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark:bg-gray-900 dark:text-gray-50 h-screen">
+<html class="dark:bg-gray-900 dark:text-gray-50 h-screen">
   <head>
-    <title>Boilerplate - <%= yield :page_title %></title>
+    <title><%= content_for(:title) || "Boilerplate" %> - <%= yield :page_title %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,7 +9,7 @@
     <%= vite_javascript_tag 'application', data: { "turbo-track": "reload" }, defer: true %>
     <%= vite_stylesheet_tag 'application', data: { "turbo-track": "reload" } %>
   </head>
-  <body class="dark:bg-gray-900 dark:text-gray-50 h-full">
+  <body>
     <%= render "shared/alert" %>
     <%= render "shared/navbar" %>
     <div class="min-h-full py-12 sm:px-6 lg:px-8 lg:flex lg:flex-col">
