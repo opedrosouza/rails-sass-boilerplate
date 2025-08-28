@@ -1,16 +1,16 @@
-<h2>Resend confirmation instructions</h2>
-
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "auth/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+<%= content_for :page_title, "Reenviar instruções de confirmação" %>
+<%= content_for :page_other_action do %>
+  <p class="mt-2 text-center text-sm text-gray-600">
+    Ou <%= link_to "Entre em sua conta", new_session_path(resource_name), class: "font-medium text-indigo-600 hover:text-indigo-500" %>
+  </p>
+<% end %>
+<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "space-y-6" }) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+  <div>
+    <%= f.label :email, "Informe seu e-mail", class: "form-label" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control" %>
   </div>
-
   <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
+    <%= f.submit "Reenviar", class: "form-submit" %>
   </div>
 <% end %>
-
-<%= render "auth/shared/links" %>

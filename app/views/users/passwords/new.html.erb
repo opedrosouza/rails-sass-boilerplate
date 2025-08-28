@@ -4,13 +4,11 @@
     Ou <%= link_to "Entre em sua conta", new_session_path(resource_name), class: "font-medium text-indigo-600 hover:text-indigo-500" %>
   </p>
 <% end %>
-
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "space-y-6" }) do |f| %>
-  <div class="field">
+  <div>
     <%= f.label :email, "Informe seu e-mail", class: "form-label" %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
   </div>
-
   <div class="actions">
     <%= f.submit "Criar nova senha", class: "form-submit" %>
   </div>
