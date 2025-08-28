@@ -9,3 +9,6 @@
 - Removed annotate gem since its not maintened
 - Upgrade js and ruby libs
 - Added `admin` column to Users
+
+## 2025-08-28
+- Changed devise controllers and views from `auth` to `users` keeping the devise default.
